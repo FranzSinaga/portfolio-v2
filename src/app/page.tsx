@@ -5,7 +5,7 @@ const FiraCode = Fira_Code({ subsets: ["latin"] });
 
 export default function Index() {
   return (
-    <div className="flex h-[90vh] flex-col justify-center px-6 leading-tight">
+    <div className="flex h-[85vh] md:h-[90vh] flex-col justify-center px-6 leading-tight">
       <p className="text-[20px]">
         Hello There <span>👋</span>, I am
       </p>

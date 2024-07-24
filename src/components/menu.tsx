@@ -19,19 +19,15 @@ const FiraCode = Fira_Code({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
 
 type ThemeType = "dark" | "light";
+interface Props {
+  selectedTheme: string;
+  setSelectedTheme: (value: string) => void;
+}
 
-export const MenuList = () => {
-  const [selectedTheme, setSelectedTheme] = useLocalStorage<ThemeType | null>(
-    "theme",
-    null,
-  );
-
-  useEffect(() => {
-    if (!selectedTheme) {
-      setSelectedTheme("dark");
-    }
-  }, [selectedTheme, setSelectedTheme]);
-
+export const MenuList: React.FC<Props> = ({
+  selectedTheme,
+  setSelectedTheme,
+}) => {
   return (
     <div className="flex h-[94vh] flex-col justify-between">
       <div
@@ -55,31 +51,33 @@ export const MenuList = () => {
         </ul>
       </div>
       <div>
-        <Select
-          value={selectedTheme ? selectedTheme : ""}
-          onValueChange={(e: ThemeType) => {
-            setSelectedTheme(e);
-          }}
-        >
-          <SelectTrigger className="w-full">
-            <SelectValue placeholder="Select Theme" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>Select Theme</SelectLabel>
-              <SelectItem value="dark">
-                <div className="flex items-center">
-                  <Moon /> <span className="pl-2">Dark</span>
-                </div>
-              </SelectItem>
-              <SelectItem value="light">
-                <div className="flex items-center">
-                  <SunDim /> <span className="pl-2">Light</span>
-                </div>
-              </SelectItem>
-            </SelectGroup>
-          </SelectContent>
-        </Select>
+        {selectedTheme && (
+          <Select
+            value={selectedTheme}
+            onValueChange={(e: ThemeType) => {
+              setSelectedTheme(e);
+            }}
+          >
+            <SelectTrigger className="w-full">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Select Theme</SelectLabel>
+                <SelectItem value="dark">
+                  <span className="flex items-center">
+                    <Moon /> <span className="pl-2">Dark</span>
+                  </span>
+                </SelectItem>
+                <SelectItem value="light">
+                  <span className="flex items-center">
+                    <SunDim /> <span className="pl-2">Light</span>
+                  </span>
+                </SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        )}
       </div>
     </div>
   );

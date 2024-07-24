@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import type { Metadata } from "next";
 import { Fira_Code, Inter } from "next/font/google";
 
@@ -13,7 +13,7 @@ import "./globals.css";
 import { MenuList } from "@/components/menu";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import useLocalStorage from "@/hooks/useLocalStorage";
+import { useLocalStorage } from "usehooks-ts";
 
 const FiraCode = Fira_Code({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
@@ -28,19 +28,36 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [selectedTheme, setSelectedTheme] = useLocalStorage("theme");
+  const [selectedTheme, setSelectedTheme] = useLocalStorage("theme", "");
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    if (!selectedTheme) {
+      setSelectedTheme("dark");
+      setIsLoading(false);
+    }
+    if (selectedTheme) setIsLoading(false);
+  }, [selectedTheme, setSelectedTheme]);
+
+  if (isLoading) return <p>Loading</p>;
   return (
     <html lang="en">
       <body
-        className={cn(selectedTheme === "dark" ? "dark" : "", inter.className)}
+        className={cn(
+          selectedTheme === "dark" ? "dark" : "",
+          inter.className,
+          "bg-background transition-colors",
+        )}
       >
-        <div className="flex bg-gray-200 dark:bg-black">
-          <aside className="hidden w-[20vw]  bg-gray-200 px-5 py-5 text-white dark:bg-black lg:block">
-            <MenuList />
+        <div className="flex h-full w-full">
+          <aside className="hidden w-[20vw] bg-background px-5 py-5 text-white transition-colors lg:block ">
+            <MenuList
+              selectedTheme={selectedTheme ?? "dark"}
+              setSelectedTheme={setSelectedTheme}
+            />
           </aside>
 
-          <main className="mx-5 mt-5 w-full rounded-t-[30px] bg-white dark:bg-[#171717]">
+          <main className="mx-5 mt-5 w-full rounded-t-[30px] bg-white transition-colors dark:bg-[#161616]">
             <div className="m-5 block lg:hidden">
               <Sheet>
                 <SheetTrigger asChild>
@@ -48,12 +65,18 @@ export default function RootLayout({
                     <Menu />
                   </Button>
                 </SheetTrigger>
-                <SheetContent side={"left"} className="">
-                  <MenuList />
+                <SheetContent
+                  side={"left"}
+                  className="bg-gray-200 dark:bg-[#1c1c1c]"
+                >
+                  <MenuList
+                    selectedTheme={selectedTheme ?? "dark"}
+                    setSelectedTheme={setSelectedTheme}
+                  />
                 </SheetContent>
               </Sheet>
             </div>
-            <div className="overflow-auto">{children}</div>
+            <div className="overflow-auto px-8 py-5">{children}</div>
           </main>
           {process.env.NODE_ENV !== "production" && <ScreenIndicator />}
         </div>

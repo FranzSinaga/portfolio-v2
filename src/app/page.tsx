@@ -1,5 +1,4 @@
 import RetroGrid from "@/components/magicui/retro-grid";
-import Ripple from "@/components/magicui/ripple";
 import { cn } from "@/lib/utils";
 import { Fira_Code } from "next/font/google";
 
@@ -7,8 +6,8 @@ const FiraCode = Fira_Code({ subsets: ["latin"] });
 
 export default function Index() {
   return (
-    <div className="relative flex flex-col justify-center gap-y-2 md:h-[calc(97vh)]">
-      <div className="h- flex flex-col gap-y-3 text-center">
+    <div className="relative -mx-10 -mt-5 flex flex-col justify-center gap-y-2 md:h-[calc(97vh+10px)]">
+      <div className="flex flex-col gap-y-3 text-center text-black dark:text-white">
         <p className="text-lg">
           Hello There <span>👋</span>, I am
         </p>

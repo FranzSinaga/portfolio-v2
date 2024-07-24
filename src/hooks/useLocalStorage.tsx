@@ -1,114 +1,53 @@
-"use client";
+import { useState, useEffect } from "react";
 
-import { useState, useEffect, useCallback } from "react";
+// Define a type for the setValue function
+type SetValue<T> = (value: T | ((val: T) => T)) => void;
 
-type SetValue<T> = (value: T | ((val: T | undefined) => T)) => void;
-
-function useLocalStorage<T>(
-  key: string,
-  initialValue?: T,
-): [T | undefined, SetValue<T>, () => void, () => void] {
-  // Fungsi untuk mendapatkan nilai dari localStorage
-  const readValue = useCallback((): T | undefined => {
+function useLocalStorage<T>(key: string, initialValue?: T): [T, SetValue<T>] {
+  // State to store our value
+  // Pass initial state function to useState so logic is only executed once
+  const [storedValue, setStoredValue] = useState<T>(() => {
     if (typeof window === "undefined") {
       return initialValue;
     }
-
     try {
+      // Get from local storage by key
       const item = window.localStorage.getItem(key);
-      return item ? (JSON.parse(item) as T) : initialValue;
+      // Parse stored json or if none return initialValue
+      return item ? JSON.parse(item) : initialValue;
     } catch (error) {
-      console.warn(`Error reading localStorage key "${key}":`, error);
+      // If error also return initialValue
+      console.log(error);
       return initialValue;
     }
-  }, [initialValue, key]);
+  });
 
-  // State untuk menyimpan nilai
-  const [storedValue, setStoredValue] = useState<T | undefined>(readValue);
-
-  // Fungsi untuk memperbarui nilai di state dan localStorage
-  const setValue: SetValue<T> = useCallback(
-    (value) => {
-      if (typeof window === "undefined") {
-        console.warn(
-          `Tried setting localStorage key "${key}" even though environment is not a client`,
-        );
-      }
-
-      try {
-        // Izinkan value berupa fungsi
-        const newValue = value instanceof Function ? value(storedValue) : value;
-
-        // Simpan ke localStorage
-        window.localStorage.setItem(key, JSON.stringify(newValue));
-
-        // Simpan state
-        setStoredValue(newValue);
-
-        // Dispatch event agar listener lain bisa mendengar perubahan
-        window.dispatchEvent(new Event("local-storage"));
-      } catch (error) {
-        console.warn(`Error setting localStorage key "${key}":`, error);
-      }
-    },
-    [key, storedValue],
-  );
-
-  // Fungsi untuk menghapus item dari localStorage
-  const removeItem = useCallback(() => {
-    if (typeof window === "undefined") {
-      console.warn(
-        `Tried removing localStorage key "${key}" even though environment is not a client`,
-      );
-    }
-
-    try {
-      window.localStorage.removeItem(key);
-      setStoredValue(undefined);
-      window.dispatchEvent(new Event("local-storage"));
-    } catch (error) {
-      console.warn(`Error removing localStorage key "${key}":`, error);
-    }
-  }, [key]);
-
-  // Fungsi untuk menghapus semua item dari localStorage
-  const clearAll = useCallback(() => {
-    if (typeof window === "undefined") {
-      console.warn(
-        `Tried to clear localStorage even though environment is not a client`,
-      );
-    }
-
-    try {
-      window.localStorage.clear();
-      setStoredValue(undefined);
-      window.dispatchEvent(new Event("local-storage"));
-    } catch (error) {
-      console.warn(`Error clearing localStorage:`, error);
-    }
-  }, []);
-
+  // useEffect hook to update localStorage when storedValue changes
   useEffect(() => {
-    setStoredValue(readValue());
-  }, [readValue]);
+    try {
+      // Save to local storage
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem(key, JSON.stringify(storedValue));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [key, storedValue]);
 
-  useEffect(() => {
-    const handleStorageChange = () => {
-      setStoredValue(readValue());
-    };
+  // Return a wrapped version of useState's setter function
+  const setValue: SetValue<T> = (value) => {
+    try {
+      // Allow value to be a function so we have same API as useState
+      const valueToStore =
+        value instanceof Function ? value(storedValue) : value;
+      // Save state
+      setStoredValue(valueToStore);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-    // Tambahkan event listener
-    window.addEventListener("storage", handleStorageChange);
-    window.addEventListener("local-storage", handleStorageChange);
-
-    return () => {
-      // Hapus event listener saat unmount
-      window.removeEventListener("storage", handleStorageChange);
-      window.removeEventListener("local-storage", handleStorageChange);
-    };
-  }, [readValue]);
-
-  return [storedValue, setValue, removeItem, clearAll];
+  return [storedValue, setValue];
 }
 
 export default useLocalStorage;

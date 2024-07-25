@@ -3,8 +3,8 @@ import { cn } from "@/lib/utils";
 
 export default function Index() {
   return (
-    <div className="relative -mx-10 -mt-5 flex flex-col justify-center gap-y-2 md:h-[calc(97vh+10px)]">
-      <div className="flex flex-col gap-y-3 text-center text-black dark:text-white">
+    <div className="relative -mx-10 flex h-full flex-col justify-center gap-y-2 ">
+      <div className="flex w-full flex-col gap-y-3 text-center text-black dark:text-white">
         <p className="text-lg">
           Hello There <span>👋</span>, I am
         </p>

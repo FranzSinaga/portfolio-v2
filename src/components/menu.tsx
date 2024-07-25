@@ -23,7 +23,7 @@ export const MenuList: React.FC<Props> = ({
   setSelectedTheme,
 }) => {
   return (
-    <div className="flex h-[94vh] flex-col justify-between">
+    <div className="flex h-[93vh] flex-col justify-between">
       <div
         className={cn("mt-5 text-sm font-extrabold text-black dark:text-white")}
       >

@@ -1,8 +1,5 @@
 import RetroGrid from "@/components/magicui/retro-grid";
 import { cn } from "@/lib/utils";
-import { Fira_Code } from "next/font/google";
-
-const FiraCode = Fira_Code({ subsets: ["latin"] });
 
 export default function Index() {
   return (

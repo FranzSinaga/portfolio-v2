@@ -1,13 +1,9 @@
 "use client";
 import Particles from "@/components/magicui/particles";
-import RetroGrid from "@/components/magicui/retro-grid";
-import Ripple from "@/components/magicui/ripple";
-import useLocalStorage from "@/hooks/useLocalStorage";
 import { useReadLocalStorage } from "usehooks-ts";
 
 export default function Index() {
   const selectedTheme = useReadLocalStorage<string>("theme");
-  // console.log(selectedTheme);
 
   return (
     <div className="relative -m-5 flex flex-col justify-center gap-y-2 rounded-lg md:h-[calc(97vh-40px)]">

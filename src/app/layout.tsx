@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 // import type { Metadata } from "next";
-import { Fira_Code, Inter } from "next/font/google";
 
 import { cn } from "@/lib/utils";
 
@@ -14,9 +13,6 @@ import { MenuList } from "@/components/menu";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocalStorage } from "usehooks-ts";
-
-const FiraCode = Fira_Code({ subsets: ["latin"] });
-const inter = Inter({ subsets: ["latin"] });
 
 // export const metadata: Metadata = {
 //   title: "Franz",
@@ -45,7 +41,6 @@ export default function RootLayout({
       <body
         className={cn(
           selectedTheme === "dark" ? "dark" : "",
-          inter.className,
           "bg-background transition-colors",
         )}
       >

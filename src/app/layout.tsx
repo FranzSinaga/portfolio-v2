@@ -52,7 +52,7 @@ export default function RootLayout({
             />
           </aside>
 
-          <main className="mx-5 mt-5 w-full rounded-t-[30px] bg-white transition-colors dark:bg-[#161616]">
+          <main className="lg:mx-5 mt-5 w-full rounded-t-[30px] bg-white transition-colors dark:bg-[#161616]">
             <div className="m-5 block lg:hidden">
               <Sheet>
                 <SheetTrigger asChild>

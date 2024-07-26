@@ -17,13 +17,15 @@ export default function ClientWrapper({
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    var body = document.body;
     if (!selectedTheme) {
       setSelectedTheme("dark");
-      var body = document.body;
       body.classList.add("dark", "bg-background", "transition-colors");
       setIsLoading(false);
+    } else {
+      body.classList.add(selectedTheme, "bg-background", "transition-colors");
+      setIsLoading(false);
     }
-    if (selectedTheme) setIsLoading(false);
   }, [selectedTheme, setSelectedTheme]);
 
   if (isLoading) return <p>Loading</p>;

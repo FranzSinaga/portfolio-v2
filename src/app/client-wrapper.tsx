@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
+import { Menu } from "lucide-react";
+import { useLocalStorage } from "usehooks-ts";
+
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { MenuList } from "@/components/menu";
-import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useLocalStorage } from "usehooks-ts";
 
 export default function ClientWrapper({
   children,
@@ -19,6 +19,8 @@ export default function ClientWrapper({
   useEffect(() => {
     if (!selectedTheme) {
       setSelectedTheme("dark");
+      var body = document.body;
+      body.classList.add("dark", "bg-background", "transition-colors");
       setIsLoading(false);
     }
     if (selectedTheme) setIsLoading(false);
@@ -27,12 +29,7 @@ export default function ClientWrapper({
   if (isLoading) return <p>Loading</p>;
 
   return (
-    <div
-      className={cn(
-        selectedTheme === "dark" ? "dark" : "",
-        "bg-background transition-colors",
-      )}
-    >
+    <div>
       <div className="flex h-full w-full">
         <aside className="hidden w-[18vw] bg-background px-5 py-5 text-white transition-colors lg:block ">
           <MenuList

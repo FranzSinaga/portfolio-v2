@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-background transition-colors">
         <ClientWrapper>{children}</ClientWrapper>
         {process.env.NODE_ENV !== "production" && <ScreenIndicator />}
       </body>

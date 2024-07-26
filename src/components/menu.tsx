@@ -1,5 +1,6 @@
 "use client";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib";
+import { capitalizeFirstLetter } from "@/lib";
 
 import {
   Select,
@@ -13,6 +14,11 @@ import {
 import { Moon, SunDim } from "lucide-react";
 
 type ThemeType = "dark" | "light";
+
+const Theme = [
+  { name: "dark", icon: <Moon /> },
+  { name: "light", icon: <SunDim /> },
+];
 interface Props {
   selectedTheme: string;
   setSelectedTheme: (value: string) => void;
@@ -42,7 +48,10 @@ export const MenuList: React.FC<Props> = ({
           <Select
             value={selectedTheme}
             onValueChange={(e: ThemeType) => {
+              var body = document.body;
               setSelectedTheme(e);
+              body.className = "";
+              body.classList.add(e, "bg-background", "transition-colors");
             }}
           >
             <SelectTrigger className="w-full">
@@ -51,16 +60,16 @@ export const MenuList: React.FC<Props> = ({
             <SelectContent>
               <SelectGroup>
                 <SelectLabel>Select Theme</SelectLabel>
-                <SelectItem value="dark">
-                  <span className="flex items-center">
-                    <Moon /> <span className="pl-2">Dark</span>
-                  </span>
-                </SelectItem>
-                <SelectItem value="light">
-                  <span className="flex items-center">
-                    <SunDim /> <span className="pl-2">Light</span>
-                  </span>
-                </SelectItem>
+                {Theme.map((e) => (
+                  <SelectItem key={e.name} value={e.name}>
+                    <span className="flex items-center">
+                      {e.icon}
+                      <span className="pl-2">
+                        {capitalizeFirstLetter(e.name)}
+                      </span>
+                    </span>
+                  </SelectItem>
+                ))}
               </SelectGroup>
             </SelectContent>
           </Select>

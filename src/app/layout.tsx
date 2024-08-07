@@ -18,8 +18,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en' className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className={cn('bg-background font-sans transition-colors')}>
+    <html
+      lang='en'
+      className={`${GeistSans.variable} ${GeistMono.variable} overflow-hidden
+    `}
+    >
+      <body className={cn('overflow-hidden bg-background font-sans transition-colors')}>
         <ClientWrapper>{children}</ClientWrapper>
         {process.env.NODE_ENV !== 'production' && <ScreenIndicator />}
       </body>

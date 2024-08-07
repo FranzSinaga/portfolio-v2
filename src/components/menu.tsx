@@ -26,7 +26,9 @@ export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme }) =
           <li className='cursor-pointer'>
             <Link href='/'>Home</Link>
           </li>
-          <li className='cursor-pointer'>About_Me</li>
+          <li className='cursor-pointer'>
+            <Link href='/about'>About</Link>
+          </li>
           <li className='cursor-pointer'>Projects</li>
           <li className='cursor-pointer'>
             <Link href='/contact'>Contact</Link>
@@ -54,7 +56,7 @@ export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme }) =
                   <SelectItem key={e.name} value={e.name} className='font-mono'>
                     <span className='flex items-center justify-between'>
                       {e.icon}
-                      <span className='pl-2'>{capitalizeFirstLetter(e.name)}</span>
+                      <span className='pl-2 text-xs'>{capitalizeFirstLetter(e.name)}</span>
                     </span>
                   </SelectItem>
                 ))}

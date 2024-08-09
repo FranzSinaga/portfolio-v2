@@ -214,3 +214,14 @@
     transform: translateY(-50%) translateX(-50%) translateX(-15%) translateY(10%);
   }
 }
+
+/* Aceternity Tabs */
+.no-visible-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.no-visible-scrollbar::-webkit-scrollbar {
+  display: none;
+}

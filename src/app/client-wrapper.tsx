@@ -36,7 +36,7 @@ export default function ClientWrapper({
         <MenuList selectedTheme={selectedTheme ?? 'dark'} setSelectedTheme={setSelectedTheme} />
       </aside>
 
-      <main className='mt-5 w-full rounded-t-[20px] border-x border-t border-foreground bg-white transition-colors dark:bg-[#161616] lg:mx-5'>
+      <main className='mt-5 w-full rounded-t-[20px] border-2 border-foreground bg-white transition-colors dark:bg-[#161616] lg:mx-5'>
         <div className='m-5 block lg:hidden'>
           <Sheet>
             <SheetTrigger asChild>

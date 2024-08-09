@@ -32,7 +32,7 @@ export default function ClientWrapper({
 
   return (
     <div className='flex h-full w-full'>
-      <aside className='hidden w-[18vw] bg-background px-5 py-5 font-mono text-white transition-colors lg:block '>
+      <aside className='hidden w-[18vw] bg-background p-5 font-mono text-white transition-colors lg:block '>
         <MenuList selectedTheme={selectedTheme ?? 'dark'} setSelectedTheme={setSelectedTheme} />
       </aside>
 

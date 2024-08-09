@@ -5,6 +5,7 @@ import { capitalizeFirstLetter } from '@/lib'
 
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { MoonStar, Sun } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 
 type ThemeType = 'dark' | 'light'
 
@@ -12,29 +13,45 @@ const Theme = [
   { name: 'dark', icon: <MoonStar size={20} /> },
   { name: 'light', icon: <Sun size={20} /> }
 ]
+
+const menus = [
+  {
+    link: '/',
+    name: 'Home'
+  },
+  {
+    link: '/about',
+    name: 'About'
+  },
+  {
+    link: '/projects',
+    name: 'Projects'
+  },
+  {
+    link: '/contact',
+    name: 'Contact'
+  }
+]
 interface Props {
   selectedTheme: string
   setSelectedTheme: (value: string) => void
 }
 
 export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme }) => {
+  const currentPath = usePathname()
   return (
     <div className='flex h-[calc(100vh-2.5rem)] flex-col justify-between'>
       <div className={cn('mt-5 text-2xl font-extrabold text-black dark:text-white')}>_franz</div>
-      <div className={'font-bold text-black dark:text-white'}>
+      <div className='font-base'>
         <ul className='flex flex-col gap-y-5'>
-          <li className='cursor-pointer'>
-            <Link href='/'>Home</Link>
-          </li>
-          <li className='cursor-pointer'>
-            <Link href='/about'>About</Link>
-          </li>
-          <li className='cursor-pointer'>Projects</li>
-          <li className='cursor-pointer'>
-            <Link href='/contact'>Contact</Link>
-          </li>
+          {menus.map(e => (
+            <li key={e.name} className={cn(currentPath === e.link ? 'font-bold text-blue-600' : 'text-foreground', 'cursor-pointer')}>
+              <Link href={e.link}>{e.name}</Link>
+            </li>
+          ))}
         </ul>
       </div>
+
       <div>
         {selectedTheme && (
           <Select

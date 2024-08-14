@@ -3,7 +3,7 @@ import { Dribbble, Github, Linkedin, Mail } from 'lucide-react'
 
 const AboutComponent = () => {
   return (
-    <div className='mt-5 rounded-[10px] bg-gradient-to-br from-[#293E6F] to-black'>
+    <div className='rounded-[10px] bg-gradient-to-br from-[#293E6F] to-black'>
       <div className='px-10 pb-5 pt-10 text-white '>
         <BlurFade inView delay={0.2}>
           <p className='text-lg leading-relaxed tracking-wide'>

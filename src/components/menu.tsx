@@ -7,9 +7,9 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrig
 import { MoonStar, Sun } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 
-type ThemeType = 'dark' | 'light'
+import { Theme } from '@/types/theme.type'
 
-const Theme = [
+const ThemeList: { name: Theme; icon: React.ReactElement }[] = [
   { name: 'dark', icon: <MoonStar size={20} /> },
   { name: 'light', icon: <Sun size={20} /> }
 ]
@@ -34,7 +34,7 @@ const menus = [
 ]
 interface Props {
   selectedTheme: string
-  setSelectedTheme: (value: string) => void
+  setSelectedTheme: (value: Theme) => void
 }
 
 export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme }) => {
@@ -56,7 +56,7 @@ export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme }) =
         {selectedTheme && (
           <Select
             value={selectedTheme}
-            onValueChange={(e: ThemeType) => {
+            onValueChange={(e: Theme) => {
               var body = document.body
               setSelectedTheme(e)
               body.className = ''
@@ -69,7 +69,7 @@ export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme }) =
             <SelectContent>
               <SelectGroup>
                 <SelectLabel className='font-mono'>Select Theme</SelectLabel>
-                {Theme.map(e => (
+                {ThemeList.map(e => (
                   <SelectItem key={e.name} value={e.name} className='font-mono'>
                     <span className='flex items-center justify-between'>
                       {e.icon}

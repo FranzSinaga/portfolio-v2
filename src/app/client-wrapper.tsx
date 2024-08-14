@@ -1,5 +1,4 @@
 'use client'
-
 import { useEffect, useState } from 'react'
 import { Menu } from 'lucide-react'
 import { useLocalStorage } from 'usehooks-ts'
@@ -8,12 +7,14 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { MenuList } from '@/components/menu'
 import { Button } from '@/components/ui/button'
 
+import { Theme } from '@/types/theme.type'
+
 export default function ClientWrapper({
   children
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const [selectedTheme, setSelectedTheme] = useLocalStorage('theme', '')
+  const [selectedTheme, setSelectedTheme] = useLocalStorage<null | Theme>('theme', null)
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -23,7 +24,7 @@ export default function ClientWrapper({
       body.classList.add('dark', 'bg-background', 'transition-colors')
       setIsLoading(false)
     } else {
-      body.classList.add(selectedTheme, 'bg-background', 'transition-colors')
+      body.classList.add(selectedTheme || 'dark', 'bg-background', 'transition-colors')
       setIsLoading(false)
     }
   }, [selectedTheme, setSelectedTheme])

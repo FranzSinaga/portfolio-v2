@@ -1,5 +1,5 @@
 import ClientWrapper from './client-wrapper'
-import { ScreenIndicator } from '@/components/SignalIndicator'
+import { ScreenIndicator } from '@/components/signal-indicator'
 import './globals.css'
 
 import { GeistSans } from 'geist/font/sans'

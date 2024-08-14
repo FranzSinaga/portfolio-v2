@@ -38,7 +38,7 @@ const Stacks = [
 
 export default function About() {
   return (
-    <div className='relative space-y-10'>
+    <div className='relative mt-5 space-y-10'>
       <BlurFade inView>
         <AboutComponent />
       </BlurFade>

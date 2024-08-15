@@ -18,7 +18,7 @@ export default function Timeline() {
             </p>
           </BlurFade>
           <BlurFade inView delay={0.4}>
-            <ul className='ml-5 mt-5 list-disc space-y-2 font-sans text-base text-foreground'>
+            <ul className='ml-5 mt-5 list-disc space-y-2 font-sans text-base text-white'>
               <li>Building NDS (New Delivery System) applications using Quasar Framework (Vue)</li>
               <li>Implementing Vuex as state management on web applications to facilitate application development</li>
               <li>Implement Protobuf (Protocol Buffer) as a communication medium between Frontend and Backend to speed up data exchange</li>
@@ -41,7 +41,7 @@ export default function Timeline() {
             </p>
           </BlurFade>
           <BlurFade inView delay={0.4}>
-            <ul className='ml-5 mt-5 list-disc space-y-2 font-sans text-base text-foreground'>
+            <ul className='ml-5 mt-5 list-disc space-y-2 font-sans text-base text-white'>
               <li>Building a LinovHR web application using the Angular framework</li>
               <li>Implementing Redux as state management on web applications to facilitate application development</li>
               <li>Working with other developers to implement the RESTFul API in web application development</li>
@@ -62,7 +62,7 @@ export default function Timeline() {
             </p>
           </BlurFade>
           <BlurFade inView delay={0.4}>
-            <ul className='ml-5 mt-5 list-disc space-y-2 font-sans text-base text-foreground'>
+            <ul className='ml-5 mt-5 list-disc space-y-2 font-sans text-base text-white'>
               <li>Build a mobile application SIAPPARA-INANGBAO (Sistem Informasi Pemungutan dan Pelaporan Retribusi Pasar) using React Native</li>
               <li>Designing business processes, databases, and mobile application interface displays</li>
               <li>Successfully assisted market officials in administering user fees at twelve markets in the Humbang Hasundutan district</li>
@@ -83,7 +83,7 @@ export default function Timeline() {
             </p>
           </BlurFade>
           <BlurFade inView delay={0.4}>
-            <ul className='ml-5 mt-5 list-disc space-y-2 font-sans text-base text-foreground'>
+            <ul className='ml-5 mt-5 list-disc space-y-2 font-sans text-base text-white'>
               <li>
                 Build a Jubelio Finance System using Laravel, a medium for recording customer fines on the use of the Jubelio platform so that it helps companies increase revenue
               </li>

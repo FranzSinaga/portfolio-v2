@@ -41,7 +41,7 @@ export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme }) =
   const currentPath = usePathname()
   return (
     <div className='flex h-[calc(100vh-2.5rem)] flex-col justify-between'>
-      <div className={cn('mt-5 text-2xl font-extrabold text-black dark:text-white')}>_franz</div>
+      <div className={cn('mt-5 text-2xl font-extrabold text-foreground')}>_franz</div>
       <div className='font-base'>
         <ul className='flex flex-col gap-y-5'>
           {menus.map(e => (

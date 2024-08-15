@@ -20,11 +20,13 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      className={`${GeistSans.variable} ${GeistMono.variable} overflow-hidden
+      className={`${GeistSans.variable} ${GeistMono.variable}
     `}
     >
-      <body className={cn('overflow-hidden bg-background font-sans transition-colors')}>
-        <ClientWrapper>{children}</ClientWrapper>
+      <body>
+        <div className='w-dvh h-dvh bg-background transition-colors duration-500'>
+          <ClientWrapper>{children}</ClientWrapper>
+        </div>
         {process.env.NODE_ENV !== 'production' && <ScreenIndicator />}
       </body>
     </html>

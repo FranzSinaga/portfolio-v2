@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <AnimatedBgHero className='-mx-10'>
       <div className='flex h-full flex-col justify-center gap-y-2 '>
-        <div className='flex w-full flex-col items-center gap-y-3 text-black dark:text-white'>
+        <div className='flex w-full flex-col items-center gap-y-3'>
           <div className='space-y-2 p-4 md:w-[550px]'>
             <div className='space-y-4 text-left'>
               <BlurFade>

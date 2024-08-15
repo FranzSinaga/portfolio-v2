@@ -21,10 +21,10 @@ export default function ClientWrapper({
     var body = document.body
     if (!selectedTheme) {
       setSelectedTheme('dark')
-      body.classList.add('dark', 'bg-background', 'transition-colors')
+      body.classList.add('dark')
       setIsLoading(false)
     } else {
-      body.classList.add(selectedTheme || 'dark', 'bg-background', 'transition-colors')
+      body.classList.add(selectedTheme || 'dark')
       setIsLoading(false)
     }
   }, [selectedTheme, setSelectedTheme])
@@ -33,11 +33,11 @@ export default function ClientWrapper({
 
   return (
     <div className='flex h-full w-full'>
-      <aside className='hidden w-[18vw] bg-background p-5 font-mono text-white transition-colors lg:block '>
+      <aside className='hidden w-[18vw] bg-background p-5 font-mono transition-colors duration-500 lg:block'>
         <MenuList selectedTheme={selectedTheme ?? 'dark'} setSelectedTheme={setSelectedTheme} />
       </aside>
 
-      <main className='mt-5 w-full rounded-t-[20px] border-2 border-foreground bg-white transition-colors dark:bg-[#161616] lg:mx-5'>
+      <main className='mt-5 w-full rounded-t-[20px] border-x-2 border-t-2 border-foreground bg-white transition-colors duration-500 dark:bg-[#161616] lg:mx-5'>
         <div className='m-5 block lg:hidden'>
           <Sheet>
             <SheetTrigger asChild>
@@ -50,7 +50,7 @@ export default function ClientWrapper({
             </SheetContent>
           </Sheet>
         </div>
-        <div className='custom-scrollbar h-dvh w-full overflow-auto overflow-x-hidden px-5'>{children}</div>
+        <div className='custom-scrollbar h-dvh w-full overflow-auto overflow-x-hidden px-5 text-foreground'>{children}</div>
       </main>
     </div>
   )

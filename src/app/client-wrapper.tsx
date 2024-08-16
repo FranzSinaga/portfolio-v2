@@ -38,10 +38,10 @@ export default function ClientWrapper({
       </aside>
 
       <main className='mt-5 w-full rounded-t-[20px] border-x-2 border-t-2 border-foreground bg-white transition-colors duration-500 dark:bg-[#161616] lg:mx-5'>
-        <div className='m-5 block lg:hidden'>
+        <div className='mt-2 block lg:hidden'>
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant={'ghost'}>
+              <Button variant={'link'} className='text-foreground p-2 ml-2'>
                 <Menu />
               </Button>
             </SheetTrigger>

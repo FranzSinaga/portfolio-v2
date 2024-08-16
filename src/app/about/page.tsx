@@ -53,8 +53,8 @@ export default function About() {
       </BlurFade>
 
       <BlurFade inView>
-        <div className='grid grid-cols-2 gap-x-4'>
-          <div className='mt-5 rounded-[10px] bg-gradient-to-br from-[#293E6F] to-black'>
+        <div className='grid md:grid-cols-2 gap-x-4'>
+          <div className='md:mt-5 rounded-[10px] bg-gradient-to-br from-[#293E6F] to-black'>
             <div className='p-5 text-white'>
               <BlurFade inView delay={0.2}>
                 <p className='text-xl font-bold'>Setup</p>
@@ -104,12 +104,12 @@ export default function About() {
 
       <BlurFade inView>
         <div className='-mx-5 bg-gradient-to-b from-[#293E6F] to-black pb-20'>
-          <div className='mx-20 w-[55vw] pt-10  leading-tight text-white'>
+          <div className='mx-5 md:mx-20 md:w-[55vw] pt-10 leading-tight text-white'>
             <BlurFade inView delay={0.2}>
-              <p className=' text-[5em] font-bold'>Get to know me!</p>
+              <p className='text-5xl md:text-[5em] font-bold'>Get to know me!</p>
             </BlurFade>
-            <BlurFade inView delay={0.4}>
-              <p className='text-[2em] font-semibold'>Whether you have a question or just want to say hi, I’ll try my best to get back to you!</p>
+            <BlurFade className='mt-5' inView delay={0.4}>
+              <p className='text-2xl md:text-[2em] font-semibold'>Whether you have a question or just want to say hi, I’ll try my best to get back to you!</p>
               <button className='mt-5 rounded-full bg-white px-10 py-2 text-xs text-black'>Say hello 👋</button>
             </BlurFade>
           </div>

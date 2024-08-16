@@ -77,17 +77,17 @@
 
 /* Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 0px; /* width of the entire scrollbar */
+  width: 0px; 
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent; /* color of the tracking area */
+  background: transparent; 
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: transparent; /* color of the scroll thumb */
-  border-radius: 20px; /* roundness of the scroll thumb */
-  border: 0px solid transparent; /* creates padding around scroll thumb */
+  background-color: transparent; 
+  border-radius: 20px; 
+  border: 0px solid transparent; 
 }
 
 /* Animated BG HERO */

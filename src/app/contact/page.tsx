@@ -1,7 +1,9 @@
 import AnimatedBgHero from '@/components/animated-bg-color'
 import BlurFade from '@/components/magicui/blur-fade'
+import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { Send } from 'lucide-react'
 
 export default function Contact() {
   return (
@@ -26,6 +28,11 @@ export default function Contact() {
                 </div>
                 <Textarea placeholder='Type your message here...' className='resize-none' rows={6} />
               </div>
+            </BlurFade>
+            <BlurFade delay={0.6} className='flex justify-end w-full'>
+              <Button variant={'outline'} className='space-x-1'>
+                <Send size={15} /> <p>Send Message</p>
+              </Button>
             </BlurFade>
           </div>
         </div>

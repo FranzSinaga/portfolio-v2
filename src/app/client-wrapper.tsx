@@ -37,11 +37,11 @@ export default function ClientWrapper({
         <MenuList selectedTheme={selectedTheme ?? 'dark'} setSelectedTheme={setSelectedTheme} />
       </aside>
 
-      <main className='mt-5 w-full rounded-t-[20px] border-x-2 border-t-2 border-foreground bg-white transition-colors duration-500 dark:bg-[#161616] lg:mx-5'>
+      <main className='bg-content-background mt-5 w-full rounded-t-[20px] border-x-2 border-t-2  border-foreground lg:mx-5'>
         <div className='mt-2 block lg:hidden'>
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant={'link'} className='text-foreground p-2 ml-2'>
+              <Button variant={'link'} className='ml-2 p-2 text-foreground'>
                 <Menu />
               </Button>
             </SheetTrigger>
@@ -50,7 +50,7 @@ export default function ClientWrapper({
             </SheetContent>
           </Sheet>
         </div>
-        <div className='custom-scrollbar h-dvh w-full overflow-auto overflow-x-hidden px-5 text-foreground'>{children}</div>
+        <div className='custom-scrollbar h-[calc(100dvh-20px)] w-full overflow-auto overflow-x-hidden px-5 text-foreground'>{children}</div>
       </main>
     </div>
   )

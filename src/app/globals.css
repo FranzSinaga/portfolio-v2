@@ -6,6 +6,7 @@
   :root {
     --background: 220, 13.04%, 90.98%;
     --foreground: 222.2 84% 4.9%;
+    --content-background: 0, 0%, 100%;
 
     /* --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -38,8 +39,9 @@
   .dark {
     --background: 0, 0%, 0%;
     --foreground: 210 40% 98%;
-
-    /* --card: 222.2 84% 4.9%;
+    --content-background: 0, 0%,
+      9%
+        /* --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
 
     --popover: 222.2 84% 4.9%;
@@ -62,7 +64,7 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%; */
+    --ring: 212.7 26.8% 83.9%; */;
   }
 }
 
@@ -73,21 +75,24 @@
   body {
     @apply overflow-hidden bg-background font-sans;
   }
+  .bg-content-background {
+    @apply transition-colors duration-500;
+  }
 }
 
 /* Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 0px; 
+  width: 0px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent; 
+  background: transparent;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: transparent; 
-  border-radius: 20px; 
-  border: 0px solid transparent; 
+  background-color: transparent;
+  border-radius: 20px;
+  border: 0px solid transparent;
 }
 
 /* Animated BG HERO */

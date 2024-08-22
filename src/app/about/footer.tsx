@@ -14,7 +14,7 @@ const Footer = () => {
         </BlurFade>
         <BlurFade inView delay={0.6}>
           <Button variant={'outline'} className='mt-5 space-x-1 bg-content-background'>
-            Say hello <span className='animate-aurora'>👋</span>
+            <a href='mailto:sinagafranz12@gmail.com' className='text-lg font-mono'>Say hello 👋</a>
           </Button>
         </BlurFade>
       </div>

@@ -27,10 +27,10 @@ const menus = [
     link: '/projects',
     name: 'Projects'
   },
-  {
-    link: '/contact',
-    name: 'Contact'
-  }
+  // {
+  //   link: '/contact',
+  //   name: 'Contact'
+  // }
 ]
 interface Props {
   selectedTheme: string

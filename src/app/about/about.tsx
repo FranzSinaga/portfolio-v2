@@ -3,7 +3,7 @@ import { Dribbble, Github, Linkedin, Mail } from 'lucide-react'
 
 const AboutComponent = () => {
   return (
-    <div className='bg-content-background rounded-[10px] border'>
+    <div className='rounded-[10px] border bg-content-background'>
       {/* bg-gradient-to-br from-[#293E6F] to-black */}
       <div className='px-5 pb-5 pt-10 text-foreground md:px-10 '>
         <BlurFade inView delay={0.2}>
@@ -16,20 +16,31 @@ const AboutComponent = () => {
         </BlurFade>
         <BlurFade inView delay={0.4}>
           <div className='mt-5 flex flex-col gap-[10px] text-sm md:flex-row'>
-            <p className='flex cursor-pointer items-center gap-x-2 rounded-full bg-gray-400 bg-opacity-40 px-6 py-3 transition-opacity hover:bg-opacity-50'>
+            <a
+              href='mailto:sinagafranz12@gmail.com'
+              className='flex cursor-pointer items-center gap-x-2 rounded-full bg-gray-400 bg-opacity-40 px-6 py-3 transition-opacity hover:bg-opacity-50'
+            >
               <Mail size={20} />
               <span className='tracking-wider'>sinagafranz@gmail.com</span>
-            </p>
+            </a>
             <div className='flex gap-x-[10px]'>
-              <span className='cursor-pointer rounded-full bg-gray-400 bg-opacity-40 p-3 transition-opacity duration-200 hover:bg-opacity-50'>
+              <a
+                href='https://github.com/FranzSinaga'
+                target='_BLANK'
+                className='cursor-pointer rounded-full bg-gray-400 bg-opacity-40 p-3 transition-opacity duration-200 hover:bg-opacity-50'
+              >
                 <Github size={20} />
-              </span>
-              <span className='cursor-pointer rounded-full bg-gray-400 bg-opacity-40 p-3 transition-opacity duration-200 hover:bg-opacity-50'>
+              </a>
+              <a
+                href='https://www.linkedin.com/in/franz-sinaga/'
+                target='_BLANK'
+                className='cursor-pointer rounded-full bg-gray-400 bg-opacity-40 p-3 transition-opacity duration-200 hover:bg-opacity-50'
+              >
                 <Linkedin size={20} />
-              </span>
-              <span className='cursor-pointer rounded-full bg-gray-400 bg-opacity-40 p-3 transition-opacity duration-200 hover:bg-opacity-50'>
+              </a>
+              {/* <span className='cursor-pointer rounded-full bg-gray-400 bg-opacity-40 p-3 transition-opacity duration-200 hover:bg-opacity-50'>
                 <Dribbble size={20} />
-              </span>
+              </span> */}
             </div>
           </div>
         </BlurFade>

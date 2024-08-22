@@ -37,7 +37,7 @@ export default function ClientWrapper({
         <MenuList selectedTheme={selectedTheme ?? 'dark'} setSelectedTheme={setSelectedTheme} />
       </aside>
 
-      <main className='bg-content-background mt-5 w-full rounded-t-[20px] border-x-2 border-t-2  border-foreground lg:mx-5'>
+      <main className='mt-5 w-full rounded-t-[20px] border-x-2 border-t-2 border-foreground  bg-content-background lg:mx-5'>
         <div className='mt-2 block lg:hidden'>
           <Sheet>
             <SheetTrigger asChild>
@@ -50,7 +50,7 @@ export default function ClientWrapper({
             </SheetContent>
           </Sheet>
         </div>
-        <div className='custom-scrollbar h-[calc(100dvh-20px)] w-full overflow-auto overflow-x-hidden px-5 text-foreground'>{children}</div>
+        <div className='custom-scrollbar mt-4 w-full overflow-auto overflow-x-hidden px-5 text-foreground h-[calc(91dvh)] md:h-[calc(87dvh)] lg:h-[calc(95dvh)]'>{children}</div>
       </main>
     </div>
   )

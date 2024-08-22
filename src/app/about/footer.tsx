@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 const Footer = () => {
   return (
     <div className='-mx-5 flex flex-col items-center border-t'>
-      <div className='mb-10 pt-16 text-center leading-tight text-foreground md:mx-20 md:w-[55vw]'>
+      <div className='mb-10 pt-16 text-center leading-tight text-foreground md:mx-auto md:w-[55rem]'>
         <BlurFade inView delay={0.2}>
           <p className='text-5xl font-bold md:text-[5em]'>Get to know me!</p>
         </BlurFade>

@@ -7,22 +7,24 @@ import Footer from './footer'
 export default function About() {
   return (
     <div className='mt-5 space-y-10'>
-      <BlurFade inView>
-        <AboutComponent />
-      </BlurFade>
-
-      <BlurFade inView>
-        <h2 className='font-mono text-2xl font-bold'>{'<Work_Experience/>'}</h2>
-        <BlurFade inView delay={0.2}>
-          <div className='flex flex-row flex-wrap justify-center'>
-            <Timeline />
-          </div>
+      <div className='mx-auto max-w-[1200px] space-y-10'>
+        <BlurFade inView>
+          <AboutComponent />
         </BlurFade>
-      </BlurFade>
 
-      <BlurFade inView>
-        <Stacks />
-      </BlurFade>
+        <BlurFade inView>
+          <h2 className='font-mono text-2xl font-bold'>{'<Work_Experience/>'}</h2>
+          <BlurFade inView delay={0.2}>
+            <div className='flex flex-row flex-wrap justify-center'>
+              <Timeline />
+            </div>
+          </BlurFade>
+        </BlurFade>
+
+        <BlurFade inView>
+          <Stacks />
+        </BlurFade>
+      </div>
 
       <BlurFade inView>
         <Footer />

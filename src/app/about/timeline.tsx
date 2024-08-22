@@ -97,7 +97,7 @@ export default function Timeline() {
   ]
 
   return (
-    <div className='mt- my-5 mb-14 flex h-[43rem] w-full max-w-5xl flex-col items-start  justify-start [perspective:1000px] md:h-[23rem]'>
+    <div className='mt- my-5 mb-14 flex h-[38rem] w-full max-w-5xl flex-col items-start  justify-start [perspective:1000px] md:h-[25rem]'>
       <Tabs activeTabClassName='text-blue-600' tabs={tabs} containerClassName='font-mono' contentClassName='mt-12' />
     </div>
   )

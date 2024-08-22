@@ -82,7 +82,7 @@
 
 /* Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 0px;
+  width: 4px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
@@ -90,7 +90,7 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: transparent;
+  background-color: lightgoldenrodyellow;
   border-radius: 20px;
   border: 0px solid transparent;
 }

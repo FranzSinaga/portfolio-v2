@@ -7,7 +7,7 @@ import { Send } from 'lucide-react'
 
 export default function Contact() {
   return (
-    <AnimatedBgHero className='-mx-10'>
+    <AnimatedBgHero className='-mx-10 overflow'>
       <div className='flex h-full flex-col justify-center gap-y-2 '>
         <div className='flex w-full flex-col items-center gap-y-3'>
           <div className='space-y-2 p-4 md:w-[550px]'>

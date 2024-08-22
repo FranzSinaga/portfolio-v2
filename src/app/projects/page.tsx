@@ -5,6 +5,8 @@ import { MagicCard } from '@/components/magicui/magic-card'
 
 import { Theme } from '@/types/theme.type'
 import Image from 'next/image'
+import Head from 'next/head'
+import { useEffect } from 'react'
 
 const projectList = [
   {
@@ -35,8 +37,12 @@ const projectList = [
 
 export default function Projects() {
   const theme = useReadLocalStorage<Theme>('theme')
+
+  useEffect(() => {
+    document.title = 'Franz | Projects'
+  }, [])
+
   return (
-    // <div className='mx-auto flex flex-col space-y-10 max-w-[1200px]'></div>
     <div className='mx-auto mt-5 max-w-[1200px]'>
       <BlurFade inView>
         <h2 className='font-mono text-2xl font-bold'>{'<Projects/>'}</h2>

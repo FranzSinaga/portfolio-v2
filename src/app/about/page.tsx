@@ -4,6 +4,10 @@ import Timeline from './timeline'
 import Stacks from './stacks'
 import Footer from './footer'
 
+export const metadata = {
+  title: 'Franz | About'
+}
+
 export default function About() {
   return (
     <div className='mt-5 space-y-10'>

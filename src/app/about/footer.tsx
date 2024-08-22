@@ -11,7 +11,9 @@ const Footer = () => {
         <BlurFade className='mt-5' inView delay={0.4}>
           <p className='text-2xl font-semibold md:text-[2em]'>Whether you have a question or just want to say hi, I’ll try my best to get back to you!</p>
           {/* <button className='text-md mt-5 rounded-full bg-white px-10 py-2 text-black'></button> */}
-          <Button variant={'outline'} className='bg-content-background mt-5 space-x-1'>
+        </BlurFade>
+        <BlurFade inView delay={0.6}>
+          <Button variant={'outline'} className='mt-5 space-x-1 bg-content-background'>
             Say hello <span className='animate-aurora'>👋</span>
           </Button>
         </BlurFade>

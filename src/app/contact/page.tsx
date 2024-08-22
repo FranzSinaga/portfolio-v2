@@ -5,9 +5,13 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Send } from 'lucide-react'
 
+export const metadata = {
+  title: 'Franz | Contact'
+}
+
 export default function Contact() {
   return (
-    <AnimatedBgHero className='-mx-10 overflow'>
+    <AnimatedBgHero className='overflow -mx-10'>
       <div className='flex h-full flex-col justify-center gap-y-2 '>
         <div className='flex w-full flex-col items-center gap-y-3'>
           <div className='space-y-2 p-4 md:w-[550px]'>
@@ -29,7 +33,7 @@ export default function Contact() {
                 <Textarea placeholder='Type your message here...' className='resize-none' rows={6} />
               </div>
             </BlurFade>
-            <BlurFade delay={0.6} className='flex justify-end w-full'>
+            <BlurFade delay={0.6} className='flex w-full justify-end'>
               <Button variant={'outline'} className='space-x-1'>
                 <Send size={15} /> <p>Send Message</p>
               </Button>

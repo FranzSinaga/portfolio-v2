@@ -1,9 +1,10 @@
 import ClientWrapper from './client-wrapper'
 import { ScreenIndicator } from '@/components/signal-indicator'
-import './globals.css'
 
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
+
+import './globals.css'
 
 export const metadata = {
   title: 'Franz',

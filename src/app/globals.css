@@ -73,7 +73,7 @@
     @apply border-border;
   }
   body {
-    @apply overflow-hidden bg-background font-sans;
+    @apply bg-background font-sans;
   }
   .bg-content-background {
     @apply transition-colors duration-500;
@@ -93,6 +93,10 @@
   background-color: lightgoldenrodyellow;
   border-radius: 20px;
   border: 0px solid transparent;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* Animated BG HERO */

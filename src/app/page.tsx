@@ -6,7 +6,7 @@ import { Dribbble, Github, Linkedin, Mail } from 'lucide-react'
 
 export default function Index() {
   return (
-    <div className='relative -mx-10 flex h-full flex-col items-center justify-center gap-y-2 overflow-hidden'>
+    <div className='relative -mx-10 flex h-dvh flex-col items-center justify-center gap-y-2 overflow-hidden lg:h-full'>
       <div className='gap-y- z-10 flex flex-col text-black dark:text-white'>
         <BlurFade inView>
           <p className='ml-1 font-mono text-lg'>

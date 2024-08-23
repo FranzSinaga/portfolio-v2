@@ -32,6 +32,24 @@ const projectList = [
     description: 'Portfolio website version 2 was created using shadcn/ui, Magic UI and Aceternity UI components',
     title: 'Portfolio V2',
     stacks: ['Next.js', 'Tailwind CSS']
+  },
+  {
+    image: '/projects/simple-todo-list.png',
+    description: 'Building a simple Todo web app to organize the activities you want to do',
+    title: 'Simple Todo List',
+    stacks: ['React.js', 'Redux', 'Tailwind CSS']
+  },
+  {
+    image: '/projects/portfolio-v1.png',
+    description: 'Portfolio website version 1 was created using Next.js and Flowbite UI components',
+    title: 'Portfolio V1',
+    stacks: ['Next.js', 'Tailwind CSS']
+  },
+  {
+    image: '/projects/portfolio-v2.png',
+    description: 'Portfolio website version 2 was created using shadcn/ui, Magic UI and Aceternity UI components',
+    title: 'Portfolio V2',
+    stacks: ['Next.js', 'Tailwind CSS']
   }
 ]
 

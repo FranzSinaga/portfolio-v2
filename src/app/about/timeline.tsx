@@ -18,7 +18,7 @@ export default function Timeline() {
             </p>
           </BlurFade>
           <BlurFade inView delay={0.4}>
-            <ul className='mt-5 list-disc space-y-2 text-justify font-sans text-base text-foreground md:ml-5'>
+            <ul className='mt-5 list-disc space-y-2 text-left font-sans text-base text-foreground md:ml-5'>
               <li>Building NDS (New Delivery System) applications using Quasar Framework (Vue)</li>
               <li>Implementing Vuex as state management on web applications to facilitate application development</li>
               <li>Implement Protobuf (Protocol Buffer) as a communication medium between Frontend and Backend to speed up data exchange</li>
@@ -41,7 +41,7 @@ export default function Timeline() {
             </p>
           </BlurFade>
           <BlurFade inView delay={0.4}>
-            <ul className='mt-5 list-disc space-y-2 text-justify font-sans text-base text-foreground md:ml-5'>
+            <ul className='mt-5 list-disc space-y-2 text-left font-sans text-base text-foreground md:ml-5'>
               <li>Building a LinovHR web application using the Angular framework</li>
               <li>Implementing Redux as state management on web applications to facilitate application development</li>
               <li>Working with other developers to implement the RESTFul API in web application development</li>
@@ -83,7 +83,7 @@ export default function Timeline() {
             </p>
           </BlurFade>
           <BlurFade inView delay={0.4}>
-            <ul className='mt-5 list-disc space-y-2 text-justify font-sans text-base text-foreground md:ml-5'>
+            <ul className='mt-5 list-disc space-y-2 text-left font-sans text-base text-foreground md:ml-5'>
               <li>
                 Build a Jubelio Finance System using Laravel, a medium for recording customer fines on the use of the Jubelio platform so that it helps companies increase revenue
               </li>
@@ -97,7 +97,7 @@ export default function Timeline() {
   ]
 
   return (
-    <div className='mt- my-5 mb-14 flex h-[38rem] w-full max-w-5xl flex-col items-start  justify-start [perspective:1000px] md:h-[25rem]'>
+    <div className='mt- my-5 mb-14 flex h-[42rem] w-full max-w-5xl flex-col items-start  justify-start [perspective:1000px] md:h-[25rem]'>
       <Tabs activeTabClassName='text-blue-600' tabs={tabs} containerClassName='font-mono' contentClassName='mt-12' />
     </div>
   )

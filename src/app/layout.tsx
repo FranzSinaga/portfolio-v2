@@ -22,8 +22,8 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable}
     `}
     >
-      <body className='h-dvw-dvh h-dvhh'>
-        <div className='bg-background transition-colors duration-500'>
+      <body className='transition-colors duration-500'>
+        <div id='wrapper' className='bg-background transition-colors duration-500'>
           <ClientWrapper>{children}</ClientWrapper>
         </div>
         {process.env.NODE_ENV !== 'production' && <ScreenIndicator />}

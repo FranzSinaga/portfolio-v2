@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button'
 import { Theme } from '@/types/theme.type'
 import { ScreenIndicator } from '@/components/signal-indicator'
 import Image from 'next/image'
+import Loader from '@/components/loader'
 
 export default function ClientWrapper({
   children
@@ -18,6 +19,7 @@ export default function ClientWrapper({
 }>) {
   const [selectedTheme, setSelectedTheme] = useLocalStorage<null | Theme>('theme', null)
   const [isLoading, setIsLoading] = useState(true)
+  const [showIntro, setShowIntro] = useState(true)
 
   useEffect(() => {
     var body = document.body
@@ -29,9 +31,19 @@ export default function ClientWrapper({
       body.classList.add(selectedTheme || 'dark')
       setIsLoading(false)
     }
+    setTimeout(() => {
+      setShowIntro(false)
+    }, 4000)
   }, [selectedTheme, setSelectedTheme])
 
-  if (isLoading) return <p>Loading</p>
+  if (isLoading) return <></>
+  if (showIntro)
+    return (
+      <div className='mt-[40dvh] flex h-dvh w-full flex-col items-center gap-y-2 p-2'>
+        <Loader />
+        <p className='font-mono text-lg text-foreground'>Loading...</p>
+      </div>
+    )
 
   return (
     <div className='flex h-full w-full'>

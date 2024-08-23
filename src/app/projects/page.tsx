@@ -10,18 +10,6 @@ import { useEffect } from 'react'
 
 const projectList = [
   {
-    image: '/projects/project-covid.jpg',
-    description: 'Build a website to display the number of corona virus cases that occurred in Indonesia',
-    title: 'Indonesia Covid Data',
-    stacks: ['React.js', 'Bootstrap', 'Rest API']
-  },
-  {
-    image: '/projects/simple-todo-list.png',
-    description: 'Building a simple Todo web app to organize the activities you want to do',
-    title: 'Simple Todo List',
-    stacks: ['React.js', 'Redux', 'Tailwind CSS']
-  },
-  {
     image: '/projects/portfolio-v1.png',
     description: 'Portfolio website version 1 was created using Next.js and Flowbite UI components',
     title: 'Portfolio V1',
@@ -32,6 +20,18 @@ const projectList = [
     description: 'Portfolio website version 2 was created using shadcn/ui, Magic UI and Aceternity UI components',
     title: 'Portfolio V2',
     stacks: ['Next.js', 'Tailwind CSS']
+  },
+  {
+    image: '/projects/project-covid.jpg',
+    description: 'Build a website to display the number of corona virus cases that occurred in Indonesia',
+    title: 'Indonesia Covid Data',
+    stacks: ['React.js', 'Bootstrap', 'Rest API']
+  },
+  {
+    image: '/projects/simple-todo-list.png',
+    description: 'Building a simple Todo web app to organize the activities you want to do',
+    title: 'Simple Todo List',
+    stacks: ['React.js', 'Redux', 'Tailwind CSS']
   }
 ]
 
@@ -45,7 +45,7 @@ export default function Projects() {
   return (
     <div className='mx-auto mt-5 max-w-[1200px]'>
       <BlurFade inView>
-        <h2 className='font-mono text-2xl font-bold'>{'<Projects/>'}</h2>
+        <h2 className='font-mono text-2xl font-bold'>{'Projects'}</h2>
       </BlurFade>
       <div className={'mb-20 mt-4 grid grid-cols-1 gap-3 md:mb-10 md:grid-cols-3'}>
         {projectList.map((e, idx) => (

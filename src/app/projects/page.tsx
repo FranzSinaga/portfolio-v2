@@ -32,6 +32,12 @@ const projectList = [
     description: 'Building a simple Todo web app to organize the activities you want to do',
     title: 'Simple Todo List',
     stacks: ['React.js', 'Redux', 'Tailwind CSS']
+  },
+  {
+    image: '/projects/portfolio-margaretta.png',
+    description: 'Building high performance and great user experience portofolio for client using shadcn/ui and Magic UI components',
+    title: 'Web Portfolio',
+    stacks: ['Remix', 'Tailwind CSS']
   }
 ]
 

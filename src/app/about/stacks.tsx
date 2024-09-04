@@ -49,7 +49,7 @@ const Stacks = () => {
               <p className='text-base font-light'>I Spend here most of time</p>
             </BlurFade>
             <BlurFade inView delay={0.4}>
-              <div className='mt-5 h-52 min-w-full animate-pulse rounded-md bg-gray-300'></div>
+              <div className='mt-5 aspect-[5/3] min-w-full animate-pulse rounded-md bg-gray-300'></div>
             </BlurFade>
           </div>
         </div>

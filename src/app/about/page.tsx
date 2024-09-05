@@ -19,7 +19,7 @@ export default function About() {
         <BlurFade inView>
           <h2 className='font-mono text-2xl font-bold'>{'Work Experience'}</h2>
           <BlurFade inView delay={0.2}>
-            <div className='flex flex-row flex-wrap justify-center'>
+            <div className='flex flex-row flex-wrap'>
               <Timeline />
             </div>
           </BlurFade>

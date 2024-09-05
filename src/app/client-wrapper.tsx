@@ -7,7 +7,7 @@ import { useLocalStorage } from 'usehooks-ts'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { MenuList } from '@/components/menu'
 import { Button } from '@/components/ui/button'
-import Loader from '@/components/loader'
+import Intro from '@/components/intro'
 
 import { Theme } from '@/types/theme.type'
 
@@ -19,6 +19,7 @@ export default function ClientWrapper({
   const [selectedTheme, setSelectedTheme] = useLocalStorage<null | Theme>('theme', null)
   const [isLoading, setIsLoading] = useState(true)
   const [showIntro, setShowIntro] = useState(true)
+  const [isOpenSheet, setIsOpenSheet] = useState(false)
 
   useEffect(() => {
     var body = document.body
@@ -41,7 +42,7 @@ export default function ClientWrapper({
   if (showIntro)
     return (
       <div className='mt-[40dvh] flex w-full flex-col items-center gap-y-2 overflow-hidden p-2 transition-colors duration-0'>
-        <Loader />
+        <Intro />
         <p className='font-mono text-lg font-bold text-foreground'>Loading...</p>
       </div>
     )
@@ -54,14 +55,20 @@ export default function ClientWrapper({
 
       <main className='w-full rounded-t-[20px] border-foreground bg-content-background lg:mx-5 lg:mt-5 lg:border-x-2 lg:border-t-2'>
         <div className='sticky top-0 z-10 flex items-center justify-between border-b-2 border-foreground bg-content-background lg:hidden'>
-          <Sheet>
+          <Sheet open={isOpenSheet} onOpenChange={setIsOpenSheet}>
             <SheetTrigger asChild>
               <Button variant={'link'} className='ml-2 px-3 py-6 text-foreground'>
                 <Menu />
               </Button>
             </SheetTrigger>
             <SheetContent side={'left'} className='bg-gray-200 font-mono dark:bg-[#1c1c1c]'>
-              <MenuList selectedTheme={selectedTheme ?? 'dark'} setSelectedTheme={setSelectedTheme} />
+              <MenuList
+                selectedTheme={selectedTheme ?? 'dark'}
+                setSelectedTheme={setSelectedTheme}
+                onClick={() => {
+                  setIsOpenSheet(false)
+                }}
+              />
             </SheetContent>
           </Sheet>
           <div className=''>
@@ -71,7 +78,7 @@ export default function ClientWrapper({
             <Menu />
           </Button>
         </div>
-        <div className='custom-scrollbar h- mt-4 w-full overflow-hidden overflow-x-hidden px-5 text-foreground lg:h-[calc(100dvh-38px)] lg:overflow-auto lg:overflow-x-hidden'>
+        <div className='custom-scrollbar mt-4 min-h-dvh w-full overflow-hidden overflow-x-hidden px-5 text-foreground lg:h-[calc(100dvh-38px)] lg:min-h-[calc(100dvh-38px)] lg:overflow-auto lg:overflow-x-hidden'>
           {children}
         </div>
       </main>

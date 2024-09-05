@@ -26,7 +26,7 @@ const menus = [
   {
     link: '/projects',
     name: 'Projects'
-  },
+  }
   // {
   //   link: '/contact',
   //   name: 'Contact'
@@ -35,9 +35,10 @@ const menus = [
 interface Props {
   selectedTheme: string
   setSelectedTheme: (value: Theme) => void
+  onClick?: () => void
 }
 
-export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme }) => {
+export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme, onClick }) => {
   const currentPath = usePathname()
   return (
     <div className='flex h-[calc(100vh-2.5rem)] flex-col justify-between'>
@@ -45,7 +46,13 @@ export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme }) =
       <div className='font-base'>
         <ul className='flex flex-col gap-y-5'>
           {menus.map(e => (
-            <li key={e.name} className={cn(currentPath === e.link ? 'font-bold text-blue-600' : 'text-foreground', 'cursor-pointer')}>
+            <li
+              onClick={() => {
+                currentPath !== e.link && onClick && onClick()
+              }}
+              key={e.name}
+              className={cn(currentPath === e.link ? 'font-bold text-blue-600' : 'text-foreground', 'cursor-pointer')}
+            >
               <Link href={e.link}>{e.name}</Link>
             </li>
           ))}

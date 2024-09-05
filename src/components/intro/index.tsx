@@ -1,5 +1,5 @@
 import './style.css'
-const Loader = () => {
+const Intro = () => {
   return (
     <div className='h-[112px] w-[112px]'>
       <div className='box1 border-foreground' />
@@ -9,4 +9,4 @@ const Loader = () => {
   )
 }
 
-export default Loader
+export default Intro

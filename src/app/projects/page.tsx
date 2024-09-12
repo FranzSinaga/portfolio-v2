@@ -5,7 +5,6 @@ import { MagicCard } from '@/components/magicui/magic-card'
 
 import { Theme } from '@/types/theme.type'
 import Image from 'next/image'
-import Head from 'next/head'
 import { useEffect } from 'react'
 
 const projectList = [
@@ -53,13 +52,14 @@ export default function Projects() {
       <BlurFade inView>
         <h2 className='font-mono text-2xl font-bold'>{'Projects'}</h2>
       </BlurFade>
+      {/* <DialogDetailProjects /> */}
       <div className={'mb-20 mt-4 grid grid-cols-1 gap-3 md:mb-10 md:grid-cols-2 lg:grid-cols-3'}>
         {projectList.map((e, idx) => (
           <BlurFade key={idx} delay={0.25 + idx * 0.05} inView>
             <div className='w-full lg:h-full'>
               <MagicCard className={'cursor-pointer border border-foreground p-4 shadow-2xl'} gradientColor={theme === 'dark' ? '#293E6F' : 'lightgray'}>
                 <div className='space-y-2'>
-                  <div className='relative aspect-[7/3] border border-dotted rounded-md'>
+                  <div className='relative aspect-[7/3] rounded-md border border-dotted'>
                     <Image src={e.image} fill objectFit='cover' objectPosition='top' className='rounded-md' loading='lazy' alt={e.title} />
                   </div>
                   <p className='text-xl font-bold'>{e.title}</p>

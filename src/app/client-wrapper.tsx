@@ -1,42 +1,22 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 import { Menu } from 'lucide-react'
-import { useLocalStorage } from 'usehooks-ts'
 
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { MenuList } from '@/components/menu'
 import { Button } from '@/components/ui/button'
 import Intro from '@/components/intro'
 
-import { Theme } from '@/types/theme.type'
+import { useTheme } from '@/hooks/use-theme'
 
 export default function ClientWrapper({
   children
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const [selectedTheme, setSelectedTheme] = useLocalStorage<null | Theme>('theme', null)
-  const [isLoading, setIsLoading] = useState(true)
-  const [showIntro, setShowIntro] = useState(true)
+  const { isLoading, showIntro, selectedTheme, setSelectedTheme } = useTheme()
   const [isOpenSheet, setIsOpenSheet] = useState(false)
-
-  useEffect(() => {
-    var body = document.body
-    if (!selectedTheme) {
-      setSelectedTheme('dark')
-      body.classList.add('dark')
-      setIsLoading(false)
-    } else {
-      body.classList.add(selectedTheme || 'dark')
-      setIsLoading(false)
-    }
-    setTimeout(() => {
-      setShowIntro(false)
-      body?.classList.add('transition-colors')
-      body?.classList.add('duration-500')
-    }, 4000)
-  }, [selectedTheme, setSelectedTheme])
 
   if (isLoading) return <></>
   if (showIntro)
@@ -48,12 +28,15 @@ export default function ClientWrapper({
     )
 
   return (
-    <div className='flex h-full w-full'>
-      <aside className='hidden w-[18vw] bg-background p-5 font-mono transition-colors duration-500 lg:block'>
+    <div className='flex'>
+      {/* DESKTOP SIDEBAR MENU */}
+      <aside className='hidden w-[20dvw] bg-background p-5 font-mono transition-colors duration-500 lg:block'>
         <MenuList selectedTheme={selectedTheme ?? 'dark'} setSelectedTheme={setSelectedTheme} />
       </aside>
+      {/* END DESKTOP SIDEBAR MENU */}
 
-      <main className='w-full rounded-t-[20px] border-foreground bg-content-background lg:mx-5 lg:mt-5 lg:border-x-2 lg:border-t-2'>
+      <main className='w-full rounded-t-[20px] border-foreground bg-content-background lg:mt-5 lg:border-x-2 lg:border-t-2'>
+        {/* MOBILE SHEET MENU */}
         <div className='sticky top-0 z-10 flex items-center justify-between border-b-2 border-foreground bg-content-background lg:hidden'>
           <Sheet open={isOpenSheet} onOpenChange={setIsOpenSheet}>
             <SheetTrigger asChild>
@@ -62,13 +45,7 @@ export default function ClientWrapper({
               </Button>
             </SheetTrigger>
             <SheetContent side={'left'} className='bg-gray-200 font-mono dark:bg-[#1c1c1c]'>
-              <MenuList
-                selectedTheme={selectedTheme ?? 'dark'}
-                setSelectedTheme={setSelectedTheme}
-                onClick={() => {
-                  setIsOpenSheet(false)
-                }}
-              />
+              <MenuList selectedTheme={selectedTheme ?? 'dark'} setSelectedTheme={setSelectedTheme} onClick={() => setIsOpenSheet(false)} />
             </SheetContent>
           </Sheet>
           <div className=''>
@@ -78,6 +55,8 @@ export default function ClientWrapper({
             <Menu />
           </Button>
         </div>
+        {/* END MOBILE SHEET MENU */}
+
         <div className='custom-scrollbar mt-4 min-h-dvh w-full overflow-hidden overflow-x-hidden px-5 text-foreground lg:h-[calc(100dvh-38px)] lg:min-h-[calc(100dvh-38px)] lg:overflow-auto lg:overflow-x-hidden'>
           {children}
         </div>

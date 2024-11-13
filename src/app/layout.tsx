@@ -1,9 +1,9 @@
 import ClientWrapper from './client-wrapper'
-import { ScreenIndicator } from '@/components/signal-indicator'
-
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 
+import { IS_LOCAL } from '@/lib/constants'
+import { ScreenIndicator } from '@/components/signal-indicator'
 import './globals.css'
 
 export const metadata = {
@@ -27,7 +27,7 @@ export default function RootLayout({
         <div id='wrapper' className='bg-background transition-colors duration-500'>
           <ClientWrapper>{children}</ClientWrapper>
         </div>
-        {process.env.NODE_ENV !== 'production' && <ScreenIndicator />}
+        {IS_LOCAL && <ScreenIndicator />}
       </body>
     </html>
   )

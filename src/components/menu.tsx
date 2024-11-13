@@ -41,22 +41,25 @@ interface Props {
 export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme, onClick }) => {
   const currentPath = usePathname()
   return (
-    <div className='flex h-[calc(100vh-2.5rem)] flex-col justify-between'>
-      <div className={cn('mt-8 text-2xl font-extrabold text-foreground')}>_franz</div>
-      <div className='font-base'>
-        <ul className='flex flex-col gap-y-5'>
-          {menus.map(e => (
-            <li
-              onClick={() => {
-                currentPath !== e.link && onClick && onClick()
-              }}
-              key={e.name}
-              className={cn(currentPath === e.link ? 'font-bold text-blue-600' : 'text-foreground', 'cursor-pointer')}
-            >
-              <Link href={e.link}>{e.name}</Link>
-            </li>
-          ))}
-        </ul>
+    <div className='flex h-[calc(100vh-2.5rem)] w-full flex-col justify-between'>
+      <div className='space-y-10'>
+        <div className={cn('mt-6 text-2xl font-extrabold text-foreground')}>_franz</div>
+        <div className='font-base'>
+          <ul className='flex flex-col gap-y-2'>
+            {menus.map(e => {
+              const isActive = currentPath === e.link
+              return (
+                <li
+                  onClick={() => isActive && onClick && onClick()}
+                  key={e.name}
+                  className={cn(isActive ? 'border bg-muted font-bold text-blue-600' : 'text-foreground', 'cursor-pointer rounded-md py-2 pl-3')}
+                >
+                  <Link href={e.link}>{e.name}</Link>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
       </div>
 
       <div>

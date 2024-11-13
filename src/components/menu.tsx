@@ -52,7 +52,7 @@ export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme, onC
                 <li
                   onClick={() => isActive && onClick && onClick()}
                   key={e.name}
-                  className={cn(isActive ? 'border bg-muted font-bold text-blue-600' : 'text-foreground hover:bg-muted', 'cursor-pointer rounded-md py-2 pl-3')}
+                  className={cn(isActive ? 'border font-bold text-foreground' : 'text-muted-foreground hover:bg-muted', 'cursor-pointer rounded-md py-2 pl-3')}
                 >
                   <Link href={e.link}>{e.name}</Link>
                 </li>

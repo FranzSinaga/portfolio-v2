@@ -1,2 +1,1 @@
-'use client'
-export const IS_LOCAL = window.location.hostname.includes('localhost')
+export const IS_LOCAL = process.env.NODE_ENV !== 'production'

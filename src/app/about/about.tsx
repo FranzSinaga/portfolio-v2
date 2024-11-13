@@ -1,5 +1,5 @@
 import BlurFade from '@/components/magicui/blur-fade'
-import { Dribbble, Github, Linkedin, Mail } from 'lucide-react'
+import { Github, Linkedin, Mail } from 'lucide-react'
 
 const AboutComponent = () => {
   return (

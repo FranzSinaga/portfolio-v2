@@ -1,8 +1,7 @@
 import GridPattern from '@/components/magicui/animated-grid-pattern'
 import BlurFade from '@/components/magicui/blur-fade'
-import BlurIn from '@/components/magicui/blur-in'
 import { cn } from '@/lib'
-import { Dribbble, Github, Linkedin, Mail } from 'lucide-react'
+import { Github, Linkedin, Mail } from 'lucide-react'
 
 export default function Index() {
   return (

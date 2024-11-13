@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button'
 import Intro from '@/components/intro'
 
 import { useTheme } from '@/hooks/use-theme'
+import { CommandMenu } from './command-menu'
 
 export default function ClientWrapper({
   children
@@ -60,6 +61,7 @@ export default function ClientWrapper({
         <div className='custom-scrollbar mt-4 min-h-dvh w-full overflow-hidden overflow-x-hidden px-5 text-foreground lg:h-[calc(100dvh-38px)] lg:min-h-[calc(100dvh-38px)] lg:overflow-auto lg:overflow-x-hidden'>
           {children}
         </div>
+        <CommandMenu />
       </main>
     </div>
   )

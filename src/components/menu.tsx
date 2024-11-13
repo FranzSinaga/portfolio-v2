@@ -52,7 +52,7 @@ export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme, onC
                 <li
                   onClick={() => isActive && onClick && onClick()}
                   key={e.name}
-                  className={cn(isActive ? 'border bg-muted font-bold text-blue-600' : 'text-foreground', 'cursor-pointer rounded-md py-2 pl-3')}
+                  className={cn(isActive ? 'border bg-muted font-bold text-blue-600' : 'text-foreground hover:bg-muted', 'cursor-pointer rounded-md py-2 pl-3')}
                 >
                   <Link href={e.link}>{e.name}</Link>
                 </li>
@@ -64,15 +64,7 @@ export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme, onC
 
       <div>
         {selectedTheme && (
-          <Select
-            value={selectedTheme}
-            onValueChange={(e: Theme) => {
-              var body = document.body
-              setSelectedTheme(e)
-              body.className = ''
-              body.classList.add(e, 'bg-background', 'transition-colors')
-            }}
-          >
+          <Select value={selectedTheme} onValueChange={(e: Theme) => setSelectedTheme(e)}>
             <SelectTrigger className='w-full'>
               <SelectValue />
             </SelectTrigger>

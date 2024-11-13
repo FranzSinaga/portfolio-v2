@@ -10,7 +10,7 @@ export default function ComponentUi() {
       {/* Buttons */}
       <StyleGuideContainer header={<p>Buttons</p>}>
         <div className='flex gap-x-2'>
-          <Button variant={'default'}>Default</Button>
+          <Button variant={'default'}>Default/Primary</Button>
           <Button variant={'destructive'}>Destructive</Button>
           <Button variant={'secondary'}>Secondary</Button>
           <Button variant={'accent'}>Accent</Button>

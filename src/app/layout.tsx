@@ -23,7 +23,7 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable}
     `}
     >
-      <body className='transition-colors duration-500'>
+      <body>
         <div id='wrapper' className='bg-background transition-colors duration-500'>
           <ClientWrapper>{children}</ClientWrapper>
         </div>

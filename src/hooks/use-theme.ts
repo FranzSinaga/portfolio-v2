@@ -11,7 +11,7 @@ export const useTheme = () => {
   useEffect(() => {
     var body = document.body
     body.className = ''
-    body.classList.add('transition-colors', 'duration-500')
+    body.classList.add('transition-colors', 'duration-500', 'bg-background')
 
     if (selectedTheme) {
       body.classList.add(selectedTheme)

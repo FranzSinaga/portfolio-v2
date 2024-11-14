@@ -4,12 +4,12 @@ import { RiTailwindCssFill } from 'react-icons/ri'
 import { StyleGuideContainer } from './container'
 
 export default function ComponentUi() {
-  const bgColorClassname = 'flex h-24 w-24 items-center justify-center border text-xs ring-4 rounded-md'
+  const bgColorClassname = 'flex md:h-24 h-20 md:w-24 items-center justify-center border text-xs ring-4 rounded-md'
   return (
-    <div className='mb-4 space-y-4 font-mono'>
+    <div className='my-4 space-y-4 font-mono'>
       {/* Buttons */}
       <StyleGuideContainer header={<p>Buttons</p>}>
-        <div className='flex gap-x-2'>
+        <div className='flex flex-wrap gap-2'>
           <Button variant={'default'}>Default/Primary</Button>
           <Button variant={'destructive'}>Destructive</Button>
           <Button variant={'secondary'}>Secondary</Button>
@@ -30,7 +30,7 @@ export default function ComponentUi() {
         }
       >
         <>
-          <div className='flex flex-wrap gap-4'>
+          <div className='grid grid-cols-3 flex-wrap gap-4 md:flex'>
             <div className={cn(bgColorClassname, 'bg-background text-foreground')}>background</div>
             <div className={cn(bgColorClassname, 'bg-foreground text-background')}>foreground</div>
             <div className={cn(bgColorClassname, 'bg-primary text-primary-foreground')}>primary</div>
@@ -41,7 +41,7 @@ export default function ComponentUi() {
             <div className={cn(bgColorClassname, 'bg-card text-card-foreground')}>card</div>
             <div className={cn(bgColorClassname, 'bg-popover text-popover-foreground')}>popover</div>
           </div>
-          <a href='https://tailwindcss.com/docs/customizing-colors' className='mt-2 flex items-center gap-2 text-sm hover:underline' target='_blank'>
+          <a href='https://tailwindcss.com/docs/customizing-colors' className='mt-4 flex items-center gap-2 text-sm hover:underline' target='_blank'>
             <RiTailwindCssFill />
             Go to Tailwind Colors {'->'}
           </a>
@@ -50,7 +50,7 @@ export default function ComponentUi() {
 
       {/* Fonts */}
       <StyleGuideContainer header={<p>Font Family</p>}>
-        <div className='flex w-max gap-x-5'>
+        <div className='flex flex-wrap gap-x-5 gap-y-2'>
           <p className='font-sans text-2xl font-extrabold'>Geist Sans</p>
           <p className='font-mono text-2xl font-extrabold'>Geist Mono</p>
           <p className='font-serif text-2xl font-extrabold'>Cambria</p>
@@ -60,39 +60,39 @@ export default function ComponentUi() {
       {/* Font Sizes */}
       <StyleGuideContainer header={<p>Font Sizes</p>}>
         <div className='space-y-3'>
-          <div className='flex justify-between border-b py-2 text-xs'>
+          <div className='flex flex-col justify-between border-b py-2 text-xs md:flex-row'>
             <p>text-xs</p>
             <p>12px</p>
           </div>
-          <div className='flex justify-between border-b py-2 text-sm'>
+          <div className='flex flex-col justify-between border-b py-2 text-sm md:flex-row'>
             <p>text-sm</p>
             <p>14px</p>
           </div>
-          <div className='flex justify-between border-b py-2 text-base'>
+          <div className='flex flex-col justify-between border-b py-2 text-base md:flex-row'>
             <p>text-base</p>
             <p>16px</p>
           </div>
-          <div className='flex justify-between border-b py-2 text-lg'>
+          <div className='flex flex-col justify-between border-b py-2 text-lg md:flex-row'>
             <p>text-lg</p>
             <p>18px</p>
           </div>
-          <div className='flex justify-between border-b py-2 text-xl'>
+          <div className='flex flex-col justify-between border-b py-2 text-xl md:flex-row'>
             <p>text-xl</p>
             <p>20px</p>
           </div>
-          <div className='flex justify-between border-b py-2 text-2xl'>
+          <div className='flex flex-col justify-between border-b py-2 text-2xl md:flex-row'>
             <p>text-2xl</p>
             <p>24px</p>
           </div>
-          <div className='flex justify-between border-b py-2 text-3xl'>
+          <div className='flex flex-col justify-between border-b py-2 text-3xl md:flex-row'>
             <p>text-3xl</p>
             <p>30px</p>
           </div>
-          <div className='flex justify-between border-b py-2 text-4xl'>
+          <div className='flex flex-col justify-between border-b py-2 text-4xl md:flex-row'>
             <p>text-4xl</p>
             <p>36px</p>
           </div>
-          <div className='flex justify-between text-5xl'>
+          <div className='hidden justify-between text-5xl md:flex'>
             <p>text-5xl</p>
             <p>48px</p>
           </div>

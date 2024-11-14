@@ -1,18 +1,12 @@
 'use client'
 import Link from 'next/link'
-import { cn } from '@/lib'
-import { capitalizeFirstLetter } from '@/lib'
+import { ThemeList, cn } from '@/lib'
 
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { MoonStar, Sun } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 
 import { Theme } from '@/types/theme.type'
-
-const ThemeList: { name: Theme; icon: React.ReactElement }[] = [
-  { name: 'dark', icon: <MoonStar size={20} /> },
-  { name: 'light', icon: <Sun size={20} /> }
-]
+import LucideIcon from './lucide-icon'
 
 const menus = [
   {
@@ -26,6 +20,10 @@ const menus = [
   {
     link: '/projects',
     name: 'Projects'
+  },
+  {
+    link: '/style-guide',
+    name: 'Style Guide'
   }
   // {
   //   link: '/contact',
@@ -49,13 +47,14 @@ export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme, onC
             {menus.map(e => {
               const isActive = currentPath === e.link
               return (
-                <li
-                  onClick={() => isActive && onClick && onClick()}
-                  key={e.name}
-                  className={cn(isActive ? 'border font-bold text-foreground' : 'text-muted-foreground hover:bg-muted', 'cursor-pointer rounded-md py-2 pl-3')}
-                >
-                  <Link href={e.link}>{e.name}</Link>
-                </li>
+                <Link key={e.name} href={e.link}>
+                  <li
+                    onClick={() => onClick && onClick()}
+                    className={cn(isActive ? 'border font-bold text-foreground' : 'text-muted-foreground hover:bg-muted', 'cursor-pointer rounded-md py-2 pl-3')}
+                  >
+                    {e.name}
+                  </li>
+                </Link>
               )
             })}
           </ul>
@@ -72,10 +71,10 @@ export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme, onC
               <SelectGroup>
                 <SelectLabel className='font-mono'>Select Theme</SelectLabel>
                 {ThemeList.map(e => (
-                  <SelectItem key={e.name} value={e.name} className='font-mono'>
+                  <SelectItem key={e.value} value={e.value} className='font-mono'>
                     <span className='flex items-center justify-between'>
-                      {e.icon}
-                      <span className='pl-2 text-xs'>{capitalizeFirstLetter(e.name)}</span>
+                      <LucideIcon name={e.icon} size={18} />
+                      <span className='pl-2 text-xs'>{e.name}</span>
                     </span>
                   </SelectItem>
                 ))}

@@ -33,6 +33,7 @@ export function CommandMenu() {
           <CommandGroup heading='Settings'>
             {ThemeList.map(e => (
               <CommandItem
+                key={e.value}
                 onSelect={() => {
                   setSelectedTheme(e.value)
                   setOpen(false)

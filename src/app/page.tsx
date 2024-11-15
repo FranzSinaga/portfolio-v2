@@ -71,7 +71,7 @@ export default function Index() {
         numSquares={80}
         maxOpacity={0.4}
         duration={1}
-        repeatDelay={1}
+        // repeatDelay={1}
         className={cn('[mask-image:radial-gradient(450px_circle_at_center,white,transparent)]', 'inset-x-0 inset-y-[-50%] h-[200%] w-full skew-y-0')}
       />
     </div>

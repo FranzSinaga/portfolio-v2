@@ -1,8 +1,21 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:react-hooks/recommended", "eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
-  "plugins": ["react-hooks", "react", "react-refresh"],
+  "root": true,
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "react-hooks",
+    "react",
+    "react-refresh"
+  ],
   "parser": "@typescript-eslint/parser",
-  "ignorePatterns": [],
+  "ignorePatterns": [
+    ".eslintrc.json"
+  ],
   "rules": {
     "react-refresh/only-export-components": "off",
     "react-hooks/rules-of-hooks": "error",

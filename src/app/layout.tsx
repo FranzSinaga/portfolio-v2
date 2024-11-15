@@ -1,9 +1,11 @@
-import ClientWrapper from './client-wrapper'
+import React from 'react'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 
-import { IS_LOCAL } from '@/lib/constants'
 import { ScreenIndicator } from '@/components/signal-indicator'
+import ClientWrapper from './client-wrapper'
+
+import { IS_LOCAL } from '@/lib/constants'
 import './globals.css'
 
 export const metadata = {

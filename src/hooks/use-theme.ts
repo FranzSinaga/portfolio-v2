@@ -9,7 +9,7 @@ export const useTheme = () => {
   const [showIntro, setShowIntro] = useState(true)
 
   useEffect(() => {
-    var body = document.body
+    const body = document.body
     body.className = ''
     body.classList.add('transition-colors', 'duration-500', 'bg-background')
 
@@ -21,11 +21,11 @@ export const useTheme = () => {
     }
     setIsLoading(false)
 
-    !IS_LOCAL
-      ? setTimeout(() => {
-          setShowIntro(false)
-        }, 4000)
-      : setShowIntro(false)
+    if (!IS_LOCAL)
+      setTimeout(() => {
+        setShowIntro(false)
+      }, 4000)
+    else setShowIntro(false)
   }, [selectedTheme, setSelectedTheme])
 
   return { selectedTheme, setSelectedTheme, isLoading, showIntro }

@@ -1,4 +1,5 @@
 'use client'
+import React from 'react'
 import Link from 'next/link'
 import { ThemeList, cn } from '@/lib'
 
@@ -63,7 +64,7 @@ export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme, onC
 
       <div>
         {selectedTheme && (
-          <Select value={selectedTheme} onValueChange={(e: Theme) => setSelectedTheme(e)}>
+          <Select value={selectedTheme} onValueChange={(value: Theme) => setSelectedTheme(value)}>
             <SelectTrigger className='w-full'>
               <SelectValue />
             </SelectTrigger>

@@ -12,13 +12,13 @@ export default function Timeline() {
       content: (
         <div className={tabClass}>
           <BlurFade inView delay={0.2}>
-            <p className=' text-xl font-bold md:text-4xl'>Bank Rakyat Indonesia</p>
-            <p className='mb-2 text-base text-foreground'>
+            <p className='text-xl font-bold md:text-2xl'>Bank Rakyat Indonesia</p>
+            <p className='mb-2 text-foreground'>
               <strong className='font-bold'>Frontend Developer</strong> | March 2021 - January 2023
             </p>
           </BlurFade>
           <BlurFade inView delay={0.4}>
-            <ul className='mt-5 list-disc space-y-2 text-left font-sans text-base text-foreground md:ml-5'>
+            <ul className='mt-5 list-disc space-y-2 text-left text-foreground md:ml-5'>
               <li>Building NDS (New Delivery System) applications using Quasar Framework (Vue)</li>
               <li>Implementing Vuex as state management on web applications to facilitate application development</li>
               <li>Implement Protobuf (Protocol Buffer) as a communication medium between Frontend and Backend to speed up data exchange</li>
@@ -35,13 +35,13 @@ export default function Timeline() {
       content: (
         <div className={tabClass}>
           <BlurFade inView delay={0.2}>
-            <p className=' text-xl font-bold md:text-4xl'>Lawencon</p>
-            <p className='mb-2 text-base text-foreground'>
+            <p className='text-xl font-bold md:text-2xl'>Lawencon</p>
+            <p className='mb-2 text-foreground'>
               <strong className='font-bold'>Frontend Developer</strong> | January 2021 - March 2021
             </p>
           </BlurFade>
           <BlurFade inView delay={0.4}>
-            <ul className='mt-5 list-disc space-y-2 text-left font-sans text-base text-foreground md:ml-5'>
+            <ul className='mt-5 list-disc space-y-2 text-left text-foreground md:ml-5'>
               <li>Building a LinovHR web application using the Angular framework</li>
               <li>Implementing Redux as state management on web applications to facilitate application development</li>
               <li>Working with other developers to implement the RESTFul API in web application development</li>
@@ -51,13 +51,13 @@ export default function Timeline() {
       )
     },
     {
-      title: 'Komunitas Pariwisata Toba',
+      title: 'KPT',
       value: 'pariwisata-toba',
       content: (
         <div className={tabClass}>
           <BlurFade inView delay={0.2}>
-            <p className=' text-xl font-bold md:text-4xl'>Komunitas Pariwisata Toba</p>
-            <p className='mb-2 text-base text-foreground'>
+            <p className='text-xl font-bold md:text-2xl'>Komunitas Pariwisata Toba</p>
+            <p className='mb-2 text-foreground'>
               <strong className='font-bold'>Freelance Mobile Developer</strong> | October 2020 - January 2021
             </p>
           </BlurFade>
@@ -77,13 +77,13 @@ export default function Timeline() {
       content: (
         <div className={tabClass}>
           <BlurFade inView delay={0.2}>
-            <p className='text-xl font-bold md:text-4xl'>Jubelio</p>
-            <p className='mb-2 text-base text-foreground'>
+            <p className='text-xl font-bold md:text-2xl'>Jubelio</p>
+            <p className='mb-2 text-foreground'>
               <strong className='font-bold'>Intern Web Developer</strong> | October 2020 - January 2021
             </p>
           </BlurFade>
           <BlurFade inView delay={0.4}>
-            <ul className='mt-5 list-disc space-y-2 text-left font-sans text-base text-foreground md:ml-5'>
+            <ul className='mt-5 list-disc space-y-2 text-left text-foreground md:ml-5'>
               <li>
                 Build a Jubelio Finance System using Laravel, a medium for recording customer fines on the use of the Jubelio platform so that it helps companies increase revenue
               </li>
@@ -97,8 +97,8 @@ export default function Timeline() {
   ]
 
   return (
-    <div className='my-5 mb-14 flex h-[40rem] w-full flex-col items-start justify-start [perspective:1000px] md:h-[26rem] lg:h-[22rem]'>
-      <Tabs activeTabClassName='text-blue-600' tabs={tabs} containerClassName='font-mono' contentClassName='mt-12' />
+    <div className='my-5 flex h-[40rem] w-full flex-col items-start justify-start [perspective:1000px] md:h-[26rem] lg:h-[22rem]'>
+      <Tabs activeTabClassName='text-blue-600' tabs={tabs} containerClassName='font-mono' contentClassName='mt-10' />
     </div>
   )
 }

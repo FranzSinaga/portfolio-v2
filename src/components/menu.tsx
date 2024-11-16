@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import Link from 'next/link'
-import { ThemeList, cn } from '@/lib'
+import { MENUS_LIST, THEMES_LIST, cn } from '@/lib'
 
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { usePathname } from 'next/navigation'
@@ -9,28 +9,6 @@ import { usePathname } from 'next/navigation'
 import { Theme } from '@/types/theme.type'
 import LucideIcon from './lucide-icon'
 
-const menus = [
-  {
-    link: '/',
-    name: 'Home'
-  },
-  {
-    link: '/about',
-    name: 'About'
-  },
-  {
-    link: '/projects',
-    name: 'Projects'
-  },
-  {
-    link: '/style-guide',
-    name: 'Style Guide'
-  }
-  // {
-  //   link: '/contact',
-  //   name: 'Contact'
-  // }
-]
 interface Props {
   selectedTheme: string
   setSelectedTheme: (value: Theme) => void
@@ -42,18 +20,22 @@ export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme, onC
   return (
     <div className='flex h-[calc(100vh-2.5rem)] w-full flex-col justify-between'>
       <div className='space-y-10'>
-        <div className={cn('mt-6 text-2xl font-extrabold text-foreground')}>_franz</div>
-        <div className='font-base'>
+        <div className={cn('mt-4 p-2 text-2xl font-extrabold text-foreground')}>_franz</div>
+        <div className='font-base text-sm'>
           <ul className='flex flex-col gap-y-2'>
-            {menus.map(e => {
+            {MENUS_LIST.map(e => {
               const isActive = currentPath === e.link
               return (
                 <Link key={e.name} href={e.link}>
                   <li
                     onClick={() => onClick && onClick()}
-                    className={cn(isActive ? 'border font-bold text-foreground' : 'text-muted-foreground hover:bg-muted', 'cursor-pointer rounded-md py-2 pl-3')}
+                    className={cn(
+                      isActive ? 'border font-bold text-foreground' : 'text-muted-foreground hover:bg-muted',
+                      'flex cursor-pointer items-center gap-x-2 rounded-md py-2 pl-3'
+                    )}
                   >
-                    {e.name}
+                    <LucideIcon name={e?.icon ?? 'Menu'} size={16} />
+                    <p>{e.name}</p>
                   </li>
                 </Link>
               )
@@ -71,7 +53,7 @@ export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme, onC
             <SelectContent>
               <SelectGroup>
                 <SelectLabel className='font-mono'>Select Theme</SelectLabel>
-                {ThemeList.map(e => (
+                {THEMES_LIST.map(e => (
                   <SelectItem key={e.value} value={e.value} className='font-mono'>
                     <span className='flex items-center justify-between'>
                       <LucideIcon name={e.icon} size={18} />

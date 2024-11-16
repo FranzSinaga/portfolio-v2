@@ -36,7 +36,7 @@ export default function ClientWrapper({
       </aside>
       {/* END DESKTOP SIDEBAR MENU */}
 
-      <main className='w-full rounded-t-[20px] border-foreground bg-content-background lg:mt-5 lg:border-x-2 lg:border-t-2'>
+      <main className='w-full rounded-t-[20px] border-foreground bg-content-background lg:mr-5 lg:mt-5 lg:border-x-2 lg:border-t-2'>
         {/* MOBILE SHEET MENU */}
         <div className='sticky top-0 z-10 flex items-center justify-between border-b-2 border-foreground bg-content-background lg:hidden'>
           <Sheet open={isOpenSheet} onOpenChange={setIsOpenSheet}>
@@ -60,6 +60,17 @@ export default function ClientWrapper({
 
         <div className='custom-scrollbar mt-4 min-h-dvh w-full overflow-hidden overflow-x-hidden px-5 text-foreground lg:h-[calc(100dvh-38px)] lg:min-h-[calc(100dvh-38px)] lg:overflow-auto lg:overflow-x-hidden'>
           {children}
+        </div>
+
+        {/**
+         * Bottom Action
+         * // TODO: Get Idea For Bottom Action like vscode etc
+         * // TODO: hidden to block
+         */}
+        <div className='relative hidden w-full'>
+          <div className='absolute bottom-0 w-full border-t-2 bg-content-background px-5 py-0.5 text-foreground'>
+            <p>Under Construction</p>
+          </div>
         </div>
         <CommandMenu />
       </main>

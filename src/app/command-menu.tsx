@@ -7,17 +7,18 @@ import { useTheme } from '@/hooks/use-theme'
 
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/components/ui/command'
 import LucideIcon from '@/components/lucide-icon'
+import { useCommandMenuContext } from '@/context/command-menu-context'
 
 export function CommandMenu() {
   const { push } = useRouter()
   const { setSelectedTheme, selectedTheme } = useTheme()
-  const [open, setOpen] = React.useState(false)
+  const { isOpen: open, setIsOpen: setOpen } = useCommandMenuContext()
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault()
-        setOpen(open => !open)
+        if (!open) setOpen(true)
       }
     }
 

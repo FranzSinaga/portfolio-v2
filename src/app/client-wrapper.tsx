@@ -1,15 +1,17 @@
 'use client'
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { Menu } from 'lucide-react'
 
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { MenuList } from '@/components/menu'
 import { Button } from '@/components/ui/button'
 import Intro from '@/components/intro'
+import LucideIcon from '@/components/lucide-icon'
+import { BottomSection } from '@/components/bottom-section'
+import { CommandMenu } from './command-menu'
 
 import { useTheme } from '@/hooks/use-theme'
-import { CommandMenu } from './command-menu'
+import { CommandMenuProvider } from '@/context/command-menu-context'
 
 export default function ClientWrapper({
   children
@@ -42,7 +44,7 @@ export default function ClientWrapper({
           <Sheet open={isOpenSheet} onOpenChange={setIsOpenSheet}>
             <SheetTrigger asChild>
               <Button variant={'link'} className='ml-2 px-3 py-6 text-foreground'>
-                <Menu />
+                <LucideIcon name='Menu' />
               </Button>
             </SheetTrigger>
             <SheetContent side={'left'} className='bg-gray-200 font-mono dark:bg-[#1c1c1c]'>
@@ -53,7 +55,7 @@ export default function ClientWrapper({
             <Image src={selectedTheme === 'dark' ? '/logo-white.png' : '/logo-black.png'} width={25} height={25} alt='icons' />
           </div>
           <Button variant={'link'} className='invisible mr-2 px-3 py-6 text-foreground'>
-            <Menu />
+            <LucideIcon name='Menu' />
           </Button>
         </div>
         {/* END MOBILE SHEET MENU */}
@@ -61,18 +63,10 @@ export default function ClientWrapper({
         <div className='custom-scrollbar mt-4 min-h-dvh w-full overflow-hidden overflow-x-hidden px-5 text-foreground lg:h-[calc(100dvh-38px)] lg:min-h-[calc(100dvh-38px)] lg:overflow-auto lg:overflow-x-hidden'>
           {children}
         </div>
-
-        {/**
-         * Bottom Action
-         * // TODO: Get Idea For Bottom Action like vscode etc
-         * // TODO: hidden to block
-         */}
-        <div className='relative hidden w-full'>
-          <div className='absolute bottom-0 w-full border-t-2 bg-content-background px-5 py-0.5 text-foreground'>
-            <p>Under Construction</p>
-          </div>
-        </div>
-        <CommandMenu />
+        <CommandMenuProvider>
+          <BottomSection />
+          <CommandMenu />
+        </CommandMenuProvider>
       </main>
     </div>
   )

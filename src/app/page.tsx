@@ -1,6 +1,7 @@
 import LucideIcon from '@/components/lucide-icon'
 import GridPattern from '@/components/magicui/animated-grid-pattern'
 import BlurFade from '@/components/magicui/blur-fade'
+import { HyperText } from '@/components/magicui/hyper-text'
 import { cn } from '@/lib'
 
 export default function Index() {
@@ -11,7 +12,7 @@ export default function Index() {
           <p className='ml-1 font-mono'>Hello There 👋, I am</p>
         </BlurFade>
         <BlurFade inView delay={0.2}>
-          <h1 className='font-bold'>Franz Sinaga</h1>
+          <HyperText className='text-4xl font-bold lg:text-7xl' text='Franz Sinaga' />
         </BlurFade>
         <BlurFade inView delay={0.4}>
           <h2 className='ml-1 font-bold'>Frontend Developer</h2>

@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation'
 
 import { Theme } from '@/types/theme.type'
 import LucideIcon from './lucide-icon'
+import { HyperText } from './magicui/hyper-text'
 
 interface Props {
   selectedTheme: string
@@ -20,7 +21,8 @@ export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme, onC
   return (
     <div className='flex h-[calc(100vh-2.5rem)] w-full flex-col justify-between'>
       <div className='space-y-10'>
-        <div className={cn('mt-4 p-2 text-2xl font-extrabold text-foreground')}>_franz</div>
+        {/* <div className={cn('mt-4 p-2 text-2xl font-extrabold text-foreground')}>_franz</div> */}
+        <HyperText className='mt-4 p-2 text-2xl font-extrabold text-foreground' text='_franz' />
         <div className='font-base text-sm'>
           <ul className='flex flex-col gap-y-2'>
             {MENUS_LIST.map(e => {

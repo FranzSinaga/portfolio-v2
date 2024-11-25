@@ -5,7 +5,6 @@ import { MagicCard } from '@/components/magicui/magic-card'
 
 import { Theme } from '@/types/theme.type'
 import Image from 'next/image'
-import Head from 'next/head'
 import { useEffect } from 'react'
 
 const projectList = [
@@ -49,23 +48,24 @@ export default function Projects() {
   }, [])
 
   return (
-    <div className='mx-auto mt-5 max-w-[1200px]'>
+    <div className='mx-auto mb-12 mt-5 max-w-[1200px]'>
       <BlurFade inView>
-        <h2 className='font-mono text-2xl font-bold'>{'Projects'}</h2>
+        <h3 className='font-mono font-bold'>{'Projects'}</h3>
       </BlurFade>
-      <div className={'mb-20 mt-4 grid grid-cols-1 gap-3 md:mb-10 md:grid-cols-2 lg:grid-cols-3'}>
+      {/* <DialogDetailProjects /> */}
+      <div className={'mt-4 grid grid-cols-1 gap-3 md:mb-10 md:grid-cols-2 lg:grid-cols-3'}>
         {projectList.map((e, idx) => (
           <BlurFade key={idx} delay={0.25 + idx * 0.05} inView>
             <div className='w-full lg:h-full'>
               <MagicCard className={'cursor-pointer border border-foreground p-4 shadow-2xl'} gradientColor={theme === 'dark' ? '#293E6F' : 'lightgray'}>
-                <div className='space-y-2'>
-                  <div className='relative aspect-[7/3] border border-dotted rounded-md'>
+                <div className='space-y-1'>
+                  <div className='relative aspect-[7/3] rounded-md border border-dotted'>
                     <Image src={e.image} fill objectFit='cover' objectPosition='top' className='rounded-md' loading='lazy' alt={e.title} />
                   </div>
-                  <p className='text-xl font-bold'>{e.title}</p>
-                  <div className='flex gap-x-2'>
+                  <h4 className='font-bold'>{e.title}</h4>
+                  <div className='flex flex-wrap gap-x-2'>
                     {e.stacks.map((stack, index) => (
-                      <p className='rounded-full bg-gray-300 px-2 py-1 font-mono text-[10px] dark:bg-gray-500' key={index}>
+                      <p className='rounded-full bg-gray-300 px-2 py-0.5 font-mono text-xxs dark:bg-gray-500' key={index}>
                         {stack}
                       </p>
                     ))}

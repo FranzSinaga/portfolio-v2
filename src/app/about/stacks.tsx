@@ -45,11 +45,11 @@ const Stacks = () => {
         <div className='rounded-[10px] border md:mt-5'>
           <div className='p-5 text-foreground'>
             <BlurFade inView delay={0.2}>
-              <p className='text-xl font-bold'>Setup</p>
-              <p className='text-base font-light'>I Spend here most of time</p>
+              <h4 className='font-bold'>Setup</h4>
+              <p className='font-light'>I Spend here most of time</p>
             </BlurFade>
             <BlurFade inView delay={0.4}>
-              <div className='mt-5 aspect-[5/3] min-w-full animate-pulse rounded-md bg-gray-300'></div>
+              <div className='mt-5 aspect-[7/3] min-w-full animate-pulse rounded-md bg-gray-300'></div>
             </BlurFade>
           </div>
         </div>
@@ -57,13 +57,13 @@ const Stacks = () => {
         <div className='mt-5 rounded-[10px] border'>
           <div className='p-5 text-foreground'>
             <BlurFade inView delay={0.2}>
-              <p className='text-xl font-bold'>Stacks</p>
-              <p className='text-base font-light'>Things i use all the time</p>
+              <h4 className='font-bold'>Stacks</h4>
+              <p className='font-light'>Things i use all the time</p>
             </BlurFade>
             <BlurFade inView delay={0.4}>
               <div className='mt-5 grid grid-cols-2 gap-2'>
                 {StacksCollection.map((e, key) => (
-                  <div key={key} className='bg-content-background flex items-center gap-x-2 rounded-md border p-2'>
+                  <div key={key} className='flex items-center gap-x-2 rounded-md border bg-content-background p-2'>
                     {e.icon}
                     <div>
                       <p className='text-sm font-semibold'>{e.title}</p>
@@ -72,15 +72,15 @@ const Stacks = () => {
                   </div>
                 ))}
               </div>
-              <div className='bg-content-background mt-2 items-center gap-x-2 rounded-md border p-2'>
+              <div className='mt-2 items-center gap-x-2 rounded-md border bg-content-background p-2'>
                 <div>
                   <p className='text-md text-center font-semibold'>Languages and frameworks</p>
                   <div className='mt-3 flex items-center justify-center gap-x-4'>
-                    <FaReact size={35} />
-                    <FaVuejs size={35} />
-                    <RiTailwindCssFill size={35} />
-                    <BiLogoJavascript size={35} />
-                    <BiLogoTypescript size={35} />
+                    <FaReact size={30} />
+                    <FaVuejs size={30} />
+                    <RiTailwindCssFill size={30} />
+                    <BiLogoJavascript size={30} />
+                    <BiLogoTypescript size={30} />
                   </div>
                 </div>
               </div>

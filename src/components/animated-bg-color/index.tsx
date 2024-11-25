@@ -1,5 +1,6 @@
 import React from 'react'
 import { cn } from '@/lib'
+import './style.css'
 
 const AnimatedBgHero = ({
   className,

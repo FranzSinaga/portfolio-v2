@@ -1,22 +1,25 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:react-hooks/recommended"],
-  "plugins": ["react-hooks"],
-  "ignorePatterns": [],
+  "root": true,
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "react-hooks",
+    "react",
+    "react-refresh"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "ignorePatterns": [
+    ".eslintrc.json",
+    "tailwind.config.ts"
+  ],
   "rules": {
+    "react-refresh/only-export-components": "off",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "off"
   }
 }
-
-// {
-//   "root": true,
-//   "env": { "browser": true, "es2020": true },
-//   "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:react-hooks/recommended", "plugin:@tanstack/eslint-plugin-query/recommended", "prettier"],
-//   "ignorePatterns": ["dist", ".eslintrc.cjs"],
-//   "parser": "@typescript-eslint/parser",
-//   "plugins": ["react", "react-refresh"],
-//   "rules": {
-//     "react-refresh/only-export-components": "off",
-//     "react-hooks/exhaustive-deps": "off"
-//   }
-// }

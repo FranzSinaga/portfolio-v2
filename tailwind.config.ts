@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss'
 
-const defaultTheme = require('tailwindcss/defaultTheme')
-const colors = require('tailwindcss/colors')
+require('tailwindcss/defaultTheme')
+require('tailwindcss/colors')
 const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette')
 
 const config = {
@@ -11,11 +11,7 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',
-      screens: {
-        '2xl': '1400px',
-        '3xl': '2000px'
-      }
+      padding: '2rem'
     },
     extend: {
       fontFamily: {
@@ -57,6 +53,9 @@ const config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
         }
+      },
+      fontSize: {
+        xxs: '10px'
       },
       borderRadius: {
         lg: 'var(--radius)',

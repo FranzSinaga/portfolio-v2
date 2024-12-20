@@ -48,7 +48,7 @@ export default function Projects() {
   }, [])
 
   return (
-    <div className='mx-auto mb-12 mt-5 max-w-[1200px]'>
+    <div className='mx-auto my-5 max-w-[1200px]'>
       <BlurFade inView>
         <h3 className='font-mono font-bold'>{'Projects'}</h3>
       </BlurFade>

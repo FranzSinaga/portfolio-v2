@@ -11,7 +11,7 @@ export const metadata = {
 export default function ComponentUi() {
   const bgColorClassname = 'flex md:h-24 h-20 md:w-24 items-center justify-center border text-xs ring-4 rounded-md'
   return (
-    <div className='mt-4 mb-12 space-y-4 font-mono'>
+    <div className='mt-5 mb-12 space-y-4 font-mono mx-auto max-w-[1200px] '>
       {/* Buttons */}
       <StyleGuideContainer header={<h4>Buttons</h4>}>
         <div className='space-y-0.5'>

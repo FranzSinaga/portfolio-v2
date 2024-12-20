@@ -33,14 +33,14 @@ export default function ClientWrapper({
   return (
     <div className='flex'>
       {/* DESKTOP SIDEBAR MENU */}
-      <aside className='hidden w-[20dvw] bg-background p-5 font-mono transition-colors duration-500 lg:block'>
+      <aside id='desktop-sidebar' className='hidden w-[20dvw] bg-background p-5 font-mono transition-colors duration-500 lg:block'>
         <MenuList selectedTheme={selectedTheme ?? 'dark'} setSelectedTheme={setSelectedTheme} />
       </aside>
       {/* END DESKTOP SIDEBAR MENU */}
 
       <main className='w-full rounded-t-[20px] border-foreground bg-content-background lg:mr-5 lg:mt-5 lg:border-x-2 lg:border-t-2'>
         {/* MOBILE SHEET MENU */}
-        <div className='sticky top-0 z-10 flex items-center justify-between border-b-2 border-foreground bg-content-background lg:hidden'>
+        <div id='mobile-sidebar' className='sticky top-0 z-10 flex items-center justify-between border-b-2 border-foreground bg-content-background lg:hidden'>
           <Sheet open={isOpenSheet} onOpenChange={setIsOpenSheet}>
             <SheetTrigger asChild>
               <Button variant={'link'} className='ml-2 px-3 py-6 text-foreground'>

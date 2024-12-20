@@ -24,7 +24,7 @@ export const useTheme = () => {
     if (!IS_LOCAL)
       setTimeout(() => {
         setShowIntro(false)
-      }, 4000)
+      }, 2300)
     else setShowIntro(false)
   }, [selectedTheme, setSelectedTheme])
 

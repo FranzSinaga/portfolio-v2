@@ -75,7 +75,7 @@ const Stacks = () => {
               <div className='mt-2 items-center gap-x-2 rounded-md border bg-content-background p-2'>
                 <div>
                   <p className='text-md text-center font-semibold'>Languages and frameworks</p>
-                  <div className='mt-3 flex items-center justify-center gap-x-4'>
+                  <div className='mt-3 flex items-center justify-center gap-x-2'>
                     <FaReact size={30} />
                     <FaVuejs size={30} />
                     <RiTailwindCssFill size={30} />

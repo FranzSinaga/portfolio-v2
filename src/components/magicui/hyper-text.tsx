@@ -11,6 +11,7 @@ interface HyperTextProps {
   framerProps?: Variants
   className?: string
   animateOnLoad?: boolean
+  disableMouseEnter?: boolean
 }
 
 const alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ_'.split('')
@@ -26,7 +27,8 @@ export function HyperText({
     exit: { opacity: 0, y: 3 }
   },
   className,
-  animateOnLoad = true
+  animateOnLoad = true,
+  disableMouseEnter
 }: HyperTextProps) {
   const [displayText, setDisplayText] = useState(text.split(''))
   const [trigger, setTrigger] = useState(false)
@@ -61,11 +63,11 @@ export function HyperText({
   }, [text, duration, trigger, animateOnLoad])
 
   return (
-    <div className='flex scale-100 cursor-default overflow-hidden py-2' onMouseEnter={triggerAnimation}>
+    <div className='flex scale-100 cursor-default overflow-hidden py-2' onMouseEnter={disableMouseEnter ? undefined : triggerAnimation}>
       <AnimatePresence mode='wait'>
         {displayText.map((letter, i) => (
           <motion.h1 key={i} className={cn('font-mono', letter === ' ' ? 'w-3' : '', className)} {...framerProps}>
-            {letter.toUpperCase()}
+            {letter}
           </motion.h1>
         ))}
       </AnimatePresence>

@@ -5,13 +5,15 @@ import Image from 'next/image'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { MenuList } from '@/components/menu'
 import { Button } from '@/components/ui/button'
-import Intro from '@/components/intro'
 import LucideIcon from '@/components/lucide-icon'
 import { BottomSection } from '@/components/bottom-section'
 import { CommandMenu } from './command-menu'
 
 import { useTheme } from '@/hooks/use-theme'
 import { CommandMenuProvider } from '@/context/command-menu-context'
+import { HyperText } from '@/components/magicui/hyper-text'
+import GridPattern from '@/components/magicui/animated-grid-pattern'
+import { cn } from '@/lib'
 
 export default function ClientWrapper({
   children
@@ -24,9 +26,17 @@ export default function ClientWrapper({
   if (isLoading) return <></>
   if (showIntro)
     return (
-      <div className='mt-[40dvh] flex w-full flex-col items-center gap-y-2 overflow-hidden p-2 transition-colors duration-0'>
-        <Intro />
-        <p className='font-mono text-lg font-bold text-foreground'>Loading...</p>
+      <div className='relative min-h-[100dvh] w-full gap-y-2 overflow-hidden p-2 font-black text-foreground transition-colors duration-0'>
+        <div className='flex h-[calc(100dvh-20px)] flex-col items-center justify-center'>
+          <HyperText disableMouseEnter duration={1900} text='Welcome' />
+          <p className='font-mono text-lg font-bold text-foreground'>Loading...</p>
+        </div>
+        <GridPattern
+          numSquares={80}
+          maxOpacity={0.4}
+          duration={1}
+          className={cn('[mask-image:radial-gradient(450px_circle_at_center,white,transparent)]', 'inset-x-0 inset-y-[-50%] h-[200%] w-full skew-y-0')}
+        />
       </div>
     )
 

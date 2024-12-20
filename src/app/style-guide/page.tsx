@@ -42,8 +42,7 @@ export default function ComponentUi() {
         <StyleGuideContainer
           header={
             <div className='leading-tight'>
-              <h4>Custom Background Colors</h4>
-              <p className='text-xs font-normal'>Exclude color in tailwind css: </p>
+              <h4>Colors</h4>
             </div>
           }
         >
@@ -70,9 +69,9 @@ export default function ComponentUi() {
       {/* Fonts */}
       <StyleGuideContainer header={<h4>Typeface</h4>}>
         <div className='flex flex-wrap gap-x-5 gap-y-2'>
-          <h2 className='font-sans font-extrabold'>Geist Sans</h2>
-          <h2 className='font-mono font-extrabold'>Geist Mono</h2>
-          <h2 className='font-serif font-extrabold'>Cambria</h2>
+          <h2 className='font-sans font-semibold'>Geist Sans</h2>
+          <h2 className='font-mono font-semibold'>Geist Mono</h2>
+          <h2 className='font-serif font-semibold'>Cambria</h2>
         </div>
       </StyleGuideContainer>
 

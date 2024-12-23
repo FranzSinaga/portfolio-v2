@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function About() {
   return (
-    <div className='my-5 space-y-10'>
+    <div className='mt-5 space-y-10'>
       <div className='mx-auto max-w-[1200px] space-y-10'>
         <BlurFade inView>
           <AboutComponent />

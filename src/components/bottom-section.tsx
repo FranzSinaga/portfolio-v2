@@ -7,7 +7,7 @@ export const BottomSection = () => {
 
   return (
     <div className='relative w-full'>
-      <div className='bottom-0 w-full border-t-2 bg-content-background px-5 py-0.5 font-mono text-foreground lg:absolute'>
+      <div className='w-full border-t-2 bg-content-background px-5 py-0.5 font-mono text-foreground lg:absolute'>
         <div className='mx-auto flex max-w-[1200px] flex-col-reverse justify-between gap-y-1 lg:flex-row'>
           <div className='flex items-center justify-center gap-x-1.5'>
             <span className='relative flex h-3 w-3'>

@@ -22,7 +22,8 @@ export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme, onC
     <div className='flex h-[calc(100vh-2.5rem)] w-full flex-col justify-between'>
       <div className='space-y-10'>
         {/* <div className={cn('mt-4 p-2 text-2xl font-extrabold text-foreground')}>_franz</div> */}
-        <HyperText className='mt-4 p-2 text-2xl font-extrabold text-foreground' text='_FRANZ' />
+        <div className='w-full mt-4 flex justify-center'>
+          <HyperText className='text-2xl p-2 font-extrabold' text='_FRANZ' /></div>
         <div className='font-base text-sm'>
           <ul className='flex flex-col gap-y-2'>
             {MENUS_LIST.map(e => {

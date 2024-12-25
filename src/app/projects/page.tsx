@@ -41,12 +41,12 @@ const projectList = [
 
 export default function Projects() {
   return (
-    <div className='mx-auto my-5 max-w-[1200px]'>
+    <div className='mx-auto mt-5 max-w-[1200px]'>
       <BlurFade inView>
         <h3 className='font-mono font-bold'>{'Projects'}</h3>
       </BlurFade>
       {/* <DialogDetailProjects /> */}
-      <div className='mt-4 grid grid-cols-1 gap-3 md:mb-10 md:grid-cols-2 lg:grid-cols-3'>
+      <div className='mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3'>
         {projectList.map((e, idx) => (
           <BlurFade key={idx} delay={0.25 + idx * 0.05} inView>
             <div className='w-full lg:h-full'>

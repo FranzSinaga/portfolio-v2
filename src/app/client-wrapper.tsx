@@ -70,7 +70,7 @@ export default function ClientWrapper({
         </div>
         {/* END MOBILE SHEET MENU */}
 
-        <div className='custom-scrollbar mt-4 min-h-dvh w-full overflow-hidden overflow-x-hidden px-5 text-foreground lg:h-[calc(100dvh-38px)] lg:min-h-[calc(100dvh-38px)] lg:overflow-auto lg:overflow-x-hidden'>
+        <div className='custom-scrollbar mt-4 min-h-dvh w-full overflow-hidden overflow-x-hidden px-5 text-foreground lg:h-[calc(100dvh-74px)] lg:min-h-[calc(100dvh-74px)] lg:overflow-auto lg:overflow-x-hidden'>
           {children}
         </div>
         <CommandMenuProvider>

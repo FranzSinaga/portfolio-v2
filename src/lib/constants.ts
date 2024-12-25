@@ -12,7 +12,7 @@ export const MENUS_LIST: { name: Menus; link: string; icon?: iconType }[] = [
   { link: '/', name: 'Home', icon: 'Home' },
   { link: '/about', name: 'About', icon: 'UserRound' },
   { link: '/projects', name: 'Projects', icon: 'LaptopMinimal' },
-  { link: '/style-guide', name: 'Style Guide', icon: 'Brush' },
+  { link: '/style-guide', name: 'Style Guide', icon: 'Brush' }
   // { link: '/contact', name: 'Contact', icon: 'PhoneCall' }
 ]
 

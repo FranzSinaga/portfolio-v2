@@ -1,5 +1,5 @@
 import BlurFade from '@/components/magicui/blur-fade'
-import { DialogDetailProjects } from './details'
+// import { DialogDetailProjects } from './details'
 import { ProjectsCard } from './projects-card'
 
 export const metadata = {

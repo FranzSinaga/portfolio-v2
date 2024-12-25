@@ -1,22 +1,9 @@
 {
   "root": true,
-  "extends": [
-    "next/core-web-vitals",
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react-hooks/recommended",
-    "prettier"
-  ],
-  "plugins": [
-    "react-hooks",
-    "react",
-    "react-refresh"
-  ],
+  "extends": ["next/core-web-vitals", "eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:react-hooks/recommended", "prettier"],
+  "plugins": ["react-hooks", "react", "react-refresh"],
   "parser": "@typescript-eslint/parser",
-  "ignorePatterns": [
-    ".eslintrc.json",
-    "tailwind.config.ts"
-  ],
+  "ignorePatterns": [".eslintrc.json", "tailwind.config.ts"],
   "rules": {
     "react-refresh/only-export-components": "off",
     "react-hooks/rules-of-hooks": "error",

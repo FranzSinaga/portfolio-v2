@@ -14,7 +14,7 @@ export const DateTime = () => {
 
   return (
     <time className='hidden text-end md:block'>
-      <p className='font-semibold text-xs'>{dayjs(time).format('ddd YYYY-MM-DD HH:mm')}</p>
+      <p className='text-xs font-semibold'>{dayjs(time).format('ddd YYYY-MM-DD HH:mm')}</p>
     </time>
   )
 }

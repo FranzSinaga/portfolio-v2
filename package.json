@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format:check": "prettier --check --ignore-path .gitignore . --config .prettierrc",
+    "format:fix": "prettier --write --ignore-path .gitignore . --config .prettierrc"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.2",

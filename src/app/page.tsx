@@ -4,6 +4,10 @@ import { HyperText } from '@/components/magicui/hyper-text'
 import { SocialList } from '@/components/social'
 import { cn } from '@/lib'
 
+export const metadata = {
+  title: 'Franz | Home'
+}
+
 export default function Index() {
   return (
     <div className='relative flex h-dvh flex-col items-center justify-center overflow-hidden lg:h-full'>

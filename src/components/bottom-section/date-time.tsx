@@ -2,7 +2,7 @@
 import dayjs from 'dayjs'
 import { useEffect, useState } from 'react'
 
-export const DateTime = () => {
+const ShowDateTime = () => {
   const [time, setTime] = useState(new Date())
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -18,3 +18,5 @@ export const DateTime = () => {
     </time>
   )
 }
+
+export default ShowDateTime

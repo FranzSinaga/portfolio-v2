@@ -1,6 +1,6 @@
 import BlurFade from '@/components/magicui/blur-fade'
+import { ProjectCard } from './components'
 // import { DialogDetailProjects } from './details'
-import { ProjectsCard } from './projects-card'
 
 export const metadata = {
   title: 'Franz | Projects'
@@ -39,7 +39,7 @@ const projectList = [
   }
 ]
 
-export default function Projects() {
+const ProjectsPage = () => {
   return (
     <div className='mx-auto mt-5 max-w-[1200px]'>
       <BlurFade inView>
@@ -50,7 +50,7 @@ export default function Projects() {
         {projectList.map((e, idx) => (
           <BlurFade key={idx} delay={0.25 + idx * 0.05} inView>
             <div className='w-full lg:h-full'>
-              <ProjectsCard data={e} />
+              <ProjectCard data={e} />
             </div>
           </BlurFade>
         ))}
@@ -58,3 +58,5 @@ export default function Projects() {
     </div>
   )
 }
+
+export default ProjectsPage

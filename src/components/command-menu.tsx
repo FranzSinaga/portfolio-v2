@@ -9,7 +9,7 @@ import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, C
 import LucideIcon from '@/components/lucide-icon'
 import { useCommandMenuContext } from '@/context/command-menu-context'
 
-export function CommandMenu() {
+const CommandMenu = () => {
   const { push } = useRouter()
   const { setSelectedTheme, selectedTheme } = useTheme()
   const { isOpen: open, setIsOpen: setOpen } = useCommandMenuContext()
@@ -73,3 +73,5 @@ export function CommandMenu() {
     </>
   )
 }
+
+export default CommandMenu

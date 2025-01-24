@@ -3,23 +3,23 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { MenuList } from '@/components/menu'
 import { Button } from '@/components/ui/button'
+import MenuList from '@/components/menu'
 import LucideIcon from '@/components/lucide-icon'
-import { BottomSection } from '@/components/bottom-section'
-import { CommandMenu } from './command-menu'
+import BottomSection from '@/components/bottom-section'
 
 import { useTheme } from '@/hooks/use-theme'
 import { CommandMenuProvider } from '@/context/command-menu-context'
 import { HyperText } from '@/components/magicui/hyper-text'
 import GridPattern from '@/components/magicui/animated-grid-pattern'
 import { cn } from '@/lib'
+import CommandMenu from '../command-menu'
 
-export default function ClientWrapper({
+const PageWrapper = ({
   children
 }: Readonly<{
   children: React.ReactNode
-}>) {
+}>) => {
   const { isLoading, showIntro, selectedTheme, setSelectedTheme } = useTheme()
   const [isOpenSheet, setIsOpenSheet] = useState(false)
 
@@ -81,3 +81,5 @@ export default function ClientWrapper({
     </div>
   )
 }
+
+export default PageWrapper

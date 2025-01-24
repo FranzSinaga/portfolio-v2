@@ -2,8 +2,8 @@ import React from 'react'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 
-import { ScreenIndicator } from '@/components/screen-indicator'
-import ClientWrapper from './client-wrapper'
+import ScreenIndicator from '@/components/screen-indicator'
+import PageWrapper from '@/components/layout/page-wrapper'
 
 import { IS_LOCAL } from '@/lib/constants'
 import './globals.css'
@@ -27,7 +27,7 @@ export default function RootLayout({
     >
       <body>
         <div id='wrapper' className='bg-background transition-colors duration-500'>
-          <ClientWrapper>{children}</ClientWrapper>
+          <PageWrapper>{children}</PageWrapper>
         </div>
         {IS_LOCAL && <ScreenIndicator />}
       </body>

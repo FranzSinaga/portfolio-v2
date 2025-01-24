@@ -9,7 +9,7 @@ export const metadata = {
   title: 'Franz | Contact'
 }
 
-export default function Contact() {
+const ContactPage = () => {
   return (
     <AnimatedBgHero className='overflow -mx-10'>
       <div className='flex h-full flex-col justify-center gap-y-2 '>
@@ -44,3 +44,5 @@ export default function Contact() {
     </AnimatedBgHero>
   )
 }
+
+export default ContactPage

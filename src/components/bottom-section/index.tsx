@@ -1,8 +1,9 @@
 import { useCommandMenuContext } from '@/context/command-menu-context'
-import LucideIcon from './lucide-icon'
-import { DateTime } from './date-time'
 
-export const BottomSection = () => {
+import LucideIcon from '../lucide-icon'
+import ShowDateTime from './date-time'
+
+const BottomSection = () => {
   const { setIsOpen } = useCommandMenuContext()
 
   return (
@@ -32,7 +33,7 @@ export const BottomSection = () => {
               <p className='text-xs font-semibold'>master</p>
             </a>
             <div className='border-l pl-2'>
-              <DateTime />
+              <ShowDateTime />
             </div>
           </div>
         </div>
@@ -40,3 +41,5 @@ export const BottomSection = () => {
     </div>
   )
 }
+
+export default BottomSection

@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib'
 import { RiTailwindCssFill } from 'react-icons/ri'
-import { StyleGuideContainer } from './container'
+import { StyleGuideContainer } from './components/container'
 import { Timer } from 'lucide-react'
 
 export const metadata = {

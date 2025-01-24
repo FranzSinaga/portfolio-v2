@@ -16,7 +16,7 @@ interface Props {
   onClick?: () => void
 }
 
-export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme, onClick }) => {
+const MenuList = ({ selectedTheme, setSelectedTheme, onClick }: Props) => {
   const currentPath = usePathname()
   return (
     <div className='flex h-[calc(100vh-2.5rem)] w-full flex-col justify-between'>
@@ -73,3 +73,5 @@ export const MenuList: React.FC<Props> = ({ selectedTheme, setSelectedTheme, onC
     </div>
   )
 }
+
+export default MenuList

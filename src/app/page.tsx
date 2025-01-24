@@ -1,14 +1,14 @@
 import GridPattern from '@/components/magicui/animated-grid-pattern'
 import BlurFade from '@/components/magicui/blur-fade'
 import { HyperText } from '@/components/magicui/hyper-text'
-import { SocialList } from '@/components/social'
+import SocialList from '@/components/social'
 import { cn } from '@/lib'
 
 export const metadata = {
   title: 'Franz | Home'
 }
 
-export default function Index() {
+const Index = () => {
   return (
     <div className='relative flex h-dvh flex-col items-center justify-center overflow-hidden lg:h-full'>
       <div className='z-10 flex flex-col text-black dark:text-white'>
@@ -37,3 +37,5 @@ export default function Index() {
     </div>
   )
 }
+
+export default Index

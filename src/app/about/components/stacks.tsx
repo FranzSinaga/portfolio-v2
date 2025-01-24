@@ -38,7 +38,7 @@ const StacksCollection = [
   }
 ]
 
-const Stacks = () => {
+export const Stacks = () => {
   return (
     <>
       <div className='grid gap-x-4 md:grid-cols-2'>
@@ -91,5 +91,3 @@ const Stacks = () => {
     </>
   )
 }
-
-export default Stacks

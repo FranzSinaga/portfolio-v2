@@ -1,19 +1,16 @@
 import BlurFade from '@/components/magicui/blur-fade'
-import AboutComponent from './about'
-import Timeline from './timeline'
-import Stacks from './stacks'
-import Footer from './footer'
+import { AboutMe, Footer, Stacks, Timeline } from './components'
 
 export const metadata = {
   title: 'Franz | About'
 }
 
-export default function About() {
+const AboutPage = () => {
   return (
     <div className='mt-5 space-y-10'>
       <div className='mx-auto max-w-[1200px] space-y-10'>
         <BlurFade inView>
-          <AboutComponent />
+          <AboutMe />
         </BlurFade>
 
         <BlurFade inView>
@@ -36,3 +33,5 @@ export default function About() {
     </div>
   )
 }
+
+export default AboutPage

@@ -1,7 +1,7 @@
 import BlurFade from '@/components/magicui/blur-fade'
 import { Button } from '@/components/ui/button'
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <div className='-mx-5 flex flex-col items-center border-t'>
       <div className='mx-2 mb-10 max-w-[40rem] pt-16 text-center leading-tight text-foreground md:mx-auto lg:max-w-[55rem]'>
@@ -22,5 +22,3 @@ const Footer = () => {
     </div>
   )
 }
-
-export default Footer

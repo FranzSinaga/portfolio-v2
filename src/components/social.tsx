@@ -1,6 +1,6 @@
 import LucideIcon from './lucide-icon'
 
-export const SocialList = () => {
+const SocialList = () => {
   return (
     <div className='mt-5 flex flex-row flex-wrap items-center gap-[10px]'>
       <a
@@ -27,3 +27,5 @@ export const SocialList = () => {
     </div>
   )
 }
+
+export default SocialList

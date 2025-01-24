@@ -1,7 +1,7 @@
 import BlurFade from '@/components/magicui/blur-fade'
-import { SocialList } from '@/components/social'
+import SocialList from '@/components/social'
 
-const AboutComponent = () => {
+export const AboutMe = () => {
   return (
     <div className='rounded-lg border bg-content-background px-5 pb-5 pt-10 text-foreground md:px-10 '>
       <h1 className='hidden text-4xl'>About</h1>
@@ -19,5 +19,3 @@ const AboutComponent = () => {
     </div>
   )
 }
-
-export default AboutComponent

@@ -8,7 +8,7 @@ interface ProjectCardProps {
   data: { image: string; description: string; title: string; stacks: string[] }
 }
 
-export const ProjectsCard = ({ data }: ProjectCardProps) => {
+export const ProjectCard = ({ data }: ProjectCardProps) => {
   const theme = useReadLocalStorage<Theme>('theme')
   return (
     <MagicCard className={'cursor-pointer border border-foreground p-4 shadow-2xl'} gradientColor={theme === 'dark' ? '#293E6F' : 'lightgray'}>

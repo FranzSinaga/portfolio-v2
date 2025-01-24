@@ -2,7 +2,7 @@ import React from 'react'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 
-import { ScreenIndicator } from '@/components/signal-indicator'
+import { ScreenIndicator } from '@/components/screen-indicator'
 import ClientWrapper from './client-wrapper'
 
 import { IS_LOCAL } from '@/lib/constants'

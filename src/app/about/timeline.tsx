@@ -1,7 +1,7 @@
 'use client'
 
 import BlurFade from '@/components/magicui/blur-fade'
-import { Tabs } from '@/components/ui/tabs'
+import { Tabs } from '@/components/aceternity/tabs'
 
 export default function Timeline() {
   const tabClass = 'relative h-full w-full overflow-hidden rounded-2xl bg-content-background border p-10 text-foreground'

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
@@ -40,7 +40,7 @@ export const Tabs = ({
     <>
       <div
         className={cn(
-          'no-visible-scrollbar flex w-full max-w-full flex-row  items-center justify-start overflow-auto [perspective:1000px] sm:overflow-visible',
+          'no-visible-scrollbar relative flex w-full max-w-full flex-row items-center justify-start overflow-auto [perspective:1000px] sm:overflow-visible',
           containerClassName
         )}
       >
@@ -69,7 +69,7 @@ export const Tabs = ({
           </button>
         ))}
       </div>
-      <FadeInDiv tabs={tabs} active={active} key={active.value} hovering={hovering} className={cn('mt-16', contentClassName)} />
+      <FadeInDiv tabs={tabs} active={active} key={active.value} hovering={hovering} className={cn('mt-32', contentClassName)} />
     </>
   )
 }

@@ -10,7 +10,7 @@ export function DialogDetailProjects() {
       <DialogTrigger asChild>
         <Button variant='outline'>Share</Button>
       </DialogTrigger>
-      <DialogContent className='max-w-md lg:max-w-4xl'>
+      <DialogContent className='max-w-md lg:max-w-2xl'>
         <DialogHeader>
           <DialogTitle>Share link</DialogTitle>
           <DialogDescription>Anyone who has this link will be able to view this.</DialogDescription>

@@ -63,7 +63,7 @@ export function HyperText({
   }, [text, duration, trigger, animateOnLoad])
 
   return (
-    <div className='flex scale-100 cursor-default overflow-hidden py-2 text-foreground' onMouseEnter={disableMouseEnter ? undefined : triggerAnimation}>
+    <div className='text-foreground flex scale-100 cursor-default overflow-hidden py-2' onMouseEnter={disableMouseEnter ? undefined : triggerAnimation}>
       <AnimatePresence mode='wait'>
         {displayText.map((letter, i) => (
           <motion.h1 key={i} className={cn('font-mono', letter === ' ' ? 'w-3' : '', className)} {...framerProps}>

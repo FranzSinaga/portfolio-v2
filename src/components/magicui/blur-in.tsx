@@ -21,7 +21,7 @@ const BlurIn = ({ word, className, variant, duration = 0.5 }: BlurIntProps) => {
   const combinedVariants = variant || defaultVariants
 
   return (
-    <motion.h1 initial='hidden' animate='visible' transition={{ duration }} variants={combinedVariants} className={cn('drop-shadow-sm', className)}>
+    <motion.h1 initial='hidden' animate='visible' transition={{ duration }} variants={combinedVariants} className={cn('drop-shadow-xs', className)}>
       {word}
     </motion.h1>
   )

@@ -8,7 +8,7 @@ const BottomSection = () => {
 
   return (
     <div className='relative w-full'>
-      <div className='w-full border-t-2 bg-content-background px-5 py-0.5 font-mono text-foreground lg:absolute'>
+      <div className='bg-content-background text-foreground w-full border-t-2 px-5 py-0.5 font-mono lg:absolute'>
         <div className='mx-auto flex max-w-[1200px] flex-col-reverse justify-between gap-y-1 lg:flex-row'>
           <div className='flex items-center justify-center gap-x-1.5'>
             <span className='relative flex h-3 w-3'>
@@ -20,7 +20,7 @@ const BottomSection = () => {
 
           <div className='flex items-center justify-between gap-2'>
             {/* Command Menu */}
-            <div className='flex cursor-pointer items-center gap-1 rounded-md px-2 py-1 hover:bg-muted' onClick={() => setIsOpen(true)}>
+            <div className='hover:bg-muted flex cursor-pointer items-center gap-1 rounded-md px-2 py-1' onClick={() => setIsOpen(true)}>
               <p className='text-xs font-semibold'>Command menu</p>
               <span className='rounded-md border border-dashed p-1'>
                 <LucideIcon size={12} name='Command' />
@@ -28,7 +28,7 @@ const BottomSection = () => {
               <p className='flex items-center justify-center rounded-md border border-dashed px-1.5 py-0.5 text-xs'>K</p>
             </div>
 
-            <a target='_blank' href='https://github.com/FranzSinaga/portfolio-v2' className='flex cursor-pointer items-center gap-1.5 rounded-md px-3 py-1.5 hover:bg-muted'>
+            <a target='_blank' href='https://github.com/FranzSinaga/portfolio-v2' className='hover:bg-muted flex cursor-pointer items-center gap-1.5 rounded-md px-3 py-1.5'>
               <LucideIcon size={16} name='GitBranch' />
               <p className='text-xs font-semibold'>master</p>
             </a>

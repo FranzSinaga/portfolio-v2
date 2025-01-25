@@ -11,15 +11,15 @@ interface ProjectCardProps {
 export const ProjectCard = ({ data }: ProjectCardProps) => {
   const theme = useReadLocalStorage<Theme>('theme')
   return (
-    <MagicCard className={'cursor-pointer border border-foreground p-4 shadow-2xl'} gradientColor={theme === 'dark' ? '#293E6F' : 'lightgray'}>
+    <MagicCard className={'border-foreground cursor-pointer border p-4 shadow-2xl'} gradientColor={theme === 'dark' ? '#293E6F' : 'lightgray'}>
       <div className='space-y-1'>
-        <div className='relative aspect-[7/3] rounded-md border border-dotted'>
+        <div className='relative aspect-7/3 rounded-md border border-dotted'>
           <Image src={data.image} fill objectFit='cover' objectPosition='top' className='rounded-md' loading='lazy' alt={data.title} />
         </div>
         <h4 className='font-bold'>{data.title}</h4>
         <div className='flex flex-wrap gap-x-2'>
           {data.stacks.map((stack, index) => (
-            <p className='rounded-full bg-gray-300 px-2 py-0.5 font-mono text-xxs dark:bg-gray-500' key={index}>
+            <p className='text-xxs rounded-full bg-gray-300 px-2 py-0.5 font-mono dark:bg-gray-500' key={index}>
               {stack}
             </p>
           ))}

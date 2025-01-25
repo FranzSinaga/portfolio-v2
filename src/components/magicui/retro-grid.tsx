@@ -9,7 +9,7 @@ export default function RetroGrid({ className }: { className?: string }) {
           className={cn(
             'animate-grid',
 
-            '[background-repeat:repeat] [background-size:92px_92px] [height:400vh] [inset:0%_0px] [margin-left:-50%] [transform-origin:100%_0_0] [width:700vw]',
+            '[inset:0%_0px] [margin-left:-50%] [height:400vh] [width:700vw] [transform-origin:100%_0_0] [background-size:92px_92px] [background-repeat:repeat]',
 
             // Light Styles
             '[background-image:linear-gradient(to_right,rgba(0,0,0,0.3)_1px,transparent_0),linear-gradient(to_bottom,rgba(0,0,0,0.3)_1px,transparent_0)]',
@@ -21,7 +21,7 @@ export default function RetroGrid({ className }: { className?: string }) {
       </div>
 
       {/* Background Gradient */}
-      <div className='absolute inset-0 bg-gradient-to-t from-white to-transparent to-90% dark:from-black' />
+      <div className='absolute inset-0 bg-linear-to-t from-white to-transparent to-90% dark:from-black' />
     </div>
   )
 }

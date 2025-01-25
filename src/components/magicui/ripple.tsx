@@ -19,7 +19,7 @@ const Ripple = React.memo(function Ripple({ mainCircleSize = 210, mainCircleOpac
         return (
           <div
             key={i}
-            className={`absolute left-1/2 top-1/2 translate-x-1/2 translate-y-1/2 animate-ripple rounded-full border bg-foreground/25 shadow-xl [--i:${i}]`}
+            className={`animate-ripple bg-foreground/25 absolute top-1/2 left-1/2 translate-x-1/2 translate-y-1/2 rounded-full border shadow-xl [--i:${i}]`}
             style={
               {
                 width: `${size}px`,

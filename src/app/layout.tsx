@@ -20,11 +20,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang='en'
-      className={`${GeistSans.variable} ${GeistMono.variable}
-    `}
-    >
+    <html lang='en' className={`${GeistSans.variable} ${GeistMono.variable} `}>
       <body>
         <div id='wrapper' className='bg-background transition-colors duration-500'>
           <PageWrapper>{children}</PageWrapper>

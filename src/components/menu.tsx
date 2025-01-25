@@ -34,7 +34,7 @@ const MenuList = ({ selectedTheme, setSelectedTheme, onClick }: Props) => {
                   <li
                     onClick={() => onClick && onClick()}
                     className={cn(
-                      isActive ? 'border font-bold text-foreground' : 'text-muted-foreground hover:bg-muted',
+                      isActive ? 'text-foreground border font-bold' : 'text-muted-foreground hover:bg-muted',
                       'flex cursor-pointer items-center gap-x-2 rounded-md py-2 pl-3'
                     )}
                   >

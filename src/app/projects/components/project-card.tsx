@@ -10,8 +10,13 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ data }: ProjectCardProps) => {
   const theme = useReadLocalStorage<Theme>('theme')
+  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+
   return (
-    <MagicCard className={'border-foreground cursor-pointer border p-4 shadow-2xl'} gradientColor={theme === 'dark' ? '#293E6F' : 'lightgray'}>
+    <MagicCard
+      className={'border-foreground cursor-pointer border p-4 shadow-2xl'}
+      gradientColor={theme === 'system' && systemTheme === 'dark' ? '#293E6F' : theme === 'dark' ? '#293E6F' : 'lightgray'}
+    >
       <div className='space-y-1'>
         <div className='relative aspect-7/3 rounded-md border border-dotted'>
           <Image src={data.image} fill objectFit='cover' objectPosition='top' className='rounded-md' loading='lazy' alt={data.title} />

@@ -4,7 +4,8 @@ import { icons } from 'lucide-react'
 type iconType = keyof typeof icons
 export const THEMES_LIST: { name: string; icon: iconType; value: Theme }[] = [
   { name: 'Dark', icon: 'MoonStar', value: 'dark' },
-  { name: 'Light', icon: 'Sun', value: 'light' }
+  { name: 'Light', icon: 'Sun', value: 'light' },
+  { name: 'System', icon: 'Cog', value: 'system' }
 ]
 
 type Menus = 'Home' | 'About' | 'Projects' | 'Style Guide' | 'Contact'

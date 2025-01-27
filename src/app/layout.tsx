@@ -21,8 +21,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className={`${GeistSans.variable} ${GeistMono.variable} `}>
-      <body>
-        <div id='wrapper' className='bg-background transition-colors duration-500'>
+      <body className='bg-background transition-colors duration-500'>
+        <div id='wrapper'>
           <PageWrapper>{children}</PageWrapper>
         </div>
         {IS_LOCAL && <ScreenIndicator />}

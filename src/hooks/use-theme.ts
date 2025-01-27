@@ -1,26 +1,22 @@
-import { IS_LOCAL } from '@/lib/constants'
+import { IS_LOCAL, THEMES_LIST } from '@/lib/constants'
 import { Theme } from '@/types/theme.type'
 import { useEffect, useState } from 'react'
 import { useLocalStorage } from 'usehooks-ts'
 
-const themeList: Theme[] = ['dark', 'light']
-
-// TODO: Change this code using localStorage in future
 export const useTheme = () => {
   const [selectedTheme, setSelectedTheme] = useLocalStorage<null | Theme>('theme', null)
   const [isLoading, setIsLoading] = useState(true)
   const [showIntro, setShowIntro] = useState(true)
 
   useEffect(() => {
-    const body = document.documentElement
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    if (!selectedTheme) setSelectedTheme(systemTheme)
 
-    if (selectedTheme) {
-      body.classList.remove(...themeList)
-      body.classList.add(selectedTheme)
-    } else {
-      setSelectedTheme('dark')
-      body.classList.add('dark')
-    }
+    THEMES_LIST.forEach(theme => {
+      if (selectedTheme === 'system') document.documentElement.classList.toggle('dark', systemTheme === 'dark')
+      else document.documentElement.classList.toggle(theme.value, selectedTheme === theme.value)
+    })
+
     setIsLoading(false)
 
     if (!IS_LOCAL)

@@ -7,6 +7,29 @@ export const Timeline = () => {
   const tabClass = 'relative h-full w-full overflow-hidden rounded-2xl bg-content-background border p-10 text-foreground'
   const tabs = [
     {
+      title: 'MSIG',
+      value: 'msig',
+      content: (
+        <div className={tabClass}>
+          <BlurFade inView delay={0.2}>
+            <p className='text-xl font-bold md:text-2xl'>MSIG Indonesia</p>
+            <p className='text-foreground mb-2'>
+              <strong className='font-bold'>Frontend Developer</strong> | February 2023 - Present
+            </p>
+          </BlurFade>
+          <BlurFade inView delay={0.4}>
+            <ul className='text-foreground mt-5 list-disc space-y-2 text-left md:ml-5'>
+              <li>
+                Developed the POLARIS web application using React JS, Tailwind CSS, shadcn/ui components, and TypeScript to optimize fast performance and responsive websites.
+              </li>
+              <li>Implemented Zustand for state management to streamline data handling within the web application.</li>
+              <li>Applied a clean, organized code structure to enhance collaboration and maintainability.</li>
+            </ul>
+          </BlurFade>
+        </div>
+      )
+    },
+    {
       title: 'BRI',
       value: 'bri',
       content: (

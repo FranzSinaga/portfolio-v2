@@ -1,18 +1,19 @@
+import LucideIcon from '@/components/lucide-icon'
+
 import AnimatedBgHero from '@/components/animated-bg-color'
 import BlurFade from '@/components/magicui/blur-fade'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { Send } from 'lucide-react'
 
 export const metadata = {
   title: 'Franz | Contact'
 }
 
-export default function Contact() {
+const ContactPage = () => {
   return (
     <AnimatedBgHero className='overflow -mx-10'>
-      <div className='flex h-full flex-col justify-center gap-y-2 '>
+      <div className='flex h-full flex-col justify-center gap-y-2'>
         <div className='flex w-full flex-col items-center gap-y-3'>
           <div className='space-y-2 p-4 md:w-[550px]'>
             <div className='space-y-4 text-left'>
@@ -35,7 +36,7 @@ export default function Contact() {
             </BlurFade>
             <BlurFade delay={0.6} className='flex w-full justify-end'>
               <Button variant={'outline'} className='space-x-1'>
-                <Send size={15} /> <p>Send Message</p>
+                <LucideIcon size={15} name='Send' /> <p>Send Message</p>
               </Button>
             </BlurFade>
           </div>
@@ -44,3 +45,5 @@ export default function Contact() {
     </AnimatedBgHero>
   )
 }
+
+export default ContactPage

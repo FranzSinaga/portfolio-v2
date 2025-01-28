@@ -1,9 +1,10 @@
-import BlurFade from '@/components/magicui/blur-fade'
 import { Figma, Triangle } from 'lucide-react'
 import { BiLogoJavascript, BiLogoTypescript } from 'react-icons/bi'
 import { FaDiscord, FaGitAlt, FaReact, FaVuejs } from 'react-icons/fa'
 import { RiNotionFill, RiTailwindCssFill } from 'react-icons/ri'
 import { VscVscode } from 'react-icons/vsc'
+
+import BlurFade from '@/components/magicui/blur-fade'
 
 const StacksCollection = [
   {
@@ -38,24 +39,24 @@ const StacksCollection = [
   }
 ]
 
-const Stacks = () => {
+export const Stacks = () => {
   return (
     <>
       <div className='grid gap-x-4 md:grid-cols-2'>
         <div className='rounded-[10px] border md:mt-5'>
-          <div className='p-5 text-foreground'>
+          <div className='text-foreground p-5'>
             <BlurFade inView delay={0.2}>
               <h4 className='font-bold'>Setup</h4>
               <p className='font-light'>I Spend here most of time</p>
             </BlurFade>
             <BlurFade inView delay={0.4}>
-              <div className='mt-5 aspect-[7/3] min-w-full animate-pulse rounded-md bg-gray-300'></div>
+              <div className='mt-5 aspect-7/3 min-w-full animate-pulse rounded-md bg-gray-300'></div>
             </BlurFade>
           </div>
         </div>
 
         <div className='mt-5 rounded-[10px] border'>
-          <div className='p-5 text-foreground'>
+          <div className='text-foreground p-5'>
             <BlurFade inView delay={0.2}>
               <h4 className='font-bold'>Stacks</h4>
               <p className='font-light'>Things i use all the time</p>
@@ -63,7 +64,7 @@ const Stacks = () => {
             <BlurFade inView delay={0.4}>
               <div className='mt-5 grid grid-cols-2 gap-2'>
                 {StacksCollection.map((e, key) => (
-                  <div key={key} className='flex items-center gap-x-2 rounded-md border bg-content-background p-2'>
+                  <div key={key} className='bg-content-background flex items-center gap-x-2 rounded-md border p-2'>
                     {e.icon}
                     <div>
                       <p className='text-sm font-semibold'>{e.title}</p>
@@ -72,7 +73,7 @@ const Stacks = () => {
                   </div>
                 ))}
               </div>
-              <div className='mt-2 items-center gap-x-2 rounded-md border bg-content-background p-2'>
+              <div className='bg-content-background mt-2 items-center gap-x-2 rounded-md border p-2'>
                 <div>
                   <p className='text-md text-center font-semibold'>Languages and frameworks</p>
                   <div className='mt-3 flex items-center justify-center gap-x-2'>
@@ -91,5 +92,3 @@ const Stacks = () => {
     </>
   )
 }
-
-export default Stacks

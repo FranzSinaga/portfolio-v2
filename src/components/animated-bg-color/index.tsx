@@ -16,7 +16,7 @@ const AnimatedBgHero = ({
         <div className={`features_gradient features_gradient-2 bg-[#a7b0c9] dark:bg-[#293E6F]`}></div>
         <div className={`features_gradient features_gradient-3 bg-[#a7b0c9] dark:bg-[#293E6F]`}></div>
       </div>
-      <div className='text- container z-10 mx-auto'>{children}</div>
+      <div className='text- z-10 container mx-auto'>{children}</div>
     </section>
   )
 }

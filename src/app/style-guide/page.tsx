@@ -1,17 +1,18 @@
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib'
 import { RiTailwindCssFill } from 'react-icons/ri'
-import { StyleGuideContainer } from './container'
-import { Timer } from 'lucide-react'
+import { cn } from '@/lib'
+
+import { Button } from '@/components/ui/button'
+import LucideIcon from '@/components/lucide-icon'
+import { StyleGuideContainer } from './components/container'
 
 export const metadata = {
   title: 'Franz | Style Guide'
 }
 
-export default function ComponentUi() {
+const StyleGuidePage = () => {
   const bgColorClassname = 'flex md:h-24 h-20 md:w-24 items-center justify-center border text-xs ring-4 rounded-md'
   return (
-    <div className='mx-auto mb-12 mt-5 max-w-[1200px] space-y-4 font-mono '>
+    <div className='mx-auto mt-5 max-w-[1200px] space-y-4 font-mono'>
       <div className='grid gap-4 lg:grid-cols-2'>
         {/* Buttons */}
         <StyleGuideContainer header={<h4>Buttons</h4>}>
@@ -32,7 +33,7 @@ export default function ComponentUi() {
               <Button size={'default'}>Default</Button>
               <Button size={'sm'}>small</Button>
               <Button size={'icon'}>
-                <Timer />
+                <LucideIcon name='Timer' />
               </Button>
             </div>
           </div>
@@ -120,11 +121,11 @@ export default function ComponentUi() {
 
         <StyleGuideContainer header={<h4>Font Weights</h4>}>
           <div className='space-y-3'>
-            <div className='flex  flex-row justify-between border-b py-2'>
+            <div className='flex flex-row justify-between border-b py-2'>
               <h4 className='font-extrabold'>Extrabold</h4>
               <h4 className='font-extrabold'>800</h4>
             </div>
-            <div className='flex  flex-row justify-between border-b py-2'>
+            <div className='flex flex-row justify-between border-b py-2'>
               <h4 className='font-bold'>Bold</h4>
               <h4 className='font-bold'>700</h4>
             </div>
@@ -154,3 +155,5 @@ export default function ComponentUi() {
     </div>
   )
 }
+
+export default StyleGuidePage

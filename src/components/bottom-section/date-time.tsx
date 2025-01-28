@@ -1,8 +1,8 @@
 'use client'
-import dayjs from 'dayjs'
 import { useEffect, useState } from 'react'
+import dayjs from 'dayjs'
 
-export const DateTime = () => {
+const ShowDateTime = () => {
   const [time, setTime] = useState(new Date())
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -14,7 +14,9 @@ export const DateTime = () => {
 
   return (
     <time className='hidden text-end md:block'>
-      <p className='font-semibold text-xs'>{dayjs(time).format('ddd YYYY-MM-DD HH:mm')}</p>
+      <p className='text-xs font-semibold'>{dayjs(time).format('ddd YYYY-MM-DD HH:mm')}</p>
     </time>
   )
 }
+
+export default ShowDateTime

@@ -1,11 +1,9 @@
-'use client'
-import { useReadLocalStorage } from 'usehooks-ts'
 import BlurFade from '@/components/magicui/blur-fade'
-import { MagicCard } from '@/components/magicui/magic-card'
+import { ProjectCard } from './components'
 
-import { Theme } from '@/types/theme.type'
-import Image from 'next/image'
-import { useEffect } from 'react'
+export const metadata = {
+  title: 'Franz | Projects'
+}
 
 const projectList = [
   {
@@ -40,39 +38,17 @@ const projectList = [
   }
 ]
 
-export default function Projects() {
-  const theme = useReadLocalStorage<Theme>('theme')
-
-  useEffect(() => {
-    document.title = 'Franz | Projects'
-  }, [])
-
+const ProjectsPage = () => {
   return (
-    <div className='mx-auto my-5 max-w-[1200px]'>
+    <div className='mx-auto mt-5 max-w-[1200px]'>
       <BlurFade inView>
         <h3 className='font-mono font-bold'>{'Projects'}</h3>
       </BlurFade>
-      {/* <DialogDetailProjects /> */}
-      <div className='mt-4 grid grid-cols-1 gap-3 md:mb-10 md:grid-cols-2 lg:grid-cols-3'>
+      <div className='mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3'>
         {projectList.map((e, idx) => (
           <BlurFade key={idx} delay={0.25 + idx * 0.05} inView>
             <div className='w-full lg:h-full'>
-              <MagicCard className={'cursor-pointer border border-foreground p-4 shadow-2xl'} gradientColor={theme === 'dark' ? '#293E6F' : 'lightgray'}>
-                <div className='space-y-1'>
-                  <div className='relative aspect-[7/3] rounded-md border border-dotted'>
-                    <Image src={e.image} fill objectFit='cover' objectPosition='top' className='rounded-md' loading='lazy' alt={e.title} />
-                  </div>
-                  <h4 className='font-bold'>{e.title}</h4>
-                  <div className='flex flex-wrap gap-x-2'>
-                    {e.stacks.map((stack, index) => (
-                      <p className='rounded-full bg-gray-300 px-2 py-0.5 font-mono text-xxs dark:bg-gray-500' key={index}>
-                        {stack}
-                      </p>
-                    ))}
-                  </div>
-                  <p className='text-sm font-light'>{e.description}</p>
-                </div>
-              </MagicCard>
+              <ProjectCard data={e} />
             </div>
           </BlurFade>
         ))}
@@ -80,3 +56,5 @@ export default function Projects() {
     </div>
   )
 }
+
+export default ProjectsPage

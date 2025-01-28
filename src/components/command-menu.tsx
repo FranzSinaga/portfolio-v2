@@ -27,50 +27,48 @@ const CommandMenu = () => {
   }, [])
 
   return (
-    <>
-      <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder='Type a command or search...' />
-        <CommandList className='custom-scrollbar'>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <CommandSeparator />
-          <CommandGroup heading='Menus'>
-            {MENUS_LIST.map(e => {
+    <CommandDialog open={open} onOpenChange={setOpen}>
+      <CommandInput placeholder='Type a command or search...' />
+      <CommandList className='custom-scrollbar'>
+        <CommandEmpty>No results found.</CommandEmpty>
+        <CommandSeparator />
+        <CommandGroup heading='Menus'>
+          {MENUS_LIST.map(e => {
+            return (
+              <CommandItem
+                key={e.link}
+                onSelect={() => {
+                  console.log(e.link)
+                  push(e.link)
+                  setOpen(false)
+                }}
+              >
+                <LucideIcon name={e?.icon ?? 'Menu'} size={16} />
+                {e.name}
+              </CommandItem>
+            )
+          })}
+        </CommandGroup>
+        <CommandGroup heading='Themes'>
+          {THEMES_LIST.map(e => {
+            if (e.value !== selectedTheme) {
               return (
                 <CommandItem
-                  key={e.link}
+                  key={e.value}
                   onSelect={() => {
-                    console.log(e.link)
-                    push(e.link)
+                    setSelectedTheme(e.value)
                     setOpen(false)
                   }}
                 >
-                  <LucideIcon name={e?.icon ?? 'Menu'} size={16} />
-                  {e.name}
+                  <LucideIcon name={e.icon} size={18} />
+                  <span>{e.name}</span>
                 </CommandItem>
               )
-            })}
-          </CommandGroup>
-          <CommandGroup heading='Themes'>
-            {THEMES_LIST.map(e => {
-              if (e.value !== selectedTheme) {
-                return (
-                  <CommandItem
-                    key={e.value}
-                    onSelect={() => {
-                      setSelectedTheme(e.value)
-                      setOpen(false)
-                    }}
-                  >
-                    <LucideIcon name={e.icon} size={18} />
-                    <span>{e.name} Mode</span>
-                  </CommandItem>
-                )
-              }
-            })}
-          </CommandGroup>
-        </CommandList>
-      </CommandDialog>
-    </>
+            }
+          })}
+        </CommandGroup>
+      </CommandList>
+    </CommandDialog>
   )
 }
 

@@ -1,6 +1,5 @@
 import BlurFade from '@/components/magicui/blur-fade'
 import { ProjectCard } from './components'
-// import { DialogDetailProjects } from './details'
 
 export const metadata = {
   title: 'Franz | Projects'
@@ -45,7 +44,6 @@ const ProjectsPage = () => {
       <BlurFade inView>
         <h3 className='font-mono font-bold'>{'Projects'}</h3>
       </BlurFade>
-      {/* <DialogDetailProjects /> */}
       <div className='mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3'>
         {projectList.map((e, idx) => (
           <BlurFade key={idx} delay={0.25 + idx * 0.05} inView>

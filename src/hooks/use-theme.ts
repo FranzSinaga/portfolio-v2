@@ -10,7 +10,7 @@ export const useTheme = () => {
 
   useEffect(() => {
     const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-    if (!selectedTheme) setSelectedTheme(systemTheme)
+    if (!selectedTheme) setSelectedTheme('system')
 
     THEMES_LIST.forEach(theme => {
       if (selectedTheme === 'system') document.documentElement.classList.toggle('dark', systemTheme === 'dark')

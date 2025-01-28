@@ -7,9 +7,9 @@ const BottomSection = () => {
   const { setIsOpen } = useCommandMenuContext()
 
   return (
-    <div className='relative w-full'>
+    <div className='relative hidden w-full lg:block'>
       <div className='bg-content-background text-foreground w-full border-t-2 px-5 py-0.5 font-mono lg:absolute'>
-        <div className='mx-auto flex max-w-[1200px] flex-col-reverse justify-between gap-y-1 lg:flex-row'>
+        <div className='mt-1 flex max-w-[1200px] flex-col-reverse items-center justify-between gap-y-1 lg:flex-row'>
           <div className='flex items-center justify-center gap-x-1.5'>
             <span className='relative flex h-3 w-3'>
               <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75'></span>
@@ -20,16 +20,20 @@ const BottomSection = () => {
 
           <div className='flex items-center justify-between gap-2'>
             {/* Command Menu */}
-            <div className='hover:bg-muted flex cursor-pointer items-center gap-1 rounded-md px-2 py-1' onClick={() => setIsOpen(true)}>
-              <p className='text-xs font-semibold'>Command menu</p>
-              <span className='rounded-md border border-dashed p-1'>
-                <LucideIcon size={12} name='Command' />
+            <div className='hover:bg-accent flex cursor-pointer items-center gap-2 rounded-md border px-2 py-1' onClick={() => setIsOpen(true)}>
+              <span className='flex items-center gap-x-1'>
+                <LucideIcon size={12} name='Search' />
+                <p className='text-xs font-semibold'>Search</p>
               </span>
-              <p className='flex items-center justify-center rounded-md border border-dashed px-1.5 py-0.5 text-xs'>K</p>
+              <span className='flex items-center gap-x-1'>
+                <LucideIcon size={12} name='Command' />
+                <p className='text-xs'>+</p>
+                <p className='flex items-center justify-center rounded-md text-xs'>K</p>
+              </span>
             </div>
 
-            <a target='_blank' href='https://github.com/FranzSinaga/portfolio-v2' className='hover:bg-muted flex cursor-pointer items-center gap-1.5 rounded-md px-3 py-1.5'>
-              <LucideIcon size={16} name='GitBranch' />
+            <a target='_blank' href='https://github.com/FranzSinaga/portfolio-v2' className='hover:bg-accent flex cursor-pointer items-center gap-1.5 rounded-md border px-2 py-1'>
+              <LucideIcon size={12} name='GitBranch' />
               <p className='text-xs font-semibold'>master</p>
             </a>
             <div className='border-l pl-2'>

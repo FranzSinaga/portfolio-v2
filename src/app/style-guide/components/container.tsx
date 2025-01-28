@@ -1,5 +1,5 @@
-import BlurFade from '@/components/magicui/blur-fade'
 import React from 'react'
+import BlurFade from '@/components/magicui/blur-fade'
 
 interface Props {
   header: React.ReactNode

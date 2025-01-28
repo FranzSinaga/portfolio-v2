@@ -4,10 +4,10 @@ import { useRouter } from 'next/navigation'
 
 import { MENUS_LIST, THEMES_LIST } from '@/lib'
 import { useTheme } from '@/hooks/use-theme'
+import { useCommandMenuContext } from '@/context/command-menu-context'
 
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/components/ui/command'
 import LucideIcon from '@/components/lucide-icon'
-import { useCommandMenuContext } from '@/context/command-menu-context'
 
 const CommandMenu = () => {
   const { push } = useRouter()

@@ -1,14 +1,14 @@
 'use client'
 import React from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { MENUS_LIST, THEMES_LIST, cn } from '@/lib'
 
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { usePathname } from 'next/navigation'
-
-import { Theme } from '@/types/theme.type'
 import LucideIcon from './lucide-icon'
 import { HyperText } from './magicui/hyper-text'
+
+import { Theme } from '@/types/theme.type'
 
 interface Props {
   selectedTheme: string

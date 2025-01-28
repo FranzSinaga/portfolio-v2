@@ -1,5 +1,4 @@
 'use client'
-
 import BlurFade from '@/components/magicui/blur-fade'
 import { Tabs } from '@/components/aceternity/tabs'
 

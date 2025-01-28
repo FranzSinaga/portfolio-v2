@@ -1,10 +1,9 @@
 'use client'
 import { useReadLocalStorage } from 'usehooks-ts'
 import Particles from '@/components/magicui/particles'
-
 import { Theme } from '@/types/theme.type'
 
-export default function Index() {
+const GlobalNotFound = () => {
   const selectedTheme = useReadLocalStorage<Theme>('theme')
   return (
     <div className='relative flex h-full flex-col items-center justify-center overflow-hidden'>
@@ -16,3 +15,5 @@ export default function Index() {
     </div>
   )
 }
+
+export default GlobalNotFound

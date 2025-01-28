@@ -2,6 +2,7 @@ import { useCommandMenuContext } from '@/context/command-menu-context'
 
 import LucideIcon from '../lucide-icon'
 import ShowDateTime from './date-time'
+import { getOS } from '@/lib'
 
 const BottomSection = () => {
   const { setIsOpen } = useCommandMenuContext()
@@ -20,15 +21,15 @@ const BottomSection = () => {
 
           <div className='flex items-center justify-between gap-2'>
             {/* Command Menu */}
-            <div className='hover:bg-accent flex cursor-pointer items-center gap-2 rounded-md border px-2 py-1' onClick={() => setIsOpen(true)}>
+            <div className='hover:bg-accent flex cursor-pointer items-center gap-4 rounded-md border px-2 py-1' onClick={() => setIsOpen(true)}>
               <span className='flex items-center gap-x-1'>
                 <LucideIcon size={12} name='Search' />
                 <p className='text-xs font-semibold'>Search</p>
               </span>
-              <span className='flex items-center gap-x-1'>
-                <LucideIcon size={12} name='Command' />
+              <span className='flex items-center gap-x-1 font-extralight'>
+                <Shortcut />
                 <p className='text-xs'>+</p>
-                <p className='flex items-center justify-center rounded-md text-xs'>K</p>
+                <p className='text-xs'>K</p>
               </span>
             </div>
 
@@ -44,6 +45,13 @@ const BottomSection = () => {
       </div>
     </div>
   )
+}
+
+const Shortcut = () => {
+  const os = getOS()
+
+  if (os === 'MacOS') return <LucideIcon size={12} name='Command' />
+  return <p className='text-xs'>Ctrl</p>
 }
 
 export default BottomSection

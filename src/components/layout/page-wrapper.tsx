@@ -2,17 +2,17 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 
+import { cn } from '@/lib'
+import { useTheme } from '@/hooks/use-theme'
+import { CommandMenuProvider } from '@/context/command-menu-context'
+
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
 import MenuList from '@/components/menu'
 import LucideIcon from '@/components/lucide-icon'
 import BottomSection from '@/components/bottom-section'
-
-import { useTheme } from '@/hooks/use-theme'
-import { CommandMenuProvider } from '@/context/command-menu-context'
 import { HyperText } from '@/components/magicui/hyper-text'
 import GridPattern from '@/components/magicui/animated-grid-pattern'
-import { cn } from '@/lib'
 import CommandMenu from '../command-menu'
 
 const PageWrapper = ({

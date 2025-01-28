@@ -1,9 +1,10 @@
-import BlurFade from '@/components/magicui/blur-fade'
 import { Figma, Triangle } from 'lucide-react'
 import { BiLogoJavascript, BiLogoTypescript } from 'react-icons/bi'
 import { FaDiscord, FaGitAlt, FaReact, FaVuejs } from 'react-icons/fa'
 import { RiNotionFill, RiTailwindCssFill } from 'react-icons/ri'
 import { VscVscode } from 'react-icons/vsc'
+
+import BlurFade from '@/components/magicui/blur-fade'
 
 const StacksCollection = [
   {

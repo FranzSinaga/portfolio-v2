@@ -14,7 +14,7 @@ const AboutPage = () => {
         </BlurFade>
 
         <BlurFade inView>
-          <h2 className='font-mono font-bold'>{'Work Experience'}</h2>
+          <h3 className='font-mono font-bold'>Work Experience</h3>
           <BlurFade inView delay={0.2}>
             <div className='flex flex-row flex-wrap'>
               <Timeline />

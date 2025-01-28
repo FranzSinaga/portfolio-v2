@@ -1,9 +1,10 @@
+import LucideIcon from '@/components/lucide-icon'
+
 import AnimatedBgHero from '@/components/animated-bg-color'
 import BlurFade from '@/components/magicui/blur-fade'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { Send } from 'lucide-react'
 
 export const metadata = {
   title: 'Franz | Contact'
@@ -35,7 +36,7 @@ const ContactPage = () => {
             </BlurFade>
             <BlurFade delay={0.6} className='flex w-full justify-end'>
               <Button variant={'outline'} className='space-x-1'>
-                <Send size={15} /> <p>Send Message</p>
+                <LucideIcon size={15} name='Send' /> <p>Send Message</p>
               </Button>
             </BlurFade>
           </div>

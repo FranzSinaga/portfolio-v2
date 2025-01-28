@@ -1,14 +1,15 @@
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib'
 import { RiTailwindCssFill } from 'react-icons/ri'
+import { cn } from '@/lib'
+
+import { Button } from '@/components/ui/button'
+import LucideIcon from '@/components/lucide-icon'
 import { StyleGuideContainer } from './components/container'
-import { Timer } from 'lucide-react'
 
 export const metadata = {
   title: 'Franz | Style Guide'
 }
 
-export default function ComponentUi() {
+const StyleGuidePage = () => {
   const bgColorClassname = 'flex md:h-24 h-20 md:w-24 items-center justify-center border text-xs ring-4 rounded-md'
   return (
     <div className='mx-auto mt-5 max-w-[1200px] space-y-4 font-mono'>
@@ -32,7 +33,7 @@ export default function ComponentUi() {
               <Button size={'default'}>Default</Button>
               <Button size={'sm'}>small</Button>
               <Button size={'icon'}>
-                <Timer />
+                <LucideIcon name='Timer' />
               </Button>
             </div>
           </div>
@@ -154,3 +155,5 @@ export default function ComponentUi() {
     </div>
   )
 }
+
+export default StyleGuidePage

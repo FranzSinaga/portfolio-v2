@@ -1,8 +1,10 @@
 'use client'
-import { useReadLocalStorage } from 'usehooks-ts'
 import Image from 'next/image'
-import { Theme } from '@/types/theme.type'
+import { useReadLocalStorage } from 'usehooks-ts'
+
 import { MagicCard } from '@/components/magicui/magic-card'
+
+import { Theme } from '@/types/theme.type'
 
 interface ProjectCardProps {
   data: { image: string; description: string; title: string; stacks: string[] }

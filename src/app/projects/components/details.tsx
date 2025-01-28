@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Copy } from 'lucide-react'
 
-export function DialogDetailProjects() {
+export const DialogDetailProjects = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>

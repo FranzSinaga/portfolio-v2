@@ -3,6 +3,9 @@
 import React, { useRef } from 'react'
 import { AnimatePresence, motion, useInView, Variants } from 'framer-motion'
 
+type MarginValue = `${number}${'px' | '%'}`
+type MarginType = MarginValue | `${MarginValue} ${MarginValue}` | `${MarginValue} ${MarginValue} ${MarginValue}` | `${MarginValue} ${MarginValue} ${MarginValue} ${MarginValue}`
+
 interface BlurFadeProps {
   children: React.ReactNode
   className?: string
@@ -14,7 +17,7 @@ interface BlurFadeProps {
   delay?: number
   yOffset?: number
   inView?: boolean
-  inViewMargin?: string
+  inViewMargin?: MarginType | undefined
   blur?: string
 }
 

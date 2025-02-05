@@ -8,7 +8,7 @@ import { CommandMenuProvider } from '@/context/command-menu-context'
 
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
-import MenuList from '@/components/menu'
+import MenuList from '@/components/layout/menu'
 import LucideIcon from '@/components/lucide-icon'
 import BottomSection from '@/components/bottom-section'
 import { HyperText } from '@/components/magicui/hyper-text'

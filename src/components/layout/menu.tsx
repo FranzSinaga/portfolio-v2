@@ -5,8 +5,8 @@ import { usePathname } from 'next/navigation'
 import { MENUS_LIST, THEMES_LIST, cn } from '@/lib'
 
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
-import LucideIcon from './lucide-icon'
-import { HyperText } from './magicui/hyper-text'
+import LucideIcon from '../lucide-icon'
+import { HyperText } from '../magicui/hyper-text'
 
 import { Theme } from '@/types/theme.type'
 

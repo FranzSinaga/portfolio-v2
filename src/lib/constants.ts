@@ -10,7 +10,7 @@ export const THEMES_LIST: { name: string; icon: iconType; value: Theme }[] = [
 
 type Menus = 'Home' | 'About' | 'Projects' | 'Style Guide' | 'Contact'
 export const MENUS_LIST: { name: Menus; link: string; icon?: iconType }[] = [
-  { link: '/', name: 'Home', icon: 'Home' },
+  { link: '/', name: 'Home', icon: 'House' },
   { link: '/about', name: 'About', icon: 'UserRound' },
   { link: '/projects', name: 'Projects', icon: 'LaptopMinimal' },
   { link: '/style-guide', name: 'Style Guide', icon: 'Brush' }

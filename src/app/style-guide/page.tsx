@@ -10,12 +10,21 @@ export const metadata = {
 }
 
 const StyleGuidePage = () => {
-  const bgColorClassname = 'flex md:h-24 h-20 md:w-24 items-center justify-center border text-xs ring-4 rounded-md'
+  const bgColorClassname = 'flex md:h-24 h-20 md:w-24 items-center text-center justify-center border text-xs ring-4 rounded-md'
   return (
     <div className='mx-auto mt-5 max-w-[1200px] space-y-4 font-mono'>
+      {/* Fonts */}
+      <StyleGuideContainer header={'Typeface'}>
+        <div className='flex flex-wrap gap-x-5 gap-y-2'>
+          <h2 className='font-sans font-semibold'>Geist Sans</h2>
+          <h2 className='font-mono font-semibold'>Geist Mono</h2>
+          <h2 className='font-serif font-semibold'>Cambria</h2>
+        </div>
+      </StyleGuideContainer>
+
       <div className='grid gap-4 lg:grid-cols-2'>
         {/* Buttons */}
-        <StyleGuideContainer header={<h4>Buttons</h4>}>
+        <StyleGuideContainer header='Buttons'>
           <div className='space-y-0.5'>
             <p>Button Types</p>
             <div className='flex flex-wrap gap-2'>
@@ -40,15 +49,10 @@ const StyleGuidePage = () => {
         </StyleGuideContainer>
 
         {/* Background Colors, Border, Ring */}
-        <StyleGuideContainer
-          header={
-            <div className='leading-tight'>
-              <h4>Colors</h4>
-            </div>
-          }
-        >
+        <StyleGuideContainer header='Colors'>
           <>
             <div className='grid grid-cols-3 flex-wrap gap-4 md:flex'>
+              <div className={cn(bgColorClassname, 'bg-content-background text-foreground')}>content-background</div>
               <div className={cn(bgColorClassname, 'bg-background text-foreground')}>background</div>
               <div className={cn(bgColorClassname, 'bg-foreground text-background')}>foreground</div>
               <div className={cn(bgColorClassname, 'bg-primary text-primary-foreground')}>primary</div>
@@ -59,7 +63,7 @@ const StyleGuidePage = () => {
               <div className={cn(bgColorClassname, 'bg-card text-card-foreground')}>card</div>
               <div className={cn(bgColorClassname, 'bg-popover text-popover-foreground')}>popover</div>
             </div>
-            <a href='https://tailwindcss.com/docs/customizing-colors' className='mt-4 flex items-center gap-2 text-sm hover:underline' target='_blank'>
+            <a href='https://tailwindcss.com/docs/customizing-colors' className='mt-4 flex w-max items-center gap-2 text-sm hover:underline' target='_blank'>
               <RiTailwindCssFill />
               Go to Tailwind Colors {'->'}
             </a>
@@ -67,18 +71,9 @@ const StyleGuidePage = () => {
         </StyleGuideContainer>
       </div>
 
-      {/* Fonts */}
-      <StyleGuideContainer header={<h4>Typeface</h4>}>
-        <div className='flex flex-wrap gap-x-5 gap-y-2'>
-          <h2 className='font-sans font-semibold'>Geist Sans</h2>
-          <h2 className='font-mono font-semibold'>Geist Mono</h2>
-          <h2 className='font-serif font-semibold'>Cambria</h2>
-        </div>
-      </StyleGuideContainer>
-
       {/* Font Sizes */}
       <div className='grid gap-4 lg:grid-cols-2'>
-        <StyleGuideContainer header={<h4>Font Sizes</h4>}>
+        <StyleGuideContainer header='Font Sizes'>
           <div className='space-y-3'>
             <div className='flex flex-col justify-between border-b py-2 md:flex-row'>
               <h1>Heading 1</h1>
@@ -119,7 +114,7 @@ const StyleGuidePage = () => {
           </div>
         </StyleGuideContainer>
 
-        <StyleGuideContainer header={<h4>Font Weights</h4>}>
+        <StyleGuideContainer header='Font Weights'>
           <div className='space-y-3'>
             <div className='flex flex-row justify-between border-b py-2'>
               <h4 className='font-extrabold'>Extrabold</h4>

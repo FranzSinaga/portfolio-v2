@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useRef } from 'react'
-import { AnimatePresence, motion, useInView, Variants } from 'framer-motion'
+import { AnimatePresence, motion, useInView, Variants } from 'motion/react'
 
 type MarginValue = `${number}${'px' | '%'}`
 type MarginType = MarginValue | `${MarginValue} ${MarginValue}` | `${MarginValue} ${MarginValue} ${MarginValue}` | `${MarginValue} ${MarginValue} ${MarginValue} ${MarginValue}`

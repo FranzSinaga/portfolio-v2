@@ -4,9 +4,9 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { MENUS_LIST, THEMES_LIST, cn } from '@/lib'
 
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
 import LucideIcon from '../lucide-icon'
 import { HyperText } from '../magicui/hyper-text'
+import { CustomsSelects } from '../draft-ui/select'
 
 import { Theme } from '@/types/theme.type'
 
@@ -50,24 +50,21 @@ const MenuList = ({ selectedTheme, setSelectedTheme, onClick }: Props) => {
 
       <div>
         {selectedTheme && (
-          <Select value={selectedTheme} onValueChange={(value: Theme) => setSelectedTheme(value)}>
-            <SelectTrigger className='w-full'>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectLabel className='font-mono'>Select Theme</SelectLabel>
-                {THEMES_LIST.map(e => (
-                  <SelectItem key={e.value} value={e.value} className='font-mono'>
-                    <span className='flex items-center justify-between'>
-                      <LucideIcon name={e.icon} size={18} />
-                      <span className='pl-2 text-xs'>{e.name}</span>
-                    </span>
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
+          <CustomsSelects<Theme>
+            value={selectedTheme}
+            list={THEMES_LIST.map(e => {
+              return {
+                value: e.value,
+                label: (
+                  <span className='flex items-center gap-x-2 text-xs'>
+                    <LucideIcon name={e.icon} size={18} />
+                    {e.name}
+                  </span>
+                )
+              }
+            })}
+            onSelect={(value: Theme) => setSelectedTheme(value)}
+          />
         )}
       </div>
     </div>

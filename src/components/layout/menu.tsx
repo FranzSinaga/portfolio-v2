@@ -48,25 +48,23 @@ const MenuList = ({ selectedTheme, setSelectedTheme, onClick }: Props) => {
         </div>
       </div>
 
-      <div>
-        {selectedTheme && (
-          <CustomsSelects<Theme>
-            value={selectedTheme}
-            list={THEMES_LIST.map(e => {
-              return {
-                value: e.value,
-                label: (
-                  <span className='flex items-center gap-x-2 text-xs'>
-                    <LucideIcon name={e.icon} size={18} />
-                    {e.name}
-                  </span>
-                )
-              }
-            })}
-            onSelect={(value: Theme) => setSelectedTheme(value)}
-          />
-        )}
-      </div>
+      {selectedTheme && (
+        <CustomsSelects<Theme>
+          value={selectedTheme}
+          list={THEMES_LIST.map(e => {
+            return {
+              value: e.value,
+              label: (
+                <span className='flex items-center gap-x-2 text-xs'>
+                  <LucideIcon name={e.icon} size={18} />
+                  {e.name}
+                </span>
+              )
+            }
+          })}
+          onSelect={(value: Theme) => setSelectedTheme(value)}
+        />
+      )}
     </div>
   )
 }

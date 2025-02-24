@@ -3,10 +3,10 @@ import * as React from 'react'
 import { useRouter } from 'next/navigation'
 
 import { MENUS_LIST, THEMES_LIST } from '@/lib'
-import { useTheme } from '@/hooks/use-theme'
 import { useCommandMenuContext } from '@/context/command-menu-context'
 
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/components/ui/command'
+import { useTheme } from '@/hooks'
 import LucideIcon from '@/components/lucide-icon'
 
 const CommandMenu = () => {
@@ -16,7 +16,7 @@ const CommandMenu = () => {
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+      if (e.key === 'j' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault()
         if (!open) setOpen(true)
       }
@@ -36,6 +36,7 @@ const CommandMenu = () => {
           {MENUS_LIST.map(e => {
             return (
               <CommandItem
+                value={e.link}
                 key={e.link}
                 onSelect={() => {
                   console.log(e.link)
@@ -54,6 +55,7 @@ const CommandMenu = () => {
             if (e.value !== selectedTheme) {
               return (
                 <CommandItem
+                  value={e.value}
                   key={e.value}
                   onSelect={() => {
                     setSelectedTheme(e.value)

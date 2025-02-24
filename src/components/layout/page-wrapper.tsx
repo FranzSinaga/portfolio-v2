@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 
 import { cn } from '@/lib'
-import { useTheme } from '@/hooks/use-theme'
+import { useTheme } from '@/hooks'
 import { CommandMenuProvider } from '@/context/command-menu-context'
 
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
@@ -13,7 +13,7 @@ import LucideIcon from '@/components/lucide-icon'
 import BottomSection from '@/components/bottom-section'
 import { HyperText } from '@/components/magicui/hyper-text'
 import GridPattern from '@/components/magicui/animated-grid-pattern'
-import CommandMenu from '../command-menu'
+import { CommandMenu } from '../draft-ui/command-menu'
 
 const PageWrapper = ({
   children

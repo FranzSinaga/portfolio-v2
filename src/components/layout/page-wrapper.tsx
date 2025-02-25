@@ -6,14 +6,13 @@ import { cn } from '@/lib'
 import { useTheme } from '@/hooks'
 import { CommandMenuProvider } from '@/context/command-menu-context'
 
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { Button } from '@/components/ui/button'
 import MenuList from '@/components/layout/menu'
 import LucideIcon from '@/components/lucide-icon'
 import BottomSection from '@/components/bottom-section'
 import { HyperText } from '@/components/magicui/hyper-text'
 import GridPattern from '@/components/magicui/animated-grid-pattern'
 import { CommandMenu } from '../draft-ui/command-menu'
+import { MobileSidebar } from '../draft-ui/mobile-sidebar'
 
 const PageWrapper = ({
   children
@@ -42,6 +41,12 @@ const PageWrapper = ({
 
   return (
     <div className='flex'>
+      <MobileSidebar
+        open={isOpenSheet}
+        onOpenChange={e => {
+          setIsOpenSheet(e)
+        }}
+      />
       {/* DESKTOP SIDEBAR MENU */}
       <aside id='desktop-sidebar' className='bg-background hidden w-[20dvw] p-5 font-mono transition-colors duration-500 lg:block'>
         <MenuList selectedTheme={selectedTheme ?? 'dark'} setSelectedTheme={setSelectedTheme} />
@@ -50,23 +55,11 @@ const PageWrapper = ({
 
       <main className='border-foreground bg-content-background w-full rounded-t-[20px] lg:mt-5 lg:mr-5 lg:border-x-2 lg:border-t-2'>
         {/* MOBILE SHEET MENU */}
-        <div id='mobile-sidebar' className='border-foreground bg-content-background sticky top-0 z-10 flex items-center justify-between border-b-2 lg:hidden'>
-          <Sheet open={isOpenSheet} onOpenChange={setIsOpenSheet}>
-            <SheetTrigger asChild>
-              <Button variant={'link'} className='text-foreground ml-2 px-3 py-6'>
-                <LucideIcon name='Menu' />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side={'left'} className='bg-gray-200 font-mono dark:bg-[#1c1c1c]'>
-              <MenuList selectedTheme={selectedTheme ?? 'dark'} setSelectedTheme={setSelectedTheme} onClick={() => setIsOpenSheet(false)} />
-            </SheetContent>
-          </Sheet>
-          <div className=''>
-            <Image src={selectedTheme === 'dark' ? '/logo-white.png' : '/logo-black.png'} width={25} height={25} alt='icons' />
-          </div>
-          <Button variant={'link'} className='text-foreground invisible mr-2 px-3 py-6'>
-            <LucideIcon name='Menu' />
-          </Button>
+        <div id='mobile-sidebar' className='border-foreground/50 bg-content-background sticky top-0 z-10 flex items-center justify-between border-b-2 shadow lg:hidden'>
+          <LucideIcon name='Menu' size={45} onClick={() => setIsOpenSheet(true)} className='text-foreground mr-2 cursor-pointer px-3' />
+
+          <Image src={selectedTheme === 'light' ? '/logo-black.png' : '/logo-white.png'} width={25} height={25} alt='icons' />
+          <LucideIcon name='Smile' size={45} className='text-foreground mr-2 px-3' />
         </div>
         {/* END MOBILE SHEET MENU */}
 

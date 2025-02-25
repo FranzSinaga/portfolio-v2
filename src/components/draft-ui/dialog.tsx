@@ -1,8 +1,8 @@
 'use client'
+import React from 'react'
 import { AnimatePresence, motion } from 'motion/react'
+import { useHandleOpen } from '@/hooks'
 import LucideIcon from '../lucide-icon'
-import useHandleOpen from '@/hooks/use-handle-open'
-import { useEffect } from 'react'
 
 interface DialogProps {
   open: boolean
@@ -12,8 +12,8 @@ interface DialogProps {
 export const Dialog = ({ open, onOpenChange }: DialogProps) => {
   const { isOpen, setIsOpen, ref } = useHandleOpen<HTMLDivElement>(open)
 
-  useEffect(() => setIsOpen(open), [open])
-  useEffect(() => onOpenChange(isOpen), [isOpen])
+  React.useEffect(() => setIsOpen(open), [open])
+  React.useEffect(() => onOpenChange(isOpen), [isOpen])
 
   return (
     <>

@@ -1,13 +1,14 @@
 'use client'
 import React from 'react'
 import { AnimatePresence, motion } from 'motion/react'
-import LucideIcon from '../lucide-icon'
-import useHandleOpen from '@/hooks/use-handle-open'
-import { MENUS_LIST, THEMES_LIST } from '@/lib'
-import { useTheme } from '@/hooks'
 import { Command } from 'cmdk'
 import { useRouter } from 'next/navigation'
+
 import { useCommandMenuContext } from '@/context/command-menu-context'
+import { useTheme, useHandleOpen } from '@/hooks'
+import { MENUS_LIST, THEMES_LIST } from '@/lib'
+
+import LucideIcon from '../lucide-icon'
 
 export const CommandMenu = () => {
   const { push } = useRouter()
@@ -56,12 +57,16 @@ export const CommandMenu = () => {
                 className='border-foreground bg-content-background w-lg rounded-md border py-2'
               >
                 {/* Title */}
-                <Command label='Command Menu'>
+                <Command label='Command Menu' loop shouldFilter>
                   {/* Search Input */}
                   <div className='flex items-center justify-between border-b'>
                     <div className='flex items-center justify-center gap-x-2 px-4 pb-2'>
                       <LucideIcon name='Search' size={15} />
-                      <Command.Input className='placeholder:text-foreground/50 w-full border-none bg-transparent font-mono text-base outline-none' placeholder='Search...' />
+                      <Command.Input
+                        autoFocus
+                        className='placeholder:text-foreground/50 w-full border-none bg-transparent font-mono text-base outline-none'
+                        placeholder='Search...'
+                      />
                     </div>
                     <LucideIcon name='X' size={25} className='text-foreground hover:bg-accent mr-2 rounded-sm p-1 hover:cursor-pointer' onClick={() => setOpen(false)} />
                   </div>
@@ -69,13 +74,21 @@ export const CommandMenu = () => {
                   {/* Content */}
                   <div className='custom-scrollbar max-h-[40dvh] overflow-auto'>
                     <Command.List className='mt-3 px-2 font-mono'>
-                      <Command.Empty className='py-20 text-center'>No results found.</Command.Empty>
+                      <Command.Empty className='py-20 text-center'>
+                        <p className='flex items-center justify-center gap-x-2 text-center'>
+                          <span>
+                            <LucideIcon name='FileX' />
+                          </span>
+                          No results found.
+                        </p>
+                      </Command.Empty>
 
                       <Command.Group>
                         <GroupHeading heading='Menus' />
                         {MENUS_LIST.map(e => {
                           return (
                             <Command.Item
+                              value={e.link}
                               key={e.link}
                               onSelect={() => {
                                 push(e.link)
@@ -98,6 +111,7 @@ export const CommandMenu = () => {
                           if (e.value !== selectedTheme) {
                             return (
                               <Command.Item
+                                value={e.value}
                                 key={e.value}
                                 onSelect={() => {
                                   setSelectedTheme(e.value)

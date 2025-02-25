@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-function useHandleOpen<T extends HTMLElement>(initialState = false) {
+export function useHandleOpen<T extends HTMLElement>(initialState = false) {
   const [isOpen, setIsOpen] = useState(initialState)
   const ref = useRef<T | null>(null)
 
@@ -33,5 +33,3 @@ function useHandleOpen<T extends HTMLElement>(initialState = false) {
 
   return { isOpen, setIsOpen, ref }
 }
-
-export default useHandleOpen

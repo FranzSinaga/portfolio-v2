@@ -1,6 +1,7 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 import { cn } from '@/lib'
 import { useTheme } from '@/hooks'
@@ -11,16 +12,24 @@ import LucideIcon from '@/components/lucide-icon'
 import BottomSection from '@/components/bottom-section'
 import { HyperText } from '@/components/magicui/hyper-text'
 import GridPattern from '@/components/magicui/animated-grid-pattern'
-import { CommandMenu } from '../draft-ui/command-menu'
-import { MobileSidebar } from '../draft-ui/mobile-sidebar'
+import { CommandMenu } from '@/components/draft-ui/command-menu'
+import { MobileSidebar } from '@/components/draft-ui/mobile-sidebar'
 
 const PageWrapper = ({
   children
 }: Readonly<{
   children: React.ReactNode
 }>) => {
+  const pathname = usePathname()
   const { isLoading, showIntro, selectedTheme, setSelectedTheme } = useTheme()
-  const [isOpenSheet, setIsOpenSheet] = useState(false)
+  const [isOpenSheet, setIsOpenSheet] = React.useState(false)
+
+  const mainRef = React.useRef<HTMLDivElement | null>(null)
+
+  React.useEffect(() => {
+    console.log('Page changed to:', pathname)
+    if (mainRef.current) mainRef.current.scrollTop = 0
+  }, [pathname])
 
   if (isLoading) return <></>
   if (showIntro)
@@ -63,7 +72,10 @@ const PageWrapper = ({
         </div>
         {/* END MOBILE SHEET MENU */}
 
-        <div className='custom-scrollbar text-foreground mt-4 min-h-dvh w-full overflow-hidden overflow-x-hidden px-5 pb-5 lg:h-[calc(100dvh-74px)] lg:min-h-[calc(100dvh-74px)] lg:overflow-auto lg:overflow-x-hidden'>
+        <div
+          ref={mainRef}
+          className='custom-scrollbar text-foreground mt-4 min-h-dvh w-full overflow-hidden overflow-x-hidden px-5 pb-5 lg:h-[calc(100dvh-74px)] lg:min-h-[calc(100dvh-74px)] lg:overflow-auto lg:overflow-x-hidden'
+        >
           {children}
         </div>
         <CommandMenuProvider>

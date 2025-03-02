@@ -14,8 +14,8 @@ export const MENUS_LIST: { name: Menus; link: string; icon?: iconType }[] = [
   { link: '/about', name: 'About', icon: 'UserRound' },
   { link: '/projects', name: 'Projects', icon: 'LaptopMinimal' },
   { link: '/style-guide', name: 'Style Guide', icon: 'Brush' },
-  { link: '/playground', name: 'Playground', icon: 'Album' }
-  // { link: '/contact', name: 'Contact', icon: 'PhoneCall' }
+  { link: '/playground', name: 'Playground', icon: 'Album' },
+  { link: '/contact', name: 'Contact', icon: 'PhoneCall' }
 ]
 
 export const IS_LOCAL = process.env.NODE_ENV !== 'production'

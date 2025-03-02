@@ -17,9 +17,17 @@ export const CommandMenu = () => {
 
   const { isOpen, setIsOpen, ref } = useHandleOpen<HTMLDivElement>(open)
   const { setSelectedTheme, selectedTheme } = useTheme()
+  const listRef = React.useRef<HTMLDivElement | null>(null)
 
-  React.useEffect(() => setIsOpen(open), [open])
   React.useEffect(() => setOpen(isOpen), [isOpen])
+  React.useEffect(() => {
+    setIsOpen(open)
+    setTimeout(() => {
+      if (open && listRef.current) {
+        listRef.current.scrollTop = 0
+      }
+    }, 100)
+  }, [open])
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
@@ -65,7 +73,7 @@ export const CommandMenu = () => {
                   </div>
 
                   {/* Content */}
-                  <CommandList>
+                  <CommandList ref={listRef}>
                     <CommandEmpty>No results found.</CommandEmpty>
                     <CommandGroup heading='Menus'>
                       {MENUS_LIST.map(e => {

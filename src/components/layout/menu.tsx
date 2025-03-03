@@ -6,7 +6,7 @@ import { MENUS_LIST, THEMES_LIST, cn } from '@/lib'
 
 import LucideIcon from '../lucide-icon'
 import { HyperText } from '../magicui/hyper-text'
-import { CustomsSelects } from '../draft-ui/select'
+import { Select } from '../ui/select'
 
 import { Theme } from '@/types/theme.type'
 
@@ -49,7 +49,7 @@ const MenuList = ({ selectedTheme, setSelectedTheme, onClick }: Props) => {
       </div>
 
       {selectedTheme && (
-        <CustomsSelects<Theme>
+        <Select<Theme>
           value={selectedTheme}
           list={THEMES_LIST.map(e => {
             return {

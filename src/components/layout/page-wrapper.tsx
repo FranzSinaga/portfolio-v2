@@ -12,8 +12,8 @@ import LucideIcon from '@/components/lucide-icon'
 import BottomSection from '@/components/bottom-section'
 import { HyperText } from '@/components/magicui/hyper-text'
 import GridPattern from '@/components/magicui/animated-grid-pattern'
-import { CommandMenu } from '@/components/draft-ui/command-menu'
-import { MobileSidebar } from '@/components/draft-ui/mobile-sidebar'
+import { CommandMenu } from '@/components/command-menu'
+import { MobileSidebar } from '@/components/mobile-sidebar'
 
 const PageWrapper = ({
   children

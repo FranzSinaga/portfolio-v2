@@ -1,5 +1,5 @@
 'use client'
-import { Dialog } from '@/components/draft-ui/dialog'
+import { Dialog } from '@/components/ui/dialog'
 import { useState } from 'react'
 
 export const DialogDetailProjects = () => {

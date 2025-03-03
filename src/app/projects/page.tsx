@@ -14,9 +14,9 @@ const projectList = [
   },
   {
     image: '/projects/portfolio-v2.png',
-    description: 'Portfolio website version 2 was created using shadcn/ui, Magic UI and Aceternity UI components',
+    description: 'Portfolio website version 2 was created using Next.js, Tailwind CSS and motion',
     title: 'Portfolio V2',
-    stacks: ['Next.js', 'Tailwind CSS']
+    stacks: ['Next.js', 'Tailwind CSS', 'motion']
   },
   {
     image: '/projects/project-covid.jpg',
@@ -41,9 +41,9 @@ const projectList = [
 const ProjectsPage = () => {
   return (
     <div className='mx-auto mt-5 max-w-[1200px]'>
-      <BlurFade inView>
+      {/* <BlurFade inView>
         <h3 className='font-mono font-bold'>{'Projects'}</h3>
-      </BlurFade>
+      </BlurFade> */}
       <div className='mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3'>
         {projectList.map((e, idx) => (
           <BlurFade key={idx} delay={0.25 + idx * 0.05} inView>

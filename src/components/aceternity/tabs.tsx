@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { cn } from '@/lib/utils'
 
 type Tab = {
@@ -61,11 +61,11 @@ export const Tabs = ({
               <motion.div
                 layoutId='clickedbutton'
                 transition={{ type: 'spring', bounce: 0.3, duration: 0.6 }}
-                className={cn('absolute inset-0 rounded-full bg-gray-200 dark:bg-zinc-800', activeTabClassName)}
+                className={cn('bg-accent absolute inset-0 rounded-full', activeTabClassName)}
               />
             )}
 
-            <span className='relative block text-black dark:text-white'>{tab.title}</span>
+            <span className='text-accent-foreground relative block'>{tab.title}</span>
           </button>
         ))}
       </div>

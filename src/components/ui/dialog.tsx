@@ -1,74 +1,78 @@
 'use client'
+import React from 'react'
+import { AnimatePresence, motion } from 'motion/react'
+import { useHandleOpen } from '@/hooks'
+import LucideIcon from '../lucide-icon'
 
-import * as React from 'react'
-import * as DialogPrimitive from '@radix-ui/react-dialog'
-import { X } from 'lucide-react'
+interface DialogProps {
+  open: boolean
+  onOpenChange: (value: boolean) => void
+}
 
-import { cn } from '@/lib/utils'
+export const Dialog = ({ open, onOpenChange }: DialogProps) => {
+  const { isOpen, setIsOpen, ref } = useHandleOpen<HTMLDivElement>(open)
 
-const Dialog = DialogPrimitive.Root
+  React.useEffect(() => setIsOpen(open), [open])
+  React.useEffect(() => onOpenChange(isOpen), [isOpen])
 
-const DialogTrigger = DialogPrimitive.Trigger
+  return (
+    <>
+      <AnimatePresence initial={false}>
+        {open && isOpen ? (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} key='box' className='fixed top-0 right-0 z-50 h-dvh w-dvw backdrop-blur-xs'>
+            <div className='flex h-full items-center justify-center'>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0 }}
+                transition={{
+                  duration: 0.4,
+                  scale: { visualDuration: 0.4 }
+                }}
+                ref={ref}
+                className='border-foreground bg-content-background max-w-2xl rounded-md border py-2'
+              >
+                {/* Title */}
+                <div className='flex w-full items-center justify-between border-b px-4 pb-2'>
+                  <div className='flex flex-col -space-y-1'>
+                    <h4>Title</h4>
+                    <p className='text-foreground/80 text-xs'>Subtitle Here and here</p>
+                  </div>
+                  <LucideIcon name='X' size={25} className='text-foreground hover:bg-accent rounded-sm p-1 hover:cursor-pointer' onClick={() => onOpenChange(false)} />
+                </div>
 
-const DialogPortal = DialogPrimitive.Portal
+                {/* Content */}
+                <div className='custom-scrollbar max-h-[60dvh] overflow-auto p-4'>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis tempus augue. In eu enim fringilla augue luctus pretium vel vitae sapien. Mauris suscipit
+                    risus congue sodales placerat. Donec lacinia lectus nec libero aliquet, et imperdiet ipsum lacinia. Nunc fermentum finibus lacinia. Aenean mattis nibh a lacinia
+                    cursus. Nulla id lacus volutpat, vulputate diam a, tempus ipsum. Morbi efficitur a orci ac vestibulum. In hac habitasse platea dictumst. Duis nec convallis dui.
+                    Aenean consectetur massa sed nulla ornare mollis. Sed ac eros molestie, iaculis lorem ut, mattis mi. Etiam blandit diam iaculis mi lacinia laoreet. Aliquam
+                    tincidunt, lacus non molestie finibus, libero eros congue sapien, sit amet elementum dui magna vel urna. Aenean nunc nibh, mollis pretium ornare sit amet, Lorem
+                    ipsum dolor sit amet, consectetur adipiscing elit. Sed quis tempus augue. In eu enim fringilla augue luctus pretium vel vitae sapien. Mauris suscipit risus
+                    congue sodales placerat. Donec lacinia lectus nec libero aliquet, et imperdiet ipsum lacinia. Nunc fermentum finibus lacinia. Aenean mattis nibh a lacinia
+                    cursus. Nulla id lacus volutpat, vulputate diam a, tempus ipsum. Morbi efficitur a orci ac vestibulum. In hac habitasse platea dictumst. Duis nec convallis dui.
+                    Aenean consectetur massa sed nulla ornare mollis. Sed ac eros molestie, iaculis lorem ut, mattis mi. Etiam blandit diam iaculis mi lacinia laoreet. Aliquam
+                    tincidunt, lacus non molestie finibus, libero eros congue sapien, sit amet elementum dui magna vel urna. Aenean nunc nibh, mollis pretium ornare sit amet, Lorem
+                    ipsum dolor sit amet, consectetur adipiscing elit. Sed quis tempus augue. In eu enim fringilla augue luctus pretium vel vitae sapien. Mauris suscipit risus
+                    congue sodales placerat. Donec lacinia lectus nec libero aliquet, et imperdiet ipsum lacinia. Nunc fermentum finibus lacinia. Aenean mattis nibh a lacinia
+                    cursus. Nulla id lacus volutpat, vulputate diam a, tempus ipsum. Morbi efficitur a orci ac vestibulum. In hac habitasse platea dictumst. Duis nec convallis dui.
+                    Aenean consectetur massa sed nulla ornare mollis. Sed ac eros molestie, iaculis lorem ut, mattis mi. Etiam blandit diam iaculis mi lacinia laoreet. Aliquam
+                    tincidunt, lacus non molestie finibus, libero eros congue sapien, sit amet elementum dui magna vel urna. Aenean nunc nibh, mollis pretium ornare sit amet,
+                  </p>
+                </div>
 
-const DialogClose = DialogPrimitive.Close
-
-const DialogOverlay = React.forwardRef<React.ElementRef<typeof DialogPrimitive.Overlay>, React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>>(
-  ({ className, ...props }, ref) => (
-    <DialogPrimitive.Overlay
-      ref={ref}
-      className={cn(
-        'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/80',
-        className
-      )}
-      {...props}
-    />
+                {/* Footer */}
+                <div className='flex items-center justify-end px-4 pt-2'>
+                  <button className='bg-primary text-primary-foreground hover:bg-primary/80 cursor-pointer rounded-sm p-2 text-sm' onClick={() => onOpenChange(false)}>
+                    Close
+                  </button>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+    </>
   )
-)
-DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
-
-const DialogContent = React.forwardRef<React.ElementRef<typeof DialogPrimitive.Content>, React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>>(
-  ({ className, children, ...props }, ref) => (
-    <DialogPortal>
-      <DialogOverlay />
-      <DialogPrimitive.Content
-        ref={ref}
-        className={cn(
-          'bg-popover data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] fixed top-[50%] left-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border p-6 shadow-lg duration-200 sm:rounded-lg',
-          className
-        )}
-        {...props}
-      >
-        {children}
-        <DialogPrimitive.Close className='ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none'>
-          <X className='text-foreground h-4 w-4' />
-          <span className='sr-only'>Close</span>
-        </DialogPrimitive.Close>
-      </DialogPrimitive.Content>
-    </DialogPortal>
-  )
-)
-DialogContent.displayName = DialogPrimitive.Content.displayName
-
-const DialogHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('flex flex-col space-y-1.5 text-center sm:text-left', className)} {...props} />
-)
-DialogHeader.displayName = 'DialogHeader'
-
-const DialogFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2', className)} {...props} />
-)
-DialogFooter.displayName = 'DialogFooter'
-
-const DialogTitle = React.forwardRef<React.ElementRef<typeof DialogPrimitive.Title>, React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>>(
-  ({ className, ...props }, ref) => <DialogPrimitive.Title ref={ref} className={cn('text-foreground text-lg leading-none font-semibold tracking-tight', className)} {...props} />
-)
-DialogTitle.displayName = DialogPrimitive.Title.displayName
-
-const DialogDescription = React.forwardRef<React.ElementRef<typeof DialogPrimitive.Description>, React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>>(
-  ({ className, ...props }, ref) => <DialogPrimitive.Description ref={ref} className={cn('text-muted-foreground text-sm', className)} {...props} />
-)
-DialogDescription.displayName = DialogPrimitive.Description.displayName
-
-export { Dialog, DialogPortal, DialogOverlay, DialogClose, DialogTrigger, DialogContent, DialogHeader, DialogFooter, DialogTitle, DialogDescription }
+}

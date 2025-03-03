@@ -14,9 +14,9 @@ const projectList = [
   },
   {
     image: '/projects/portfolio-v2.png',
-    description: 'Portfolio website version 2 was created using shadcn/ui, Magic UI and Aceternity UI components',
+    description: 'Portfolio website version 2 was created using Next.js, Tailwind CSS and motion',
     title: 'Portfolio V2',
-    stacks: ['Next.js', 'Tailwind CSS']
+    stacks: ['Next.js', 'Tailwind CSS', 'motion']
   },
   {
     image: '/projects/project-covid.jpg',

@@ -13,7 +13,7 @@ import BottomSection from '@/components/bottom-section'
 import { HyperText } from '@/components/magicui/hyper-text'
 import GridPattern from '@/components/magicui/animated-grid-pattern'
 import { CommandMenu } from '@/components/command-menu'
-import { MobileSidebar } from '@/components/mobile-sidebar'
+import { MobileSidebar } from '@/components/layout/mobile-sidebar'
 
 const PageWrapper = ({
   children
@@ -50,12 +50,14 @@ const PageWrapper = ({
 
   return (
     <div className='flex'>
+      {/* MOBILE SIDEBAR */}
       <MobileSidebar
         open={isOpenSheet}
         onOpenChange={e => {
           setIsOpenSheet(e)
         }}
       />
+      {/* END MOBILE SIDEBAR */}
       {/* DESKTOP SIDEBAR MENU */}
       <aside id='desktop-sidebar' className='bg-background hidden w-[20dvw] p-5 font-mono transition-colors duration-500 lg:block'>
         <MenuList selectedTheme={selectedTheme ?? 'dark'} setSelectedTheme={setSelectedTheme} />

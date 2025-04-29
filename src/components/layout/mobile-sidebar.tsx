@@ -2,8 +2,8 @@ import React from 'react'
 import { useHandleOpen, useTheme } from '@/hooks'
 import { AnimatePresence, motion } from 'motion/react'
 
-import MenuList from './layout/menu'
-import LucideIcon from './lucide-icon'
+import MenuList from './menu'
+import LucideIcon from '../lucide-icon'
 
 interface SidebarProps {
   open: boolean

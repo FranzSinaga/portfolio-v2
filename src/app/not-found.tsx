@@ -1,10 +1,10 @@
 'use client'
 import { useReadLocalStorage } from 'usehooks-ts'
 import Particles from '@/components/magicui/particles'
-import { Theme } from '@/types/theme.type'
+import { ThemeType } from '@/types/theme.type'
 
 const GlobalNotFound = () => {
-  const selectedTheme = useReadLocalStorage<Theme>('theme')
+  const selectedTheme = useReadLocalStorage<ThemeType>('themeVariant')
   return (
     <div className='relative flex h-full flex-col items-center justify-center overflow-hidden'>
       <div className='flex flex-col gap-y-4 text-center text-black dark:text-white'>

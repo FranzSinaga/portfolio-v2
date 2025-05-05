@@ -5,6 +5,7 @@ type iconType = keyof typeof icons
 export const THEMES_LIST: { name: string; icon: iconType; value: Theme; type: ThemeType }[] = [
   { name: 'Dark', icon: 'MoonStar', value: 'dark', type: 'dark' },
   { name: 'Light', icon: 'Sun', value: 'light', type: 'light' },
+  { name: 'Pink', icon: 'Cog', value: 'pink', type: 'light' },
   { name: 'System', icon: 'Cog', value: 'system', type: 'system' }
 ]
 

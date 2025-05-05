@@ -226,7 +226,7 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: lightgoldenrodyellow;
+  background-color: hsl(var(--accent-foreground));
   border-radius: 20px;
   border: 0px solid transparent;
 }

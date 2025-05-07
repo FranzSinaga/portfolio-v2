@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation'
 import { MENUS_LIST, THEMES_LIST, cn } from '@/lib'
 
 import LucideIcon from '../lucide-icon'
-import { HyperText } from '../magicui/hyper-text'
 import { Select } from '../ui/select'
 
 import { Theme } from '@/types/theme.type'
@@ -21,9 +20,8 @@ const MenuList = ({ selectedTheme, setSelectedTheme, onClick }: Props) => {
   return (
     <div className='flex h-[calc(100vh-2.5rem)] w-full flex-col justify-between'>
       <div className='space-y-10'>
-        {/* <div className={cn('mt-4 p-2 text-2xl font-extrabold text-foreground')}>_franz</div> */}
         <div className='mt-4 flex w-full justify-center'>
-          <HyperText className='p-2 text-2xl font-extrabold' text='_FRANZ' />
+          <div className={cn('text-foreground mt-4 p-2 text-2xl font-extrabold tracking-widest')}>_franz</div>
         </div>
         <div className='font-base text-sm'>
           <ul className='flex flex-col gap-y-2'>

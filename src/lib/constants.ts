@@ -5,7 +5,6 @@ type iconType = keyof typeof icons
 export const THEMES_LIST: { name: string; icon: iconType; value: Theme; type: ThemeType }[] = [
   { name: 'Dark', icon: 'MoonStar', value: 'dark', type: 'dark' },
   { name: 'Light', icon: 'Sun', value: 'light', type: 'light' },
-  { name: 'Pink', icon: 'Cog', value: 'pink', type: 'light' },
   { name: 'System', icon: 'Cog', value: 'system', type: 'system' }
 ]
 
@@ -15,7 +14,7 @@ export const MENUS_LIST: { name: Menus; link: string; icon?: iconType }[] = [
   { link: '/about', name: 'About', icon: 'UserRound' },
   { link: '/projects', name: 'Projects', icon: 'LaptopMinimal' },
   { link: '/style-guide', name: 'Style Guide', icon: 'Brush' }
-  // { link: '/playground', name: 'Playground', icon: 'Album' },
+  // { link: '/playground', name: 'Playground', icon: 'Album' }
   // { link: '/contact', name: 'Contact', icon: 'PhoneCall' }
 ]
 

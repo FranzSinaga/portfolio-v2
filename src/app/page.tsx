@@ -11,13 +11,13 @@ export const metadata = {
 
 const Home = () => {
   return (
-    <div className='relative flex h-dvh flex-col items-center justify-center overflow-hidden lg:h-full'>
+    <div className='relative mx-auto grid h-dvh w-full max-w-[1200px] place-items-center items-center justify-center overflow-hidden lg:h-full'>
       <div className='z-10 flex flex-col text-black dark:text-white'>
         <BlurFade inView>
           <p className='ml-1 font-mono'>Hello There 👋, I am</p>
         </BlurFade>
         <BlurFade inView delay={0.2}>
-          <HyperText className='text-4xl font-bold lg:text-7xl' text='Franz Sinaga' />
+          <HyperText className='w-max text-4xl font-bold lg:text-7xl' text='Franz Sinaga' />
         </BlurFade>
         <BlurFade inView delay={0.4}>
           <h2 className='ml-1 font-bold'>Frontend Developer</h2>

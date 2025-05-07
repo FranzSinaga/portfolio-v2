@@ -1,5 +1,6 @@
 import BlurFade from '@/components/magicui/blur-fade'
 import { ProjectCard } from './components'
+import LucideIcon from '@/components/lucide-icon'
 
 export const metadata = {
   title: 'Franz | Projects'
@@ -41,9 +42,14 @@ const projectList = [
 const ProjectsPage = () => {
   return (
     <div className='mx-auto mt-5 max-w-[1200px]'>
-      {/* <BlurFade inView>
-        <h3 className='font-mono font-bold'>{'Projects'}</h3>
-      </BlurFade> */}
+      <BlurFade inView>
+        <div className='flex justify-between'>
+          <h3 className='font-mono font-bold'>{'Projects'}</h3>
+          <a href='https://github.com/FranzSinaga' target='_BLANK' className='hover:bg-accent flex w-max items-center gap-x-2 rounded-full border px-2 py-0.5 transition-colors'>
+            See more in github <LucideIcon name='ArrowRight' size={14} />
+          </a>
+        </div>
+      </BlurFade>
       <div className='mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3'>
         {projectList.map((e, idx) => (
           <BlurFade key={idx} delay={0.25 + idx * 0.05} inView>

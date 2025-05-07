@@ -45,8 +45,6 @@
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
   --animate-grid: grid 15s linear infinite;
-  --animate-ripple: ripple var(--duration, 2s) ease calc(var(--i, 0) * 0.2s) infinite;
-  --animate-aurora: aurora 60s linear infinite;
 
   @keyframes accordion-down {
     from {
@@ -70,27 +68,6 @@
     }
     100% {
       transform: translateY(0);
-    }
-  }
-  @keyframes ripple {
-    0%,
-    100% {
-      transform: translate(-50%, -50%) scale(1);
-    }
-    50% {
-      transform: translate(-50%, -50%) scale(0.9);
-    }
-  }
-  @keyframes aurora {
-    from {
-      background-position:
-        50% 50%,
-        50% 50%;
-    }
-    to {
-      background-position:
-        350% 50%,
-        350% 50%;
     }
   }
 }

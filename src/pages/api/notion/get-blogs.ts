@@ -1,14 +1,9 @@
 import { parseNotionItem } from '@/lib/notion'
-import { MyNotionItem, NotionDatabaseItem } from '@/types/notion.type'
+import { NotionDatabaseItem, NotionItemsRes } from '@/types/notion.type'
 import { Client } from '@notionhq/client'
 import { NextApiRequest, NextApiResponse } from 'next'
 
-type Data = {
-  items?: MyNotionItem[]
-  error?: string
-}
-
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<NotionItemsRes>) {
   const notion = new Client({
     auth: process.env.NOTION_API_KEY!
   })
@@ -25,8 +20,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         },
         sorts: [{ property: 'Created', direction: 'descending' }]
       })
-      const items = response.results.map(item => parseNotionItem(item as NotionDatabaseItem))
-      res.status(200).json({ items })
+      if (res.statusCode === 200) {
+        const items = response.results.map(item => parseNotionItem(item as NotionDatabaseItem))
+        res.status(200).json({ data: { items } })
+      } else {
+        res.status(res.statusCode).json({ message: res.statusMessage })
+      }
     } else {
       res.status(405).json({ error: 'Method Not Allowed' })
     }

@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 
+import { BaseRes } from './api.type'
 export interface NotionPropertyValueMap {
   [key: string]: any
 }
@@ -23,6 +25,8 @@ export interface MyNotionItem {
     name: string
   }[]
 }
+
+export interface NotionItemsRes extends BaseRes<{ items: MyNotionItem[] }> {}
 
 export interface NotionBlockDetailRes {
   html?: string

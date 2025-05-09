@@ -1,66 +1,55 @@
 'use client'
-import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import dayjs from 'dayjs'
+import useSWR from 'swr'
+import { fetcher } from '@/lib'
 
 import LucideIcon from '../lucide-icon'
-import { MyNotionItem } from '@/types/notion.type'
+import { NotionItemsRes } from '@/types/notion.type'
 
 const NotionList = () => {
   const { push } = useRouter()
 
-  const [data, setData] = useState<MyNotionItem[]>([])
-  const [loading, setLoading] = useState<boolean>(true)
-  const [error, setError] = useState<string | null>(null)
+  const { data: posts, isLoading, error } = useSWR<NotionItemsRes>('/api/notion/get-blogs', fetcher)
+  const data = posts?.data?.items
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('/api/notion/get-blogs')
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch data')
-        }
-
-        const result = await response.json()
-        setData(result.items)
-        setLoading(false)
-      } catch (err) {
-        console.error('Error fetching data:', err)
-        setError(err instanceof Error ? err.message : 'An unknown error occurred')
-        setLoading(false)
-      }
-    }
-
-    fetchData()
-  }, [])
-
-  if (loading) return <div>Loading...</div>
-  if (error) return <div>Error: {error}</div>
+  if (isLoading)
+    return (
+      <div className='bg-foreground/30 inset-0 flex w-full animate-pulse items-center justify-center rounded py-18'>
+        <p>Loading...</p>
+      </div>
+    )
+  if (error || !data) return <div>Error: {error}</div>
 
   return (
     <div className='my-2'>
-      <ul className='grid grid-cols-1 gap-y-3'>
-        {data.map(item => (
-          <li
-            key={item.id}
-            onClick={() => push(`/blogs/${item.id}`)}
-            className='hover:bg-accent bg-background/70 flex cursor-pointer items-center justify-between rounded-lg p-3 transition-all'
-          >
-            <div className='ml-2'>
-              <p>{item.title}</p>
-              <p className='text-xs'>{dayjs(item.created).format('DD MMMM YYYY, HH:mm')}</p>
-            </div>
-            <div className='mt-2 flex items-center gap-x-2'>
-              {item.tags?.map((e, key) => (
-                <p key={key} className='rounded-full border px-2 py-0.5 text-xs'>
-                  {e.name}
+      <ul className='grid grid-cols-1 space-y-3'>
+        {data ? (
+          data.map(item => (
+            <li
+              key={item.id}
+              onClick={() => push(`/blogs/${item.id}`)}
+              className='hover:bg-background/20 bg-background flex cursor-pointer items-center justify-between rounded-lg p-3 transition-all hover:px-4'
+            >
+              <div className='ml-2'>
+                <p>{item.title}</p>
+                <p className='flex items-center gap-x-1 text-xs'>
+                  <LucideIcon name='Calendar' size={15} />
+                  {dayjs(item.created).format('DD MMMM YYYY, HH:mm')}
                 </p>
-              ))}
-              <LucideIcon name='CircleChevronRight' size={20} />
-            </div>
-          </li>
-        ))}
+              </div>
+              <div className='mt-2 flex items-center gap-x-1'>
+                {item.tags?.map((e, key) => (
+                  <p key={key} className='border-foreground/50 rounded-full border px-2 py-0.5 text-xs'>
+                    {e.name}
+                  </p>
+                ))}
+              </div>
+            </li>
+          ))
+        ) : (
+          <p>No Post</p>
+        )}
       </ul>
     </div>
   )

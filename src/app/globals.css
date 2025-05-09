@@ -218,3 +218,13 @@
 .no-visible-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+.blur {
+  filter: blur(5px);
+  transition: filter 0.3s ease-in;
+}
+
+.remove-blur {
+  filter: blur(0px);
+  transition: filter 0.3s ease-in;
+}

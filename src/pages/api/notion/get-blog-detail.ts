@@ -6,14 +6,13 @@ import { NotionToMarkdown } from 'notion-to-md'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<NotionBlockDetailRes>) {
   // Inisialisasi Notion client
-  const notion = new Client({
-    auth: process.env.NOTION_API_KEY!
-  })
+  const notion = new Client({ auth: process.env.NOTION_API_KEY! })
   const n2m = new NotionToMarkdown({ notionClient: notion })
 
   try {
-    const { pageId } = req.query
-    const _pageId = pageId!.toString()
+    const _pageId = Array.isArray(req.query.pageId) ? req.query.pageId[0] : req.query.pageId
+
+    if (!_pageId) return res.status(400).json({ error: 'Missing id parameter' })
 
     const blocks = await notion.blocks.children
       .list({
@@ -23,11 +22,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       .then(res => res.results as BlockObjectResponse[])
 
     const mdBlocks = await n2m.blocksToMarkdown(blocks as BlockObjectResponse[])
+
     const markdown = n2m.toMarkdownString(mdBlocks)
 
     res.status(200).json({ html: markdown.parent })
   } catch (error) {
     console.error('Error querying Notion database:', error)
-    res.status(500).json({ error: 'Failed to query Notion database' })
+    res.status(500).json({ error: 'Failed to process request' })
   }
 }

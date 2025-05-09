@@ -4,9 +4,8 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { MENUS_LIST, THEMES_LIST, cn } from '@/lib'
 
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
-import LucideIcon from './lucide-icon'
-import { HyperText } from './magicui/hyper-text'
+import LucideIcon from '../lucide-icon'
+import { Select } from '../ui/select'
 
 import { Theme } from '@/types/theme.type'
 
@@ -21,9 +20,8 @@ const MenuList = ({ selectedTheme, setSelectedTheme, onClick }: Props) => {
   return (
     <div className='flex h-[calc(100vh-2.5rem)] w-full flex-col justify-between'>
       <div className='space-y-10'>
-        {/* <div className={cn('mt-4 p-2 text-2xl font-extrabold text-foreground')}>_franz</div> */}
         <div className='mt-4 flex w-full justify-center'>
-          <HyperText className='p-2 text-2xl font-extrabold' text='_FRANZ' />
+          <div className={cn('text-foreground mt-4 p-2 text-2xl font-extrabold tracking-widest')}>_franz</div>
         </div>
         <div className='font-base text-sm'>
           <ul className='flex flex-col gap-y-2'>
@@ -48,28 +46,23 @@ const MenuList = ({ selectedTheme, setSelectedTheme, onClick }: Props) => {
         </div>
       </div>
 
-      <div>
-        {selectedTheme && (
-          <Select value={selectedTheme} onValueChange={(value: Theme) => setSelectedTheme(value)}>
-            <SelectTrigger className='w-full'>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectLabel className='font-mono'>Select Theme</SelectLabel>
-                {THEMES_LIST.map(e => (
-                  <SelectItem key={e.value} value={e.value} className='font-mono'>
-                    <span className='flex items-center justify-between'>
-                      <LucideIcon name={e.icon} size={18} />
-                      <span className='pl-2 text-xs'>{e.name}</span>
-                    </span>
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        )}
-      </div>
+      {selectedTheme && (
+        <Select<Theme>
+          value={selectedTheme}
+          list={THEMES_LIST.map(e => {
+            return {
+              value: e.value,
+              label: (
+                <span className='flex items-center gap-x-2 text-xs'>
+                  <LucideIcon name={e.icon} size={18} />
+                  {e.name}
+                </span>
+              )
+            }
+          })}
+          onSelect={(value: Theme) => setSelectedTheme(value)}
+        />
+      )}
     </div>
   )
 }

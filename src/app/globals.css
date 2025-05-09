@@ -45,8 +45,6 @@
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
   --animate-grid: grid 15s linear infinite;
-  --animate-ripple: ripple var(--duration, 2s) ease calc(var(--i, 0) * 0.2s) infinite;
-  --animate-aurora: aurora 60s linear infinite;
 
   @keyframes accordion-down {
     from {
@@ -70,27 +68,6 @@
     }
     100% {
       transform: translateY(0);
-    }
-  }
-  @keyframes ripple {
-    0%,
-    100% {
-      transform: translate(-50%, -50%) scale(1);
-    }
-    50% {
-      transform: translate(-50%, -50%) scale(0.9);
-    }
-  }
-  @keyframes aurora {
-    from {
-      background-position:
-        50% 50%,
-        50% 50%;
-    }
-    to {
-      background-position:
-        350% 50%,
-        350% 50%;
     }
   }
 }
@@ -120,9 +97,10 @@
 
 @layer base {
   :root {
+    --content-background: 0, 0%, 100%;
+
     --background: 220, 13.04%, 90.98%;
     --foreground: 222.2 84% 4.9%;
-    --content-background: 0, 0%, 100%;
 
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
@@ -153,9 +131,10 @@
   }
 
   .dark {
+    --content-background: 0, 0%, 9%;
+
     --background: 0, 0%, 0%;
     --foreground: 210 40% 98%;
-    --content-background: 0, 0%, 9%;
 
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
@@ -224,7 +203,7 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: lightgoldenrodyellow;
+  background-color: hsl(var(--accent-foreground));
   border-radius: 20px;
   border: 0px solid transparent;
 }
@@ -238,4 +217,14 @@
 
 .no-visible-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.blur {
+  filter: blur(5px);
+  transition: filter 0.3s ease-in;
+}
+
+.remove-blur {
+  filter: blur(0px);
+  transition: filter 0.3s ease-in;
 }

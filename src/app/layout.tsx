@@ -23,9 +23,7 @@ const RootLayout = ({
   return (
     <html lang='en' className={`${GeistSans.variable} ${GeistMono.variable} `}>
       <body className='bg-background transition-colors duration-500'>
-        <div id='wrapper'>
-          <PageWrapper>{children}</PageWrapper>
-        </div>
+        <PageWrapper>{children}</PageWrapper>
         {IS_LOCAL && <ScreenIndicator />}
       </body>
     </html>

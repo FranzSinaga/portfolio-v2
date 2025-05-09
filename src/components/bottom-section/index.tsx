@@ -9,8 +9,8 @@ const BottomSection = () => {
 
   return (
     <div className='relative hidden w-full lg:block'>
-      <div className=' bg-content-background text-foreground w-full border-t-2 px-5 py-0.5 font-mono lg:absolute'>
-        <div className='mt-1 mx-auto flex max-w-[1200px] flex-col-reverse items-center justify-between gap-y-1 lg:flex-row'>
+      <div className='bg-content-background text-foreground border-foreground/50 w-full border-t-2 px-5 py-0.5 font-mono lg:absolute'>
+        <div className='mx-auto mt-1 flex max-w-[1200px] flex-col-reverse items-center justify-between gap-y-1 lg:flex-row'>
           <div className='flex items-center justify-center gap-x-1.5'>
             <span className='relative flex h-3 w-3'>
               <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75'></span>

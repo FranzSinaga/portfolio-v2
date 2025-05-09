@@ -4,14 +4,14 @@ import { useReadLocalStorage } from 'usehooks-ts'
 
 import { MagicCard } from '@/components/magicui/magic-card'
 
-import { Theme } from '@/types/theme.type'
+import { ThemeType } from '@/types/theme.type'
 
 interface ProjectCardProps {
   data: { image: string; description: string; title: string; stacks: string[] }
 }
 
 export const ProjectCard = ({ data }: ProjectCardProps) => {
-  const theme = useReadLocalStorage<Theme>('theme')
+  const theme = useReadLocalStorage<ThemeType>('themeVariant')
   const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 
   return (

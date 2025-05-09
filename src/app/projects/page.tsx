@@ -1,5 +1,6 @@
 import BlurFade from '@/components/magicui/blur-fade'
 import { ProjectCard } from './components'
+import LucideIcon from '@/components/lucide-icon'
 
 export const metadata = {
   title: 'Franz | Projects'
@@ -14,9 +15,9 @@ const projectList = [
   },
   {
     image: '/projects/portfolio-v2.png',
-    description: 'Portfolio website version 2 was created using shadcn/ui, Magic UI and Aceternity UI components',
+    description: 'Portfolio website version 2 was created using Next.js, Tailwind CSS and motion',
     title: 'Portfolio V2',
-    stacks: ['Next.js', 'Tailwind CSS']
+    stacks: ['Next.js', 'Tailwind CSS', 'motion']
   },
   {
     image: '/projects/project-covid.jpg',
@@ -42,7 +43,12 @@ const ProjectsPage = () => {
   return (
     <div className='mx-auto mt-5 max-w-[1200px]'>
       <BlurFade inView>
-        <h3 className='font-mono font-bold'>{'Projects'}</h3>
+        <div className='flex justify-between'>
+          <h3 className='font-mono font-bold'>{'Projects'}</h3>
+          <a href='https://github.com/FranzSinaga' target='_BLANK' className='hover:bg-accent flex w-max items-center gap-x-2 rounded-full border px-2 py-0.5 transition-colors'>
+            See more in github <LucideIcon name='ArrowRight' size={14} />
+          </a>
+        </div>
       </BlurFade>
       <div className='mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3'>
         {projectList.map((e, idx) => (

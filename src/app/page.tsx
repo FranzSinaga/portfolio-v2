@@ -1,6 +1,5 @@
 import { cn } from '@/lib'
 
-import { HyperText } from '@/components/magicui/hyper-text'
 import GridPattern from '@/components/magicui/animated-grid-pattern'
 import BlurFade from '@/components/magicui/blur-fade'
 import SocialList from '@/components/social'
@@ -11,13 +10,13 @@ export const metadata = {
 
 const Home = () => {
   return (
-    <div className='relative mx-auto grid h-dvh w-full max-w-[1200px] place-items-center items-center justify-center overflow-hidden lg:h-full'>
-      <div className='z-10 flex flex-col text-black dark:text-white'>
+    <div className='relative flex h-dvh flex-col items-center justify-center overflow-hidden lg:h-full'>
+      <div className='flex flex-col text-black dark:text-white'>
         <BlurFade inView>
-          <p className='ml-1 font-mono'>Hello There 👋, I am</p>
+          <p className='ml-1 font-serif'>Hello There 👋, I am</p>
         </BlurFade>
         <BlurFade inView delay={0.2}>
-          <HyperText className='w-max text-4xl font-bold lg:text-7xl' text='Franz Sinaga' />
+          <h2 className='text-4xl font-bold lg:text-7xl'>Franz Sinaga</h2>
         </BlurFade>
         <BlurFade inView delay={0.4}>
           <h2 className='ml-1 font-bold'>Frontend Developer</h2>

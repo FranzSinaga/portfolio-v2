@@ -1,47 +1,65 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
-import { useParams, useRouter } from 'next/navigation'
+import React from 'react'
+import { useParams } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
 import useSWR from 'swr'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { getLinkPreview } from 'link-preview-js'
+
 import { fetcher } from '@/lib'
 import LucideIcon from '../lucide-icon'
 import ImageWithLoading from '../image-with-loading'
-import Image from 'next/image'
+import { Button } from '../ui/button'
+import GoBackDetailBlog from './go-back'
 
 const NotionDetail: React.FC = () => {
-  const { push } = useRouter()
   const params = useParams<{ slug: string }>()
   const { slug } = params!
 
-  const { data: detail, isLoading, error } = useSWR<{ html: string }>(`/api/notion/get-blog-detail?pageId=${slug}`, fetcher)
+  const {
+    data: detail,
+    isLoading,
+    error,
+    mutate,
+    isValidating
+  } = useSWR<{ html: string }>(`/api/notion/get-blog-detail?pageId=${slug}`, fetcher, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false
+  })
   const data = detail?.html
 
-  if (isLoading)
+  if (isLoading || isValidating)
     return (
       <>
-        <p onClick={() => push('/blogs')} className='hover:bg-accent mb-3 flex w-max cursor-pointer items-center gap-x-1 rounded-full px-2 py-1 font-mono'>
-          <LucideIcon name='ArrowLeft' size={16} />
-          Go Back
-        </p>
+        <GoBackDetailBlog />
         <div className='bg-foreground/30 inset-0 flex w-full animate-pulse items-center justify-center rounded py-18'>
           <p>Loading...</p>
         </div>
       </>
     )
-  if (error || !data) return <div>Error: {error}</div>
+  if (error || !data)
+    return (
+      <>
+        <GoBackDetailBlog />
+        <div className='bg-accent flex justify-between rounded-sm p-2 drop-shadow-sm'>
+          <div className='flex items-center gap-x-2'>
+            <LucideIcon name='Info' size={18} />
+            <p className='text-destructive-foreground font-mono'>Something wrong unexpected</p>
+          </div>
+          <Button variant={'default'} size={'sm'} onClick={() => mutate()}>
+            Reload
+          </Button>
+        </div>
+      </>
+    )
 
   return (
     <>
-      <p onClick={() => push('/blogs')} className='hover:bg-accent mb-3 flex w-max cursor-pointer items-center gap-x-1 rounded-full px-2 py-1 font-mono'>
-        <LucideIcon name='ArrowLeft' size={16} />
-        Go Back
-      </p>
+      <GoBackDetailBlog />
       <ReactMarkdown
         rehypePlugins={[rehypeRaw]}
         remarkPlugins={[remarkGfm]}
@@ -109,41 +127,11 @@ interface Props {
   url: string
 }
 
-interface UsedProps {
-  title: string
-  description: string
-  images: string[]
-}
-
 export const BookmarkCard = ({ url }: Props) => {
-  const [data, setData] = useState<UsedProps | null>(null)
-
-  useEffect(() => {
-    getLinkPreview(url)
-      .then(data => setData(data as UsedProps))
-      .catch(() => {})
-  }, [url])
-
-  if (!data)
-    return (
-      <a href={url} target='_blank' className='mb-2 rounded-md border-gray-700 bg-[#282A36] p-4 hover:bg-[#282A36]/80 hover:underline'>
-        <span className='mt-2 block text-sm text-blue-400'>{url}</span>
-      </a>
-    )
-
   return (
-    <a
-      href={url}
-      target='_blank'
-      rel='noopener noreferrer'
-      className='mb-2 flex max-w-full gap-4 rounded-lg border border-gray-700 bg-[#282A36] p-4 text-white hover:bg-[#282A36]/80'
-    >
-      <div className=''>
-        <h3 className='text-lg font-semibold'>{data.title}</h3>
-        <p className='mt-1 text-sm text-gray-400'>{data.description}</p>
-        <span className='mt-2 block text-sm text-blue-400'>{url}</span>
-      </div>
-      {data.images?.[0] ? <Image src={data.images[0]} alt='thumbnail' className='h-24 w-40 rounded object-cover' /> : null}
+    <a href={url} target='_blank' className='group mb-2 flex justify-between rounded-md border border-gray-700 bg-[#282A36] p-3 transition-all hover:bg-[#282A36]/80 hover:px-5'>
+      <span className='block font-mono text-sm text-blue-400'>{url}</span>
+      <LucideIcon name='ChevronRight' className='invisible transition-all group-hover:visible' size={18} />
     </a>
   )
 }

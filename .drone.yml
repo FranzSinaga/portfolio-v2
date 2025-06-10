@@ -6,9 +6,9 @@ server:
   host: 
     from_secret: vps_ip
   user:
-    from_secret: username
+    from_secret: ssh_user
   port:
-    from_secret: port
+    from_secret: ssh_port
   ssh_key:
     from_secret: ssh_private_key
 

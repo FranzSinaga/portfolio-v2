@@ -1,34 +1,30 @@
 kind: pipeline
-type: docker
+type: ssh
 name: web-portfolio-v2
+
+server:
+  host: 
+    from_secret: vps_ip
+  username:
+    from_secret: username
+  port:
+    from_secret: port
+  key:
+    from_secret: ssh_private_key
+
+clone: 
+  disable: true
 
 steps:
   - name: pull
-    settings:
-      host:
-        from_secret: vps_ip
-      username:
-        from_secret: username
-      port:
-        from_secret: port
-      key:
-        from_secret: ssh_private_key
     commands:
       - cd ~/projects/web-portfolio-v2
       - git checkout master
-      - git pull
+      - git pull origin master
 
   - name: build
-    settings:
-      host:
-        from_secret: vps_ip
-      username:
-        from_secret: username
-      port:
-        from_secret: port
-      key:
-        from_secret: ssh_private_key
     commands:
+      - echo "Start deploy"
       - cd ~/projects/web-portfolio-v2
       - docker-compose down
       - docker-compose up -d --build

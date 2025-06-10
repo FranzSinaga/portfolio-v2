@@ -1,34 +1,28 @@
 kind: pipeline
-type: ssh
+type: docker
 name: web-portfolio-v2
 
-server:
-  host: 
-    from_secret: vps_ip
-  user:
-    from_secret: ssh_user
-  port:
-    from_secret: ssh_port
-  ssh_key:
-    from_secret: ssh_private_key
-
-clone: 
+clone:
   disable: true
 
 steps:
-  - name: pull
-    commands:
-      - cd ~/projects/web-portfolio-v2
-      - git checkout master
-      - git pull origin master
-
-  - name: build
-    commands:
-      - echo "Start deploy"
-      - cd ~/projects/web-portfolio-v2
-      - docker-compose down
-      - docker-compose up -d --build
-      - docker system prune -f
+  - name: Deploy
+    image: appleboy/drone-ssh
+    settings:
+      host:
+        from_secret: vps_ip
+      username:
+        from_secret: ssh_user
+      port:
+        from_secret: ssh_port
+      key:
+        from_secret: ssh_private_key
+      script:
+        - cd ~/projects/web-portfolio-v2
+        - git pull origin master
+        - docker-compose down
+        - docker-compose up -d --build
+        - docker system prune -f
 
 trigger:
   event:

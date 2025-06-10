@@ -1,0 +1,41 @@
+kind: pipeline
+type: docker
+name: web-portfolio-v2
+
+steps:
+  - name: pull
+    settings:
+      host:
+        from_secret: vps_ip
+      username:
+        from_secret: username
+      port:
+        from_secret: port
+      key:
+        from_secret: ssh_private_key
+    commands:
+      - cd ~/projects/web-portfolio-v2
+      - git checkout master
+      - git pull
+
+  - name: build
+    settings:
+      host:
+        from_secret: vps_ip
+      username:
+        from_secret: username
+      port:
+        from_secret: port
+      key:
+        from_secret: ssh_private_key
+    commands:
+      - cd ~/projects/web-portfolio-v2
+      - docker-compose down
+      - docker-compose up -d --build
+      - docker system prune -f
+
+trigger:
+  event:
+    - push
+  branch:
+    - master

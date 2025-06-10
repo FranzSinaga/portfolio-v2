@@ -5,11 +5,11 @@ name: web-portfolio-v2
 server:
   host: 
     from_secret: vps_ip
-  username:
+  user:
     from_secret: username
   port:
     from_secret: port
-  key:
+  ssh_key:
     from_secret: ssh_private_key
 
 clone: 

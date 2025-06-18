@@ -1,8 +1,9 @@
-import NotionList from '@/components/blogs/notion-list'
+import { GetBlogs } from '@/components/payload-blogs'
 
 export const metadata = {
   title: 'Franz | Blogs'
 }
+
 export default async function BlogPage() {
   return (
     <div className='mx-auto max-w-[1200px]'>
@@ -11,7 +12,7 @@ export default async function BlogPage() {
           <h3 className='font-mono font-bold'>Blogs</h3>
           <p>{"This is where I share everything I'm learning."}</p>
         </div>
-        <NotionList />
+        <GetBlogs />
       </div>
     </div>
   )

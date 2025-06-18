@@ -20,3 +20,4 @@ export const MENUS_LIST: { name: Menus; link: string; icon?: iconType }[] = [
 ]
 
 export const IS_LOCAL = process.env.NODE_ENV !== 'production'
+export const PAYLOAD_API_URL = process.env.NEXT_PUBLIC_PAYLOAD_API_URL

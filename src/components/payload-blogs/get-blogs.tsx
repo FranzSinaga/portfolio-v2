@@ -23,7 +23,7 @@ export const GetBlogs = () => {
     error,
     mutate,
     isValidating
-  } = useSWR<Res>(`${PAYLOAD_API_URL}/api/blogs?depth=0&where[isPublished][equals]=true`, fetcher, {
+  } = useSWR<Res>(`${PAYLOAD_API_URL}/api/franz-blogs?depth=1&where[isPublished][equals]=true`, fetcher, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false
@@ -57,17 +57,22 @@ export const GetBlogs = () => {
             <li
               key={item.id}
               onClick={() => push(`/blogs/${item.slug}`)}
-              className='hover:bg-accent/40 bg-background flex cursor-pointer items-start justify-between rounded-lg p-3 transition-all hover:px-4'
+              className='hover:bg-accent bg-background flex cursor-pointer items-start justify-between rounded-lg p-3 transition-all hover:px-4'
             >
               <div className='ml-2 w-full'>
                 <div className='flex w-full items-center justify-between gap-x-2'>
-                  <p>{item.title}</p>
+                  <p className='font-medium'>{item.title}</p>
                   <p className='mt-0.5 flex items-center gap-x-1 text-xs'>
                     <LucideIcon name='Calendar' size={15} />
                     {dayjs(item.updatedAt).format('DD MMMM YYYY, HH:mm')}
                   </p>
                 </div>
-                <p className='text-xs'>{item.excerpt}</p>
+                {item.excerpt && (
+                  <p className='mt-2 text-sm'>
+                    {item.excerpt && item.excerpt?.length > 210 && item.excerpt?.substring(0, 210)}
+                    {item.excerpt && item.excerpt.length > 210 && '....'}
+                  </p>
+                )}
               </div>
             </li>
           </BlurFade>

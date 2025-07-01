@@ -10,7 +10,7 @@ import { Button } from '../ui/button'
 import { Blog } from '@/types/payload.types'
 import GoBackDetailBlog from '../blogs/go-back'
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { Copy, CopyCheck } from 'lucide-react'
 
 interface Res {
@@ -26,7 +26,7 @@ export const GetDetailBlog = () => {
     error,
     mutate,
     isValidating
-  } = useSWR<Res>(`${PAYLOAD_API_URL}/api/blogs?depth=3&where[slug][equals]=${slug}`, fetcher, {
+  } = useSWR<Res>(`${PAYLOAD_API_URL}/api/franz-blogs?depth=1&where[slug][equals]=${slug}`, fetcher, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false
@@ -55,7 +55,7 @@ export const GetDetailBlog = () => {
   return (
     <>
       <GoBackDetailBlog />
-      <article className='space-y-3'>
+      <article className='space-y-3 font-mono'>
         {docs.content.root.children.map((e, index) => {
           if (e.type === 'paragraph' && e.children?.length === 0) return <br key={index} />
           return (
@@ -96,7 +96,7 @@ export const GetDetailBlog = () => {
                   <ol className={e.tag === 'ul' ? 'list-disc' : 'list-decimal'}>
                     {e.children?.map((properties, key) => (
                       <li key={key}>
-                        {properties.children?.map((item, key) => {
+                        {properties.children?.map(item => {
                           return formatText({ format: item.format, text: item.text })
                         })}
                       </li>
@@ -105,17 +105,16 @@ export const GetDetailBlog = () => {
                 </div>
               )}
 
-              {/* Media Image */}
-              {e.type === 'upload' && (
-                <div className='flex w-full flex-col items-center justify-center'>
-                  <img src={`${PAYLOAD_API_URL}${e.value.url}`} alt={`${e.value.alt}`} />
-                  {/* <p className='text-xs'>{e.value.alt}</p> */}
-                </div>
-              )}
-
               {/* Code Block */}
               {e.type === 'block' && (
-                <>{e.fields.blockType === 'code-block' && <CodeBlockComponents name={e.fields.blockName} code={e.fields.code} language={e.fields.language} showLineNumbers />}</>
+                <>
+                  {e.fields.blockType === 'code-block' && <CodeBlockComponents name={e.fields.blockName} code={e.fields.code} language={e.fields.language} showLineNumbers />}
+                  {e.fields.blockType === 'upload-block' && (
+                    <div className='flex w-full flex-col items-center justify-center'>
+                      <img src={`${PAYLOAD_API_URL}${e.fields.upload.url}`} alt={`${e.fields.upload.alt}`} className='w-full' />
+                    </div>
+                  )}
+                </>
               )}
 
               {/* horzontal rule */}
@@ -155,7 +154,7 @@ const CodeBlockComponents = ({ name, code, language, showLineNumbers }: { name: 
           </span>
         </Button>
       </div>
-      <SyntaxHighlighter style={atomDark} showLineNumbers={showLineNumbers} language={language} PreTag='div'>
+      <SyntaxHighlighter style={dracula} showLineNumbers={showLineNumbers} language={language} PreTag='div'>
         {code}
       </SyntaxHighlighter>
     </div>
@@ -184,20 +183,20 @@ const formatText = ({ format, text, isLink, linkFields }: formatTextParam) => {
       <span key={text}>
         <a href={linkFields?.url} target={linkFields?.newTab ? '_blank' : '_self'} className='text-sm text-blue-400 hover:underline'>
           {text}
-        </a>{' '}
+        </a>
       </span>
     )
 
   if (isCode)
     return (
-      <code className='rounded bg-slate-700 p-0.5' key={text + format}>
-        {text}{' '}
+      <code className='rounded bg-slate-700 p-0.5 text-white' key={text + format}>
+        {text}
       </code>
     )
 
   return (
     <span key={text + format} className={classes.join(' ')}>
-      {text}{' '}
+      {text}
     </span>
   )
 }

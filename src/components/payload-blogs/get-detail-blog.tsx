@@ -111,7 +111,9 @@ export const GetDetailBlog = () => {
                   {e.fields.blockType === 'code-block' && <CodeBlockComponents name={e.fields.blockName} code={e.fields.code} language={e.fields.language} showLineNumbers />}
                   {e.fields.blockType === 'upload-block' && (
                     <div className='flex w-full flex-col items-center justify-center'>
-                      <img src={`${PAYLOAD_API_URL}${e.fields.upload.url}`} alt={`${e.fields.upload.alt}`} className='w-full' />
+                      <picture className='w-full'>
+                        <img src={`${PAYLOAD_API_URL}${e.fields.upload.url}`} alt={`${e.fields.upload.alt}`} className='w-full' />
+                      </picture>
                     </div>
                   )}
                 </>
@@ -165,7 +167,7 @@ interface formatTextParam {
   format: string
   text: string
   isLink?: boolean
-  linkFields?: { linkType: string; newTab: string; url: string; [k: string]: string | any }
+  linkFields?: { linkType: string; newTab: string; url: string; [k: string]: string }
 }
 
 const formatText = ({ format, text, isLink, linkFields }: formatTextParam) => {

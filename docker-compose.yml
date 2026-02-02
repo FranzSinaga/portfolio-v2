@@ -1,7 +1,17 @@
 services:
-  website:
+  portfolio-v2:
     build: .
     container_name: portfolio-v2
+    image: portfolio-v2:latest
+    networks:
+      - net-portfolio-v2
+    env_file:
+      - .env
     ports:
       - '3000:3000'
     restart: unless-stopped
+
+networks:
+  net-portfolio-v2:
+    driver: bridge
+    name: net-portfolio-v2

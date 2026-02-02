@@ -42,8 +42,8 @@ const StacksCollection = [
 export const Stacks = () => {
   return (
     <>
-      <div className='grid gap-x-4 md:grid-cols-2'>
-        <div className='rounded-[10px] border md:mt-5'>
+      <div className=''>
+        {/* <div className='rounded-[10px] border md:mt-5'>
           <div className='text-foreground p-5'>
             <BlurFade inView delay={0.2}>
               <h4 className='font-bold'>Setup</h4>
@@ -53,9 +53,9 @@ export const Stacks = () => {
               <div className='mt-5 aspect-7/3 min-w-full animate-pulse rounded-md bg-gray-300'></div>
             </BlurFade>
           </div>
-        </div>
+        </div> */}
 
-        <div className='mt-5 rounded-[10px] border'>
+        <div className='rounded-lg border'>
           <div className='text-foreground p-5'>
             <BlurFade inView delay={0.2}>
               <h4 className='font-bold'>Stacks</h4>

@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import useSWR from 'swr'
 import { useParams } from 'next/navigation'
 import { fetcher, PAYLOAD_API_URL } from '@/lib'
@@ -132,7 +132,7 @@ export const GetDetailBlog = () => {
 const CodeBlockComponents = ({ name, code, language, showLineNumbers }: { name: string; code: string; language: string; showLineNumbers?: boolean }) => {
   type CopyStatus = 'Copy' | 'Copied!' | 'Failed'
 
-  const [copyStatus, setCopyStatus] = useState<CopyStatus>('Copy')
+  const [copyStatus, setCopyStatus] = React.useState<CopyStatus>('Copy')
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(code)

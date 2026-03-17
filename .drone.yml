@@ -4,6 +4,8 @@ name: web-portfolio-v2
 
 clone:
   disable: true
+  
+timeout: 30m
 
 steps:
   - name: Deploy

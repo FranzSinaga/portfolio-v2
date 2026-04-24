@@ -7,7 +7,7 @@ export const metadata = {
 
 const AboutPage = () => {
   return (
-    <div className='mt-5 space-y-10'>
+    <div className='mt-5'>
       <div className='mx-auto max-w-[1200px] space-y-10'>
         <BlurFade inView>
           <AboutMe />

@@ -1,5 +1,5 @@
 import { Figma, Triangle } from 'lucide-react'
-import { BiLogoJavascript, BiLogoTypescript } from 'react-icons/bi'
+import { BiLogoGoLang, BiLogoJavascript, BiLogoTypescript } from 'react-icons/bi'
 import { FaDiscord, FaGitAlt, FaReact, FaVuejs } from 'react-icons/fa'
 import { RiNotionFill, RiTailwindCssFill } from 'react-icons/ri'
 import { VscVscode } from 'react-icons/vsc'
@@ -68,6 +68,7 @@ export const Stacks = () => {
                 <RiTailwindCssFill size={30} />
                 <BiLogoJavascript size={30} />
                 <BiLogoTypescript size={30} />
+                <BiLogoGoLang size={35} />
               </div>
             </div>
           </div>

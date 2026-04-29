@@ -26,7 +26,7 @@ export const MobileSidebar = ({ open, onOpenChange }: SidebarProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             key='box'
-            className='fixed top-0 right-0 z-50 h-dvh w-dvw bg-black/80 backdrop-blur-xs'
+            className='fixed top-0 right-0 z-50 h-dvh w-dvw bg-black/70 backdrop-blur-xs'
           >
             <div className='flex h-full items-center'>
               <motion.div
@@ -35,7 +35,7 @@ export const MobileSidebar = ({ open, onOpenChange }: SidebarProps) => {
                 exit={{ x: '-100%' }}
                 transition={{ duration: 0.3 }}
                 ref={ref}
-                className='bg-content-background max-w-[75dvw] rounded-r-lg border py-2 md:max-w-md'
+                className='bg-background max-w-[75dvw] rounded-r-lg py-2 md:max-w-md'
               >
                 <div className='custom-scrollbar h-dvh w-[75dvw] p-4 md:w-md'>
                   <div className='relative'>

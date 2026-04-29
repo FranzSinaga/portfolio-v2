@@ -45,7 +45,7 @@ const ProjectsPage = () => {
       <BlurFade inView>
         <div className='flex justify-between'>
           <h3 className='font-mono font-bold'>{'Projects'}</h3>
-          <a href='https://github.com/FranzSinaga' target='_BLANK' className='hover:bg-accent flex w-max items-center gap-x-2 rounded-full border px-2 py-0.5 transition-colors'>
+          <a href='https://github.com/FranzSinaga' target='_BLANK' className='hover:bg-accent flex w-max items-center gap-x-2 rounded-full border px-2 py-0.5'>
             See more in github <LucideIcon name='ArrowRight' size={14} />
           </a>
         </div>

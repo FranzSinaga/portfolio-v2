@@ -74,7 +74,7 @@ export const Tabs = ({
   )
 }
 
-export const FadeInDiv = ({ className, tabs, hovering }: { className?: string; key?: string; tabs: Tab[]; active: Tab; hovering?: boolean }) => {
+const FadeInDiv = ({ className, tabs, hovering }: { className?: string; key?: string; tabs: Tab[]; active: Tab; hovering?: boolean }) => {
   const isActive = (tab: Tab) => {
     return tab.value === tabs[0].value
   }

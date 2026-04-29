@@ -1,6 +1,6 @@
-import { Figma, Triangle } from 'lucide-react'
+import { Triangle } from 'lucide-react'
 import { BiLogoGoLang, BiLogoJavascript, BiLogoTypescript } from 'react-icons/bi'
-import { FaDiscord, FaGitAlt, FaReact, FaVuejs } from 'react-icons/fa'
+import { FaDiscord, FaFigma, FaGitAlt, FaReact, FaVuejs } from 'react-icons/fa'
 import { RiNotionFill, RiTailwindCssFill } from 'react-icons/ri'
 import { VscVscode } from 'react-icons/vsc'
 
@@ -10,7 +10,7 @@ const StacksCollection = [
   {
     title: 'Figma',
     description: 'Product design',
-    icon: <Figma />
+    icon: <FaFigma size={25}/>
   },
   {
     title: 'Visual Studio Code',

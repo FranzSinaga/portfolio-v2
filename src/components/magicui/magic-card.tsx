@@ -5,7 +5,7 @@ import { motion, useMotionTemplate, useMotionValue } from 'motion/react'
 
 import { cn } from '@/lib/utils'
 
-export interface MagicCardProps extends React.HTMLAttributes<HTMLDivElement> {
+interface MagicCardProps extends React.HTMLAttributes<HTMLDivElement> {
   gradientSize?: number
   gradientColor?: string
   gradientOpacity?: number

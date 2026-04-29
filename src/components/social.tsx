@@ -1,3 +1,4 @@
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import LucideIcon from './lucide-icon'
 
 const SocialList = () => {
@@ -15,14 +16,14 @@ const SocialList = () => {
         target='_BLANK'
         className='bg-opacity-40 hover:bg-opacity-50 flex cursor-pointer items-center rounded-full bg-gray-300 p-2.5 transition-opacity duration-200 dark:bg-gray-500'
       >
-        <LucideIcon name='Github' size={16} />
+        <FaGithub size={16} />
       </a>
       <a
         href='https://www.linkedin.com/in/franzsng/'
         target='_BLANK'
         className='bg-opacity-40 hover:bg-opacity-50 flex cursor-pointer items-center rounded-full bg-gray-300 p-2.5 transition-opacity duration-200 dark:bg-gray-500'
       >
-        <LucideIcon name='Linkedin' size={16} />
+        <FaLinkedin size={16} />
       </a>
     </div>
   )

@@ -19,7 +19,7 @@ interface GridPatternProps {
   // repeatDelay?: number;
 }
 
-export function GridPattern({
+function GridPattern({
   width = 40,
   height = 40,
   x = -1,

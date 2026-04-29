@@ -188,9 +188,6 @@
   a {
     @apply cursor-pointer text-sm;
   }
-  .bg-content-background {
-    @apply transition-colors duration-500;
-  }
 }
 
 /* Scrollbar */

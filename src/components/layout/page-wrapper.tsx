@@ -34,7 +34,7 @@ const PageWrapper = ({
   if (isLoading) return <></>
   if (showIntro)
     return (
-      <div className='text-foreground relative min-h-[100dvh] w-full gap-y-2 overflow-hidden p-2 font-black transition-colors duration-0'>
+      <div className='text-foreground relative min-h-[100dvh] w-full gap-y-2 overflow-hidden p-2 font-black'>
         <div className='flex h-[calc(100dvh-20px)] flex-col items-center justify-center'>
           <HyperText disableMouseEnter duration={1900} text='Welcome' />
           <p className='text-foreground font-mono text-lg font-bold'>Loading...</p>
@@ -60,7 +60,7 @@ const PageWrapper = ({
         />
         {/* END MOBILE SIDEBAR */}
         {/* DESKTOP SIDEBAR MENU */}
-        <aside id='desktop-sidebar' className='bg-background hidden w-[20dvw] p-5 font-mono transition-colors duration-500 lg:block'>
+        <aside id='desktop-sidebar' className='bg-background hidden w-[20dvw] p-5 font-mono lg:block'>
           <MenuList selectedTheme={selectedTheme ?? 'dark'} setSelectedTheme={setSelectedTheme} />
         </aside>
         {/* END DESKTOP SIDEBAR MENU */}

@@ -67,9 +67,10 @@ export const GetBlogs = () => {
                   </p>
                 </div>
                 {item.excerpt && (
-                  <p className='mt-2 text-sm'>
+                  <p className='text-muted-foreground mt-2 text-sm'>
                     {item.excerpt && item.excerpt?.length > 210 && item.excerpt?.substring(0, 210)}
                     {item.excerpt && item.excerpt.length > 210 && '....'}
+                    {item.excerpt && item.excerpt.length < 210 && item.excerpt}
                   </p>
                 )}
               </div>

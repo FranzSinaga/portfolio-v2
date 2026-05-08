@@ -22,7 +22,7 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang='en' className={`${GeistSans.variable} ${GeistMono.variable} `}>
-      <body className='duration transition-colors'>
+      <body>
         <PageWrapper>{children}</PageWrapper>
         {IS_LOCAL && <ScreenIndicator />}
       </body>

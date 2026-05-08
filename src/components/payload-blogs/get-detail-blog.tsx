@@ -4,14 +4,13 @@ import useSWR from 'swr'
 import { useParams } from 'next/navigation'
 import { fetcher, PAYLOAD_API_URL } from '@/lib'
 
-import LucideIcon from '../lucide-icon'
 import { Button } from '../ui/button'
 
 import { Blog } from '@/types/payload.types'
 import GoBackDetailBlog from '../blogs/go-back'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { Copy, CopyCheck } from 'lucide-react'
+import { IconCopy, IconCopyCheck, IconInfoCircle } from '@tabler/icons-react'
 
 interface Res {
   docs: Blog[]
@@ -43,7 +42,7 @@ export const GetDetailBlog = () => {
     return (
       <div className='bg-accent flex justify-between rounded-sm p-2 drop-shadow-sm'>
         <div className='flex items-center gap-x-2'>
-          <LucideIcon name='Info' size={18} />
+          <IconInfoCircle size={18} />
           <p className='text-destructive-foreground font-mono'>Something wrong unexpected</p>
         </div>
         <Button variant={'default'} size={'sm'} onClick={() => mutate()}>
@@ -151,7 +150,7 @@ const CodeBlockComponents = ({ name, code, language, showLineNumbers }: { name: 
         <p className='text-xs'>{name}</p>
         <Button onClick={handleCopy} size='xs' variant={'ghost'}>
           <span className='flex gap-x-1'>
-            {copyStatus === 'Copy' ? <Copy size={6} /> : <CopyCheck size={6} />}
+            {copyStatus === 'Copy' ? <IconCopy size={6} /> : <IconCopyCheck size={6} />}
             {copyStatus}
           </span>
         </Button>

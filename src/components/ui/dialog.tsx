@@ -2,7 +2,7 @@
 import React from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { useHandleOpen } from '@/hooks'
-import LucideIcon from '../lucide-icon'
+import { IconX } from '@tabler/icons-react'
 
 interface DialogProps {
   open: boolean
@@ -38,7 +38,7 @@ export const Dialog = ({ open, onOpenChange }: DialogProps) => {
                     <h4>Title</h4>
                     <p className='text-foreground/80 text-xs'>Subtitle Here and here</p>
                   </div>
-                  <LucideIcon name='X' size={25} className='text-foreground hover:bg-accent rounded-sm p-1 hover:cursor-pointer' onClick={() => onOpenChange(false)} />
+                  <IconX size={25} className='text-foreground hover:bg-accent rounded-sm p-1 hover:cursor-pointer' onClick={() => onOpenChange(false)} />
                 </div>
 
                 {/* Content */}

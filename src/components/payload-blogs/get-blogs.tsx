@@ -4,11 +4,11 @@ import { useRouter } from 'next/navigation'
 import dayjs from 'dayjs'
 import { fetcher, PAYLOAD_API_URL } from '@/lib'
 
-import LucideIcon from '../lucide-icon'
 import { Button } from '../ui/button'
 import BlurFade from '../magicui/blur-fade'
 
 import { Blog } from '@/types/payload.types'
+import { IconCalendar, IconInfoCircle } from '@tabler/icons-react'
 
 interface Res {
   docs: Blog[]
@@ -39,7 +39,7 @@ export const GetBlogs = () => {
     return (
       <div className='bg-accent flex justify-between rounded-sm p-2 drop-shadow-sm'>
         <div className='flex items-center gap-x-2'>
-          <LucideIcon name='Info' size={18} />
+          <IconInfoCircle size={18} />
           <p className='text-destructive-foreground font-mono'>Something wrong unexpected</p>
         </div>
         <Button variant={'default'} size={'sm'} onClick={() => mutate()}>
@@ -62,7 +62,7 @@ export const GetBlogs = () => {
                 <div className='flex w-full items-center justify-between gap-x-2'>
                   <p className='font-medium'>{item.title}</p>
                   <p className='mt-0.5 flex items-center gap-x-1 text-xs'>
-                    <LucideIcon name='Calendar' size={15} />
+                    <IconCalendar size={15} />
                     {dayjs(item.updatedAt).format('DD MMMM YYYY, HH:mm')}
                   </p>
                 </div>

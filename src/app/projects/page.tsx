@@ -1,6 +1,6 @@
 import BlurFade from '@/components/magicui/blur-fade'
 import { ProjectCard } from './components'
-import LucideIcon from '@/components/lucide-icon'
+import { IconArrowRight } from '@tabler/icons-react'
 
 export const metadata = {
   title: 'Franz | Projects'
@@ -41,12 +41,12 @@ const projectList = [
 
 const ProjectsPage = () => {
   return (
-    <div className='mx-auto mt-5 max-w-[1200px]'>
+    <div className='mx-auto mt-5 max-w-300'>
       <BlurFade inView>
         <div className='flex justify-between'>
           <h3 className='font-mono font-bold'>{'Projects'}</h3>
           <a href='https://github.com/FranzSinaga' target='_BLANK' className='hover:bg-accent flex w-max items-center gap-x-2 rounded-full border px-2 py-0.5'>
-            See more in github <LucideIcon name='ArrowRight' size={14} />
+            See more in github <IconArrowRight name='ArrowRight' size={14} />
           </a>
         </div>
       </BlurFade>

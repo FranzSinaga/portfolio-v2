@@ -7,8 +7,8 @@ import { useCommandMenuContext } from '@/context/command-menu-context'
 import { useTheme, useHandleOpen } from '@/hooks'
 import { MENUS_LIST, THEMES_LIST } from '@/lib'
 
-import LucideIcon from './lucide-icon'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from './ui/command'
+import { IconSearch } from '@tabler/icons-react'
 
 export const CommandMenu = () => {
   const { push } = useRouter()
@@ -66,10 +66,9 @@ export const CommandMenu = () => {
                 <Command label='Command Menu' loop shouldFilter>
                   <div className='flex items-center justify-between border-b'>
                     <div className='flex items-center justify-center gap-x-2 px-4 pb-2'>
-                      <LucideIcon name='Search' size={15} />
+                      <IconSearch size='15' />
                       <CommandInput placeholder='Search...' />
                     </div>
-                    <LucideIcon name='X' size={25} className='text-foreground hover:bg-accent mr-2 rounded-sm p-1 hover:cursor-pointer' onClick={() => setOpen(false)} />
                   </div>
 
                   {/* Content */}
@@ -77,6 +76,7 @@ export const CommandMenu = () => {
                     <CommandEmpty>No results found.</CommandEmpty>
                     <CommandGroup heading='Menus'>
                       {MENUS_LIST.map(e => {
+                        const Icon = e.icon
                         return (
                           <CommandItem
                             key={e.link}
@@ -87,7 +87,7 @@ export const CommandMenu = () => {
                             }}
                           >
                             <div className='flex items-center gap-2 px-2 py-1'>
-                              <LucideIcon name={e?.icon ?? 'Menu'} size={20} />
+                              {Icon && <Icon />}
                               <p className='text-sm'>{e.name}</p>
                             </div>
                           </CommandItem>
@@ -98,6 +98,7 @@ export const CommandMenu = () => {
                     <CommandGroup heading='Themes'>
                       {THEMES_LIST.map(e => {
                         if (e.value !== selectedTheme) {
+                          const Icon = e.icon
                           return (
                             <CommandItem
                               key={e.value}
@@ -108,7 +109,7 @@ export const CommandMenu = () => {
                               }}
                             >
                               <div className='flex items-center gap-2 px-2 py-1'>
-                                <LucideIcon name={e?.icon ?? 'Menu'} size={20} />
+                                {Icon && <Icon />}
                                 <p className='text-sm'>{e.name}</p>
                               </div>
                             </CommandItem>

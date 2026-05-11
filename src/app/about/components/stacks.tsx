@@ -1,16 +1,28 @@
 import BlurFade from '@/components/magicui/blur-fade'
-import { IconBrandFigma, IconBrandVscode, IconBrandNotion, IconTriangle, IconBrandReact, IconBrandVue, IconBrandTailwind, IconBrandJavascript, IconBrandTypescript, IconBrandGolang, IconBrandDiscordFilled, IconBrandGithubFilled } from '@tabler/icons-react'
+import {
+  IconBrandFigma,
+  IconBrandVscode,
+  IconBrandNotion,
+  IconTriangle,
+  IconBrandReact,
+  IconBrandVue,
+  IconBrandTailwind,
+  IconBrandTypescript,
+  IconBrandGolang,
+  IconBrandDiscordFilled,
+  IconBrandGithubFilled
+} from '@tabler/icons-react'
 
 const StacksCollection = [
   {
     title: 'Figma',
     description: 'Product design',
-    icon: <IconBrandFigma size={34}/>
+    icon: <IconBrandFigma size={34} />
   },
   {
     title: 'Visual Studio Code',
     description: 'Code editor',
-    icon: <IconBrandVscode size={34} className='fill-foreground text-foreground'/>
+    icon: <IconBrandVscode size={34} className='fill-foreground text-foreground' />
   },
   {
     title: 'Notion',
@@ -58,9 +70,9 @@ export const Stacks = () => {
             <div className='space-y-3'>
               <p className='text-md text-center font-semibold'>Languages and frameworks</p>
               <div className='flex items-center justify-center gap-4'>
-                <IconBrandReact size={34}  />
+                <IconBrandReact size={34} />
                 <IconBrandVue size={34} />
-                <IconBrandTailwind size={34} className='fill-foreground text-foreground'/>
+                <IconBrandTailwind size={34} className='fill-foreground text-foreground' />
                 <IconBrandTypescript size={34} />
                 <IconBrandGolang size={40} />
               </div>

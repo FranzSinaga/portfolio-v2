@@ -8,12 +8,12 @@ import { useTheme } from '@/hooks'
 import { CommandMenuProvider } from '@/context/command-menu-context'
 
 import MenuList from '@/components/layout/menu'
-import LucideIcon from '@/components/lucide-icon'
 import BottomSection from '@/components/bottom-section'
 import { HyperText } from '@/components/magicui/hyper-text'
 import GridPattern from '@/components/magicui/animated-grid-pattern'
 import { CommandMenu } from '@/components/command-menu'
 import { MobileSidebar } from '@/components/layout/mobile-sidebar'
+import { IconMenu, IconMoodSmile } from '@tabler/icons-react'
 
 const PageWrapper = ({
   children
@@ -49,7 +49,7 @@ const PageWrapper = ({
     )
 
   return (
-    <div className='mx-auto max-w-[1650px] rounded-sm'>
+    <div className='mx-auto max-w-412.5 rounded-sm'>
       <div className='flex w-full'>
         {/* MOBILE SIDEBAR */}
         <MobileSidebar
@@ -68,10 +68,10 @@ const PageWrapper = ({
         <main className='border-foreground/50 bg-content-background w-full rounded-t-[20px] lg:mt-5 lg:mr-5 lg:border-x-2 lg:border-t-2'>
           {/* MOBILE SHEET MENU */}
           <div id='mobile-sidebar' className='border-foreground/50 bg-content-background sticky top-0 z-10 flex items-center justify-between border-b-2 shadow lg:hidden'>
-            <LucideIcon name='Menu' size={45} onClick={() => setIsOpenSheet(true)} className='text-foreground mr-2 cursor-pointer px-3' />
+            <IconMenu size={45} onClick={() => setIsOpenSheet(true)} className='text-foreground mr-2 cursor-pointer px-3' />
 
             <Image src={selectedTheme === 'light' ? '/logo-black.png' : '/logo-white.png'} width={25} height={25} alt='icons' />
-            <LucideIcon name='Smile' size={45} className='text-foreground mr-2 px-3' />
+            <IconMoodSmile size={45} className='text-foreground mr-2 px-3' />
           </div>
           {/* END MOBILE SHEET MENU */}
 

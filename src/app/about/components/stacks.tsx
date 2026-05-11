@@ -1,41 +1,48 @@
-import { Triangle } from 'lucide-react'
-import { BiLogoGoLang, BiLogoJavascript, BiLogoTypescript } from 'react-icons/bi'
-import { FaDiscord, FaFigma, FaGitAlt, FaReact, FaVuejs } from 'react-icons/fa'
-import { RiNotionFill, RiTailwindCssFill } from 'react-icons/ri'
-import { VscVscode } from 'react-icons/vsc'
-
 import BlurFade from '@/components/magicui/blur-fade'
+import {
+  IconBrandFigma,
+  IconBrandVscode,
+  IconBrandNotion,
+  IconTriangle,
+  IconBrandReact,
+  IconBrandVue,
+  IconBrandTailwind,
+  IconBrandTypescript,
+  IconBrandGolang,
+  IconBrandDiscordFilled,
+  IconBrandGithubFilled
+} from '@tabler/icons-react'
 
 const StacksCollection = [
   {
     title: 'Figma',
     description: 'Product design',
-    icon: <FaFigma size={25}/>
+    icon: <IconBrandFigma size={34} />
   },
   {
     title: 'Visual Studio Code',
     description: 'Code editor',
-    icon: <VscVscode size={25} />
+    icon: <IconBrandVscode size={34} className='fill-foreground text-foreground' />
   },
   {
     title: 'Notion',
     description: 'Productivity and notes',
-    icon: <RiNotionFill size={25} />
+    icon: <IconBrandNotion size={34} />
   },
   {
     title: 'Git',
     description: 'Version Control System',
-    icon: <FaGitAlt size={25} />
+    icon: <IconBrandGithubFilled size={34} />
   },
   {
     title: 'Vercel',
     description: 'Web hosting',
-    icon: <Triangle className='fill-foreground text-foreground' />
+    icon: <IconTriangle size={34} className='fill-foreground text-foreground' />
   },
   {
     title: 'Discord',
     description: 'Chat and voice needs',
-    icon: <FaDiscord size={25} />
+    icon: <IconBrandDiscordFilled size={34} />
   }
 ]
 
@@ -47,10 +54,10 @@ export const Stacks = () => {
           <h4 className='font-bold'>Stacks</h4>
           <p className='font-light'>Things i use all the time</p>
         </BlurFade>
-        <BlurFade inView delay={0.4}>
+        <BlurFade inView delay={0.4} className='space-y-2'>
           <div className='mt-5 grid grid-cols-2 gap-2'>
             {StacksCollection.map((e, key) => (
-              <div key={key} className='bg-content-background flex items-center gap-x-2 rounded-md border p-2'>
+              <div key={key} className='bg-muted-foreground/5 flex items-center gap-x-2 rounded-md border p-2'>
                 {e.icon}
                 <div>
                   <p className='text-sm font-semibold'>{e.title}</p>
@@ -59,16 +66,15 @@ export const Stacks = () => {
               </div>
             ))}
           </div>
-          <div className='bg-content-background mt-2 items-center gap-x-2 rounded-md border p-2'>
-            <div>
+          <div className='bg-muted-foreground/5 items-center gap-x-2 rounded-md border p-2'>
+            <div className='space-y-3'>
               <p className='text-md text-center font-semibold'>Languages and frameworks</p>
-              <div className='mt-3 flex items-center justify-center gap-x-2'>
-                <FaReact size={30} />
-                <FaVuejs size={30} />
-                <RiTailwindCssFill size={30} />
-                <BiLogoJavascript size={30} />
-                <BiLogoTypescript size={30} />
-                <BiLogoGoLang size={35} />
+              <div className='flex items-center justify-center gap-4'>
+                <IconBrandReact size={34} />
+                <IconBrandVue size={34} />
+                <IconBrandTailwind size={34} className='fill-foreground text-foreground' />
+                <IconBrandTypescript size={34} />
+                <IconBrandGolang size={40} />
               </div>
             </div>
           </div>

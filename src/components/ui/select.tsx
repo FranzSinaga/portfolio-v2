@@ -5,8 +5,7 @@ import { AnimatePresence, motion } from 'motion/react'
 
 import { useHandleOpen, useCyclingFocus } from '@/hooks'
 import { cn } from '@/lib'
-
-import LucideIcon from '../lucide-icon'
+import { IconChevronDown } from '@tabler/icons-react'
 
 interface CustomSelectProps<TData> {
   value: string
@@ -60,7 +59,7 @@ export const Select = <TData,>({ value, list, onSelect, disabled }: CustomSelect
       >
         <div className='py-1'>{selectedArr.length > 0 ? selectedArr[0].label : '-'}</div>
         <span>
-          <LucideIcon name={'ChevronDown'} size={15} className={cn('font-thin transition', open && 'rotate-180')} />
+          <IconChevronDown size={15} className={cn('font-thin transition', open && 'rotate-180')} />
         </span>
       </button>
 

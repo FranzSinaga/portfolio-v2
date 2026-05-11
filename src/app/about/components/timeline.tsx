@@ -119,7 +119,7 @@ export const Timeline = () => {
   ]
 
   return (
-    <div className='my-5 flex h-[40rem] w-full flex-col items-start justify-start [perspective:1000px] md:h-[26rem] lg:h-[22rem]'>
+    <div className='my-5 flex h-160 w-full flex-col items-start justify-start perspective-[1000px] md:h-104 lg:h-88'>
       <Tabs activeTabClassName='text-blue-600' tabs={tabs} containerClassName='font-mono' contentClassName='mt-10' />
     </div>
   )

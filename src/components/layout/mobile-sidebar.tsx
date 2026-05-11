@@ -3,7 +3,7 @@ import { useHandleOpen, useTheme } from '@/hooks'
 import { AnimatePresence, motion } from 'motion/react'
 
 import MenuList from './menu'
-import LucideIcon from '../lucide-icon'
+import { IconX } from '@tabler/icons-react'
 
 interface SidebarProps {
   open: boolean
@@ -40,7 +40,7 @@ export const MobileSidebar = ({ open, onOpenChange }: SidebarProps) => {
                 <div className='custom-scrollbar h-dvh w-[75dvw] p-4 md:w-md'>
                   <div className='relative'>
                     <div className='absolute right-0 cursor-pointer'>
-                      <LucideIcon name='X' size={20} />
+                      <IconX size={20} />
                     </div>
                   </div>
                   <MenuList selectedTheme={selectedTheme ?? 'dark'} setSelectedTheme={setSelectedTheme} onClick={() => onOpenChange(false)} />

@@ -3,9 +3,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { MENUS_LIST, THEMES_LIST, cn } from '@/lib'
 
-import LucideIcon from '../lucide-icon'
 import { Select } from '../ui/select'
-
 import { Theme } from '@/types/theme.type'
 
 interface Props {
@@ -25,7 +23,8 @@ const MenuList = ({ selectedTheme, setSelectedTheme, onClick }: Props) => {
         <div className='font-base text-sm'>
           <ul className='flex flex-col gap-y-2'>
             {MENUS_LIST.map(e => {
-              const isActive = currentPath === e.link
+              const Icon = e.icon
+              const isActive = e.link === '/' ? currentPath === '/' : currentPath.startsWith(e.link)
               return (
                 <Link key={e.name} href={e.link}>
                   <li
@@ -35,7 +34,7 @@ const MenuList = ({ selectedTheme, setSelectedTheme, onClick }: Props) => {
                       'flex cursor-pointer items-center gap-x-2 rounded-md py-2 pl-3'
                     )}
                   >
-                    <LucideIcon name={e?.icon ?? 'Menu'} size={16} />
+                    {Icon && <Icon size={20} />}
                     <p>{e.name}</p>
                   </li>
                 </Link>
@@ -49,11 +48,12 @@ const MenuList = ({ selectedTheme, setSelectedTheme, onClick }: Props) => {
         <Select<Theme>
           value={selectedTheme}
           list={THEMES_LIST.map(e => {
+            const Icon = e.icon
             return {
               value: e.value,
               label: (
                 <span className='flex items-center gap-x-2 text-xs'>
-                  <LucideIcon name={e.icon} size={18} />
+                  {Icon && <Icon size={20} />}
                   {e.name}
                 </span>
               )

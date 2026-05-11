@@ -1,9 +1,8 @@
-import { RiTailwindCssFill } from 'react-icons/ri'
 import { cn } from '@/lib'
 
 import { Button } from '@/components/ui/button'
-import LucideIcon from '@/components/lucide-icon'
 import { StyleGuideContainer } from './components/container'
+import { IconBrandTailwind, IconTimeDuration0 } from '@tabler/icons-react'
 
 export const metadata = {
   title: 'Franz | Style Guide'
@@ -12,7 +11,7 @@ export const metadata = {
 const StyleGuidePage = () => {
   const bgColorClassname = 'flex md:h-24 h-20 md:w-24 items-center text-center justify-center border text-xs ring-4 rounded-md'
   return (
-    <div className='mx-auto mt-5 max-w-[1200px] space-y-4 font-mono'>
+    <div className='mx-auto mt-5 max-w-300 space-y-4 font-mono'>
       {/* Fonts */}
       <StyleGuideContainer header={'Typeface'}>
         <div className='flex flex-wrap gap-x-5 gap-y-2'>
@@ -42,7 +41,7 @@ const StyleGuidePage = () => {
               <Button size={'default'}>Default</Button>
               <Button size={'sm'}>small</Button>
               <Button size={'icon'}>
-                <LucideIcon name='Timer' />
+                <IconTimeDuration0 />
               </Button>
             </div>
           </div>
@@ -64,7 +63,7 @@ const StyleGuidePage = () => {
               <div className={cn(bgColorClassname, 'bg-popover text-popover-foreground')}>popover</div>
             </div>
             <a href='https://tailwindcss.com/docs/customizing-colors' className='mt-4 flex w-max items-center gap-2 text-sm hover:underline' target='_blank'>
-              <RiTailwindCssFill />
+              <IconBrandTailwind />
               Go to Tailwind Colors {'->'}
             </a>
           </>

@@ -1,6 +1,6 @@
 'use client'
+import { IconLoader } from '@tabler/icons-react'
 import { useState } from 'react'
-import LucideIcon from './lucide-icon'
 
 interface Props {
   src: string
@@ -24,7 +24,7 @@ const ImageWithLoading = ({ src, alt }: Props) => {
     <span className='w-full'>
       {isLoading && (
         <span className='bg-foreground/30 inset-0 flex w-full animate-pulse items-center justify-center rounded p-20'>
-          <LucideIcon name='LoaderCircle' className='animate-spin' />
+          <IconLoader className='animate-spin' />
         </span>
       )}
 

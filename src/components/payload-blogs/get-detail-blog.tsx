@@ -146,7 +146,8 @@ const CodeBlockComponents = ({ name, code, language, showLineNumbers }: { name: 
 
   return (
     <div className='border p-2'>
-      <div className='flex items-center justify-end'>
+      <div className='flex items-center justify-between'>
+        <p className='text-muted-foreground text-xs'>{name}</p>
         <Button onClick={handleCopy} size='xs' variant={'ghost'}>
           <span className='flex gap-x-1'>
             {copyStatus === 'Copy' ? <IconCopy size={6} /> : <IconCopyCheck size={6} />}

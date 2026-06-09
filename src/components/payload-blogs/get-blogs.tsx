@@ -1,14 +1,13 @@
 'use client'
 import useSWR from 'swr'
 import { useRouter } from 'next/navigation'
-import dayjs from 'dayjs'
 import { fetcher, PAYLOAD_API_URL } from '@/lib'
 
 import { Button } from '../ui/button'
 import BlurFade from '../magicui/blur-fade'
 
 import { Blog } from '@/types/payload.types'
-import { IconCalendar, IconInfoCircle } from '@tabler/icons-react'
+import { IconInfoCircle } from '@tabler/icons-react'
 
 interface Res {
   docs: Blog[]

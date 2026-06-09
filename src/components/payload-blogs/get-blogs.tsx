@@ -61,10 +61,10 @@ export const GetBlogs = () => {
               <div className='ml-2 w-full'>
                 <div className='flex w-full items-center justify-between gap-x-2'>
                   <p className='font-medium'>{item.title}</p>
-                  <p className='mt-0.5 flex items-center gap-x-1 text-xs'>
+                  {/* <p className='mt-0.5 flex items-center gap-x-1 text-xs'>
                     <IconCalendar size={15} />
                     {dayjs(item.updatedAt).format('DD MMMM YYYY, HH:mm')}
-                  </p>
+                  </p> */}
                 </div>
                 {item.excerpt && (
                   <p className='text-muted-foreground mt-2 text-sm'>

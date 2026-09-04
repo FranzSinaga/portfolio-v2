@@ -1,5 +1,6 @@
 import BlurFade from '@/components/magicui/blur-fade'
-import { AboutMe, Footer, Stacks, Timeline } from './components'
+import { AboutMe, Footer, Stacks } from './components'
+import { WorkExperience } from '@/components/work-experience'
 
 export const metadata = {
   title: 'Franz | About'
@@ -17,7 +18,7 @@ const AboutPage = () => {
           <h3 className='font-mono font-bold'>Work Experience</h3>
           <BlurFade inView delay={0.2}>
             <div className='flex flex-row flex-wrap'>
-              <Timeline />
+              <WorkExperience />
             </div>
           </BlurFade>
         </BlurFade>

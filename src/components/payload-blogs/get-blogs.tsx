@@ -1,16 +1,27 @@
 'use client'
 import useSWR from 'swr'
 import { useRouter } from 'next/navigation'
-import { fetcher, PAYLOAD_API_URL } from '@/lib'
+import { fetcher, PAYLOAD_API_URL, truncate } from '@/lib'
 
 import BlurFade from '../magicui/blur-fade'
 import { AsyncState } from '../async-state'
 
-import { Blog } from '@/types/payload.types'
-
 interface Res {
-  docs: Blog[]
+  docs: Array<{
+    id: number
+    slug: string
+    title: string
+    excerpt?: string
+  }>
 }
+
+const query = new URLSearchParams({
+  depth: '1',
+  'where[isPublished][equals]': 'true',
+  'select[slug]': 'true',
+  'select[title]': 'true',
+  'select[excerpt]': 'true'
+})
 
 export const GetBlogs = () => {
   const { push } = useRouter()
@@ -20,7 +31,7 @@ export const GetBlogs = () => {
     error,
     mutate,
     isValidating
-  } = useSWR<Res>(`${PAYLOAD_API_URL}/api/franz-blogs?depth=1&where[isPublished][equals]=true`, fetcher, {
+  } = useSWR<Res>(`${PAYLOAD_API_URL}/api/franz-blogs?${query}`, fetcher, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false
@@ -46,13 +57,7 @@ export const GetBlogs = () => {
                     {dayjs(item.updatedAt).format('DD MMMM YYYY, HH:mm')}
                   </p> */}
                   </div>
-                  {item.excerpt && (
-                    <p className='text-muted-foreground mt-2 text-sm'>
-                      {item.excerpt && item.excerpt?.length > 210 && item.excerpt?.substring(0, 210)}
-                      {item.excerpt && item.excerpt.length > 210 && '....'}
-                      {item.excerpt && item.excerpt.length < 210 && item.excerpt}
-                    </p>
-                  )}
+                  {item.excerpt && <p className='text-muted-foreground mt-2 text-sm'>{truncate(item.excerpt, 210)}</p>}
                 </div>
               </li>
             </BlurFade>

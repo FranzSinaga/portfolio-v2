@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "analyze": "next experimental-analyze",
-    "format:check": "prettier --check --ignore-path .gitignore . --config .prettierrc",
-    "format:fix": "prettier --write --ignore-path .gitignore . --config .prettierrc"
+    "format:check": "prettier --check . --config .prettierrc",
+    "format:fix": "prettier --write . --config .prettierrc"
   },
   "dependencies": {
     "@tabler/icons-react": "^3.43.0",

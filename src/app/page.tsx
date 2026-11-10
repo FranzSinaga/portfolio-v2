@@ -11,9 +11,11 @@ export const metadata = {
 const Home = () => {
   return (
     <div className='relative flex h-dvh flex-col items-center justify-center overflow-hidden lg:h-full'>
-      <div className='flex flex-col text-black dark:text-white space-y-2'>
+      <div className='flex flex-col space-y-2 text-black dark:text-white'>
         <BlurFade inView>
-          <p className='ml-1 text-xl'>Hello There <span className="wave">👋</span>, I am</p>
+          <p className='ml-1 text-xl'>
+            Hello There <span className='wave'>👋</span>, I am
+          </p>
         </BlurFade>
         <BlurFade inView delay={0.2}>
           <h2 className='text-4xl font-bold lg:text-7xl'>Franz Sinaga</h2>

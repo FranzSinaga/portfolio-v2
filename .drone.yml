@@ -15,25 +15,31 @@ server:
 
 steps:
   - name: Checkout & Pull
+    environment: &project_env
+      PROJECT_PATH:
+        from_secret: APP_DIR
     commands:
       - echo "=== Checkout branch and pull latest code ==="
-      - cd ~/projects/web-portfolio-v2
+      - cd $PROJECT_PATH
       - git checkout master
       - git pull origin master
   - name: Verify
+    environment: *project_env
     commands:
       - echo "=== Typecheck, lint, and format ==="
-      - cd ~/projects/web-portfolio-v2
+      - cd $PROJECT_PATH
       - docker run --rm -v "$PWD":/app -w /app node:20-alpine sh -c "corepack enable && corepack prepare pnpm@10.0.0 --activate && pnpm install --frozen-lockfile && pnpm exec tsc --noEmit && pnpm lint && pnpm format:check"
   - name: Build
+    environment: *project_env
     commands:
       - echo "=== Building Application ==="
-      - cd ~/projects/web-portfolio-v2
+      - cd $PROJECT_PATH
       - docker-compose build --no-cache
   - name: Deploy
+    environment: *project_env
     commands:
       - echo "=== Replace the running container with the new image ==="
-      - cd ~/projects/web-portfolio-v2
+      - cd $PROJECT_PATH
       - docker-compose up -d
   - name: Cleanup
     commands:

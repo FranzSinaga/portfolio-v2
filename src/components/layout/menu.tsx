@@ -1,9 +1,9 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { MENUS_LIST, THEMES_LIST, cn } from '@/lib'
+import { IconMoonStars, IconSun } from '@tabler/icons-react'
+import { MENUS_LIST, cn } from '@/lib'
 
-import { Select } from '../ui/select'
 import { Theme } from '@/types/theme.type'
 
 interface Props {
@@ -14,6 +14,7 @@ interface Props {
 
 const MenuList = ({ selectedTheme, setSelectedTheme, onClick }: Props) => {
   const currentPath = usePathname()
+  const isDark = selectedTheme === 'dark'
   return (
     <div className='flex h-[calc(100vh-2.5rem)] w-full flex-col justify-between'>
       <div className='space-y-10'>
@@ -45,22 +46,18 @@ const MenuList = ({ selectedTheme, setSelectedTheme, onClick }: Props) => {
       </div>
 
       {selectedTheme && (
-        <Select<Theme>
-          value={selectedTheme}
-          list={THEMES_LIST.map(e => {
-            const Icon = e.icon
-            return {
-              value: e.value,
-              label: (
-                <span className='flex items-center gap-x-2 text-xs'>
-                  {Icon && <Icon size={20} />}
-                  {e.name}
-                </span>
-              )
-            }
-          })}
-          onSelect={(value: Theme) => setSelectedTheme(value)}
-        />
+        <button
+          type='button'
+          role='switch'
+          aria-checked={isDark}
+          aria-label='Dark mode'
+          onClick={() => setSelectedTheme(isDark ? 'light' : 'dark')}
+          className='bg-muted relative flex h-8 w-16 shrink-0 cursor-pointer items-center justify-between self-start rounded-full border px-[7px]'
+        >
+          <span className={cn('bg-foreground absolute top-[3px] left-[3px] size-6 rounded-full transition-transform motion-reduce:transition-none', isDark && 'translate-x-8')} />
+          <IconSun size={16} className={cn('relative transition-colors', isDark ? 'text-muted-foreground' : 'text-background')} />
+          <IconMoonStars size={16} className={cn('relative transition-colors', isDark ? 'text-background' : 'text-muted-foreground')} />
+        </button>
       )}
     </div>
   )

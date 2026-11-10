@@ -81,6 +81,35 @@ export interface Media {
   focalY?: number | null
 }
 
+export interface RichText {
+  root: {
+    type: string
+    children: {
+      type: string
+      version: number
+      children?: {
+        text: string
+        children?: {
+          [k: string]: string
+        }[]
+        [k: string]: string | any
+      }[]
+      fields: {
+        upload: {
+          [k: string]: string
+        }
+        [k: string]: string | any
+      }
+      [k: string]: any
+    }[]
+    direction: ('ltr' | 'rtl') | null
+    format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
+    indent: number
+    version: number
+  }
+  [k: string]: unknown
+}
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "blogs".
@@ -89,34 +118,7 @@ export interface Blog {
   id: number
   slug: string
   title: string
-  content: {
-    root: {
-      type: string
-      children: {
-        type: string
-        version: number
-        children?: {
-          text: string
-          children?: {
-            [k: string]: string
-          }[]
-          [k: string]: string | any
-        }[]
-        fields: {
-          upload: {
-            [k: string]: string
-          }
-          [k: string]: string | any
-        }
-        [k: string]: any
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  }
+  content: RichText
   excerpt?: string | null
   isPublished?: boolean | null
   updatedAt: string
@@ -228,4 +230,18 @@ export interface CodeBlock {
   id?: string | null
   blockName?: string | null
   blockType: 'code-block'
+}
+
+export interface FranzWorkExperience {
+  id: number
+  active?: boolean | null
+  position: string
+  organization: string
+  location?: string | null
+  startDate: string
+  endDate?: string | null
+  untilNow?: boolean | null
+  description?: RichText | null
+  updatedAt: string
+  createdAt: string
 }

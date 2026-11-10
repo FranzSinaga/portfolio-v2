@@ -1,11 +1,10 @@
-import { Theme, ThemeType } from '@/types/theme.type'
+import { Theme } from '@/types/theme.type'
 import type { Icon } from '@tabler/icons-react'
-import { IconBook2, IconDeviceLaptop, IconHome, IconMoonStars, IconSettings, IconSun, IconUser } from '@tabler/icons-react'
+import { IconBook2, IconDeviceLaptop, IconHome, IconMoonStars, IconSun, IconUser } from '@tabler/icons-react'
 
-export const THEMES_LIST: { name: string; icon: Icon; value: Theme; type: ThemeType }[] = [
-  { name: 'Dark', icon: IconMoonStars, value: 'dark', type: 'dark' },
-  { name: 'Light', icon: IconSun, value: 'light', type: 'light' },
-  { name: 'System', icon: IconSettings, value: 'system', type: 'system' }
+export const THEMES_LIST: { name: string; icon: Icon; value: Theme }[] = [
+  { name: 'Dark', icon: IconMoonStars, value: 'dark' },
+  { name: 'Light', icon: IconSun, value: 'light' }
 ]
 
 type Menus = 'Home' | 'About' | 'Projects' | 'Style Guide' | 'Contact' | 'Playground' | 'Blogs'

@@ -34,13 +34,13 @@ steps:
     commands:
       - echo "=== Building Application ==="
       - cd $PROJECT_PATH
-      - docker-compose build --no-cache
+      - docker compose build --no-cache
   - name: Deploy
     environment: *project_env
     commands:
       - echo "=== Replace the running container with the new image ==="
       - cd $PROJECT_PATH
-      - docker-compose up -d
+      - docker compose up -d
   - name: Cleanup
     commands:
       - echo "=== Cleanup the service ==="

@@ -4,7 +4,7 @@ name: web-portfolio-v2
 
 clone:
   disable: true
-  
+
 timeout: 30m
 
 steps:
@@ -22,8 +22,9 @@ steps:
       script:
         - cd ~/projects/web-portfolio-v2
         - git pull origin master
-        - docker-compose down
-        - docker-compose up -d --build
+        # Build while the old container keeps serving; up -d then only swaps the container (~1-2s gap).
+        - docker-compose build
+        - docker-compose up -d
         - docker system prune -f
 
 trigger:

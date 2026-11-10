@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# portfolio-v2
 
-## Getting Started
+Personal portfolio and blog of Franz Sinaga, live at [franzsinaga.com](https://franzsinaga.com).
 
-First, run the development server:
+Built with Next.js 16 (App Router), TypeScript, Tailwind CSS v4, and shadcn/ui. Blog posts and work experience are managed in a headless [Payload CMS](https://payloadcms.com) instance.
+
+## Getting started
+
+Requirements: Node.js 20.9+ and pnpm (`corepack enable`).
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.example .env   # then set NEXT_PUBLIC_PAYLOAD_API_URL
+pnpm install
+pnpm dev               # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Variable                      | Description                                          |
+| ----------------------------- | ---------------------------------------------------- |
+| `NEXT_PUBLIC_PAYLOAD_API_URL` | Base URL of the Payload CMS instance (no trailing /) |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+| Command             | Description                                 |
+| ------------------- | ------------------------------------------- |
+| `pnpm dev`          | Start the dev server (Turbopack)            |
+| `pnpm build`        | Production build (`standalone` output)      |
+| `pnpm start`        | Run the production build                    |
+| `pnpm lint`         | ESLint (flat config in `eslint.config.mjs`) |
+| `pnpm format:check` | Check formatting with Prettier              |
+| `pnpm format:fix`   | Format the codebase with Prettier           |
 
-## Learn More
+Run `pnpm exec tsc --noEmit`, `pnpm lint`, and `pnpm format:check` before pushing — CI runs the same checks and stops the deploy if any of them fail.
 
-To learn more about Next.js, take a look at the following resources:
+## Content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Data is fetched client-side with SWR from the Payload CMS REST API:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- `/api/franz-blogs` — blog list and blog detail (by slug). Post content is Payload's Lexical rich-text JSON, rendered by `src/components/rich-text`.
+- `/api/franz-work-experience` — work experience on the About page.
 
-## Deploy on Vercel
+Payload response types live in `src/types/payload.types.ts`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+src/
+├── app/          # Routes: about, blogs, blogs/[slug], contact, playground, projects, style-guide
+├── components/   # Shared components (ui/ = shadcn/ui, magicui/ and aceternity/ = animated effects)
+├── context/      # Command menu (Ctrl/⌘ + K) state
+├── hooks/        # useTheme and other hooks
+├── lib/          # Constants, utils, string helpers (import from "@/lib")
+└── types/        # Payload and theme types
+```
+
+## Deployment
+
+Every push to `master` triggers a Drone CI pipeline (`.drone.yml`, `type: ssh`) that runs directly on the VPS:
+
+1. **Checkout & Pull** — pull the latest `master`
+2. **Verify** — typecheck, lint, and format check in a `node:20-alpine` container
+3. **Build** — `docker compose build --no-cache` while the current container keeps serving
+4. **Deploy** — `docker compose up -d` swaps in the new container
+5. **Cleanup** — `docker system prune -f`
+
+If any step fails, the deploy stops and the running site stays up.
+
+Required Drone secrets: `DEPLOY_HOST`, `DEPLOY_USERNAME`, `DEPLOY_SSH_KEY`, and `APP_DIR` (absolute path to the project on the VPS). The VPS needs Docker with Compose v2 (`docker compose`); the legacy `docker-compose` v1 binary fails when recreating containers.

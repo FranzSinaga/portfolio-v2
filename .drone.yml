@@ -7,11 +7,11 @@ clone:
 
 server:
   host:
-    from_secret: vps_ip
+    from_secret: DEPLOY_HOST
   user:
-    from_secret: ssh_user
+    from_secret: DEPLOY_USERNAME
   ssh_key:
-    from_secret: ssh_private_key
+    from_secret: DEPLOY_SSH_KEY
 
 steps:
   - name: Checkout & Pull

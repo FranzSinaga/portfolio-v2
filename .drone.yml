@@ -1,31 +1,44 @@
 kind: pipeline
-type: docker
+type: ssh
 name: web-portfolio-v2
 
 clone:
   disable: true
 
-timeout: 30m
+server:
+  host:
+    from_secret: vps_ip
+  user:
+    from_secret: ssh_user
+  ssh_key:
+    from_secret: ssh_private_key
 
 steps:
+  - name: Checkout & Pull
+    commands:
+      - echo "=== Checkout branch and pull latest code ==="
+      - cd ~/projects/web-portfolio-v2
+      - git checkout master
+      - git pull origin master
+  - name: Verify
+    commands:
+      - echo "=== Typecheck, lint, and format ==="
+      - cd ~/projects/web-portfolio-v2
+      - docker run --rm -v "$PWD":/app -w /app node:20-alpine sh -c "corepack enable && corepack prepare pnpm@10.0.0 --activate && pnpm install --frozen-lockfile && pnpm exec tsc --noEmit && pnpm lint && pnpm format:check"
+  - name: Build
+    commands:
+      - echo "=== Building Application ==="
+      - cd ~/projects/web-portfolio-v2
+      - docker-compose build --no-cache
   - name: Deploy
-    image: appleboy/drone-ssh
-    settings:
-      host:
-        from_secret: vps_ip
-      username:
-        from_secret: ssh_user
-      port:
-        from_secret: ssh_port
-      key:
-        from_secret: ssh_private_key
-      script:
-        - cd ~/projects/web-portfolio-v2
-        - git pull origin master
-        # Build while the old container keeps serving; up -d then only swaps the container (~1-2s gap).
-        - docker-compose build
-        - docker-compose up -d
-        - docker system prune -f
+    commands:
+      - echo "=== Replace the running container with the new image ==="
+      - cd ~/projects/web-portfolio-v2
+      - docker-compose up -d
+  - name: Cleanup
+    commands:
+      - echo "=== Cleanup the service ==="
+      - docker system prune -f
 
 trigger:
   event:

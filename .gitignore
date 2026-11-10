@@ -38,3 +38,6 @@ next-env.d.ts
 
 # bun lockfile (for development used)
 bun.lock
+
+# pnpm store created by the CI verify container
+.pnpm-store
